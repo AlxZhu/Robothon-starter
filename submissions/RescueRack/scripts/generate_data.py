@@ -91,8 +91,8 @@ def main() -> None:
             ],
             "success_threshold_m": 0.45,
             "demo_video": {
-                "duration_seconds": 154,
-                "duration_label": "2:34",
+                "duration_seconds": 101.57,
+                "duration_label": "1:42",
                 "generated_from": "scripts/make_demo_video.py",
             },
         },

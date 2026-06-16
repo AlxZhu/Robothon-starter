@@ -21,72 +21,101 @@ from rescuerack.triage import load_triage_simulation  # noqa: E402
 WIDTH = 640
 HEIGHT = 368
 FPS = 30
-VIDEO_SECONDS = 154
+HARD_STEPS_PER_FRAME = 7
+TRIAGE_STEPS_PER_FRAME = 5
+HARD_HOLD_SECONDS = 6
+TRIAGE_HOLD_SECONDS = 5
 
 
-def render_clip(
+def append_frame(
     writer: imageio.Writer,
-    mode: str,
-    seconds: float,
+    renderer: mujoco.Renderer,
+    data: mujoco.MjData,
     camera: str,
-    label: str,
-    sample_stride: int = 4,
-) -> dict[str, object]:
-    model, data, controller = load_simulation(mode=mode)
-    renderer = mujoco.Renderer(model, height=HEIGHT, width=WIDTH)
-    steps_per_frame = max(1, round(1.0 / (FPS * model.opt.timestep))) * sample_stride
-    total_frames = round(seconds * FPS)
+) -> None:
+    renderer.update_scene(data, camera=camera)
+    writer.append_data(renderer.render())
 
-    for _ in range(total_frames):
-        for _ in range(steps_per_frame):
+
+def render_hard_rescue_story(writer: imageio.Writer) -> dict[str, object]:
+    model, data, controller = load_simulation(mode="hard")
+    renderer = mujoco.Renderer(model, height=HEIGHT, width=WIDTH)
+    frames = 0
+    stage_segments: list[dict[str, object]] = []
+    active_stage = controller.stage.value
+    active_camera = "overview"
+    segment_start_frame = 0
+
+    def camera_for_stage() -> str:
+        if controller.stage in {MissionStage.PREPARE_GRASP, MissionStage.SECURE_SUPPLY}:
+            return "robot_chase"
+        if controller.stage == MissionStage.TRANSPORT_TO_SAFE_ZONE and controller.base_xy()[0] > -1.8:
+            return "robot_chase"
+        return "overview"
+
+    def close_segment(end_frame: int) -> None:
+        stage_segments.append(
+            {
+                "stage": active_stage,
+                "camera": active_camera,
+                "start_second": round(segment_start_frame / FPS, 2),
+                "end_second": round(end_frame / FPS, 2),
+            }
+        )
+
+    while True:
+        for _ in range(HARD_STEPS_PER_FRAME):
             controller.step()
             mujoco.mj_step(model, data)
-            if controller.stage == MissionStage.COMPLETE and controller.stage_time > 0.75:
-                break
-        renderer.update_scene(data, camera=camera)
-        writer.append_data(renderer.render())
+
+        next_stage = controller.stage.value
+        next_camera = camera_for_stage()
+        if next_stage != active_stage or next_camera != active_camera:
+            close_segment(frames)
+            active_stage = next_stage
+            active_camera = next_camera
+            segment_start_frame = frames
+
+        append_frame(writer, renderer, data, active_camera)
+        frames += 1
+
+        if controller.stage == MissionStage.COMPLETE and controller.stage_time > HARD_HOLD_SECONDS:
+            break
+
+    close_segment(frames)
 
     renderer.close()
     summary = controller.summary()
-    summary["clip_label"] = label
+    summary["clip_label"] = "hard_single_take_rescue"
+    summary["video_frames"] = frames
+    summary["video_seconds"] = round(frames / FPS, 2)
+    summary["stage_segments"] = stage_segments
     return summary
 
 
-def render_hold(writer: imageio.Writer, mode: str, seconds: float, camera: str) -> dict[str, object]:
-    model, data, controller = load_simulation(mode=mode)
-    renderer = mujoco.Renderer(model, height=HEIGHT, width=WIDTH)
-    while not (controller.stage == MissionStage.COMPLETE and controller.stage_time > 0.75):
-        controller.step()
-        mujoco.mj_step(model, data)
-
-    for _ in range(round(seconds * FPS)):
-        renderer.update_scene(data, camera=camera)
-        writer.append_data(renderer.render())
-
-    renderer.close()
-    summary = controller.summary()
-    summary["clip_label"] = "final_success_hold"
-    return summary
-
-
-def render_triage_clip(writer: imageio.Writer, seconds: float, label: str) -> dict[str, object]:
+def render_triage_story(writer: imageio.Writer) -> dict[str, object]:
     model, data, controller = load_triage_simulation()
     renderer = mujoco.Renderer(model, height=HEIGHT, width=WIDTH)
-    steps_per_frame = max(1, round(1.0 / (FPS * model.opt.timestep))) * 3
-    total_frames = round(seconds * FPS)
+    frames = 0
 
-    for _ in range(total_frames):
-        for _ in range(steps_per_frame):
+    while not controller.complete():
+        for _ in range(TRIAGE_STEPS_PER_FRAME):
             controller.step()
             mujoco.mj_step(model, data)
             if controller.complete():
                 break
-        renderer.update_scene(data, camera="triage_cam")
-        writer.append_data(renderer.render())
+        append_frame(writer, renderer, data, "triage_cam")
+        frames += 1
+
+    for _ in range(round(TRIAGE_HOLD_SECONDS * FPS)):
+        append_frame(writer, renderer, data, "triage_cam")
+        frames += 1
 
     renderer.close()
     summary = controller.summary()
-    summary["clip_label"] = label
+    summary["clip_label"] = "dexterous_triage_followup"
+    summary["video_frames"] = frames
+    summary["video_seconds"] = round(frames / FPS, 2)
     return summary
 
 
@@ -98,12 +127,8 @@ def main() -> None:
 
     summaries: list[dict[str, object]] = []
     with imageio.get_writer(str(output), fps=FPS, codec="libx264", quality=8) as writer:
-        summaries.append(render_clip(writer, "easy", 22, "overview", "easy_direct_retrieval"))
-        summaries.append(render_clip(writer, "medium", 26, "overview", "medium_debris_route"))
-        summaries.append(render_clip(writer, "hard", 44, "overview", "hard_astar_planned_route"))
-        summaries.append(render_clip(writer, "hard", 20, "robot_chase", "hard_robot_chase_view", sample_stride=3))
-        summaries.append(render_triage_clip(writer, 32, "dexterous_triage_station"))
-        summaries.append(render_hold(writer, "hard", 10, "overview"))
+        summaries.append(render_hard_rescue_story(writer))
+        summaries.append(render_triage_story(writer))
 
     data_args = SimpleNamespace(
         model=ROOT / "models" / "rescuerack_scene.xml",
@@ -121,12 +146,18 @@ def main() -> None:
     from rescuerack.run_demo import run_headless
 
     hard_summary = run_headless(data_args)
+    total_frames = sum(int(summary["video_frames"]) for summary in summaries)
+    duration_seconds = round(total_frames / FPS, 2)
     (media_dir / "demo_timeline.json").write_text(
         json.dumps(
             {
                 "video": "media/demo.mp4",
-                "duration_seconds": VIDEO_SECONDS,
+                "duration_seconds": duration_seconds,
                 "fps": FPS,
+                "storyboard": [
+                    "single continuous hard-mode rescue mission with camera cuts",
+                    "dexterous triage follow-up with three-finger sorting",
+                ],
                 "clips": summaries,
                 "hard_mode_data_summary": hard_summary,
             },

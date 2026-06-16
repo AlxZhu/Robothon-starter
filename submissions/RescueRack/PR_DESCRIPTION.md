@@ -6,7 +6,7 @@ Registration UUID: `86ba8442-48da-4131-bb86-f5e4aa67c852`
 - **Robot platform:** Wheeled mobile manipulator plus a three-finger dexterous triage hand
 - **Task goal:** Retrieve a red emergency medkit, avoid debris, deliver it to a green safe zone, then sort rescue items with a dexterous hand
 - **Technical approach:** MuJoCo mission controller with hard-mode grid A* route planning, staged autonomy for grasp preparation, assisted carry, delivery, and release
-- **Core features:** MJCF scene, actuators, sensors, dynamic objects, obstacle collision geometry, three difficulty modes, A* planner trace, dexterous triage station, clearance verification, generated 2:34 demo video, trajectory/metrics artifacts
+- **Core features:** MJCF scene, actuators, sensors, dynamic objects, obstacle collision geometry, three difficulty modes, A* planner trace, dexterous triage station, clearance verification, generated 1:42 demo video, trajectory/metrics artifacts
 - **Highlights:** Hard mode completes the full long-horizon task with `delivery_error_m: 0.0`; `scripts/verify_clearance.py` reports zero named-obstacle contacts and planner fallback disabled
 - **Dexterity evidence:** Three-finger triage sorts vial/tool/soft-pack objects and logs palm pose, fingertip pose, object pose, fingertip/object proximity, closed-loop corrections, and contact/proximity samples
 - **Current limitations:** Final object carry is assisted for deterministic judging; route is waypoint-based rather than learned
@@ -20,7 +20,7 @@ Registration UUID: `86ba8442-48da-4131-bb86-f5e4aa67c852`
 | MuJoCo depth | MJCF joints, actuators, free bodies, collision geoms, cameras, rangefinder, fingertip/object frame sensors |
 | Control/planning | Hard-mode grid A* route, `expanded_nodes: 199`, `fallback_used: false`, `min_route_clearance_m: 0.254` |
 | Dexterity | Three-finger hand sorts 3 rescue items with `objects_sorted: 3` and zero placement error |
-| Presentation | `media/demo.mp4` is 154 seconds / 2:34 and generated from submitted MuJoCo frames |
+| Presentation | `media/demo.mp4` is 101.57 seconds / 1:42 and generated from submitted MuJoCo frames |
 
 ## How to Run
 

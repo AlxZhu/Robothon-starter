@@ -91,7 +91,7 @@ route completes without contacting named obstacles.
 | Dexterous manipulation | Three-finger hand sorts `vial`, `tool`, and `soft_pack` |
 | Closed-loop triage | Object site is re-read every control step before palm targeting |
 | Contact/proximity data | `contact_samples: 675` plus fingertip/object XY distance logs |
-| Demo | `media/demo.mp4`, 154 seconds / 2:34, generated from MuJoCo frames |
+| Demo | `media/demo.mp4`, 101.57 seconds / 1:42, generated from MuJoCo frames |
 | Data artifacts | Hard trajectory, triage trajectory, mission metrics, timeline JSON |
 
 ## Data Collection Artifacts
@@ -192,9 +192,9 @@ Expected output:
 media/demo.mp4
 ```
 
-The video is 154 seconds long (2:34) and contains easy, medium, hard A*
-planning, chase-camera, dexterous triage, and final-success segments generated
-from MuJoCo frames.
+The video is 101.57 seconds long (1:42) and shows one continuous hard-mode
+rescue mission with camera cuts, followed by the dexterous triage station and a
+final-success hold. Frames are generated from the submitted MuJoCo simulation.
 
 ## Rubric Alignment
 
@@ -208,7 +208,7 @@ from MuJoCo frames.
 | Data collection | Generated hard-mode trajectory and mission metrics JSON artifacts. |
 | Dexterity | Three-finger triage station sorts a vial, tool, and soft pack with fingertip/object trajectory and proximity logging. |
 | Engineering quality | Separated model, package code, scripts, README, and registration metadata. |
-| Presentation | 2:34 demo video generated from the submitted code with timeline metadata. |
+| Presentation | 1:42 demo video generated from the submitted code with timeline metadata. |
 | Innovation | Compact rescue-warehouse benchmark for AI-generated robot simulations. |
 
 ## AI Tools Used
