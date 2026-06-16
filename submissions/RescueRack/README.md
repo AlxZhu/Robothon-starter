@@ -67,13 +67,32 @@ route completes without contacting named obstacles.
   debris-aware route.
 - Hard mode uses a grid A* planner to generate pickup and delivery waypoints from
   obstacle geometry, reporting expanded nodes, route clearance, and fallback status.
+- The hard mission completes with `delivery_error_m: 0.0`, `fallback_used: false`,
+  `expanded_nodes: 199`, and `min_route_clearance_m: 0.254`.
 - `scripts/verify_clearance.py` checks mission success, minimum obstacle clearance,
-  and named-obstacle contact count.
+  and named-obstacle contact count; the submitted run reports
+  `obstacle_contact_count: 0`.
+- Dexterous triage uses thumb, index, and middle fingers to sort a vial, tool,
+  and soft pack while logging fingertip/object proximity, palm pose, object pose,
+  closed-loop corrections, and grasp/placement events.
 - `scripts/make_demo_video.py` generates `media/demo.mp4` from submitted code.
 - `media/demo_timeline.json` documents the generated multi-scene video sequence.
 - `scripts/generate_data.py` exports `media/hard_trajectory.json` and
   `media/mission_metrics.json` with robot, gripper, target, stage, and success
   measurements.
+
+## Judge-Evidence Snapshot
+
+| Evidence | Submitted result |
+| --- | --- |
+| Hard mission success | `success: true`, `delivery_error_m: 0.0` |
+| Obstacle avoidance | `obstacle_contact_count: 0` in `scripts/verify_clearance.py` |
+| Planning | Grid A* with `expanded_nodes: 199`, `fallback_used: false` |
+| Dexterous manipulation | Three-finger hand sorts `vial`, `tool`, and `soft_pack` |
+| Closed-loop triage | Object site is re-read every control step before palm targeting |
+| Contact/proximity data | `contact_samples: 675` plus fingertip/object XY distance logs |
+| Demo | `media/demo.mp4`, 154 seconds / 2:34, generated from MuJoCo frames |
+| Data artifacts | Hard trajectory, triage trajectory, mission metrics, timeline JSON |
 
 ## Data Collection Artifacts
 
@@ -83,7 +102,7 @@ submitted MuJoCo code:
 | Artifact | Description |
 | --- | --- |
 | `media/hard_trajectory.json` | 10 Hz samples of mission stage, base pose, gripper pose, medkit pose, safe-zone pose, and target-to-safe distance. |
-| `media/triage_trajectory.json` | 10 Hz samples of triage palm pose, three fingertip poses, object poses, and attachment state. |
+| `media/triage_trajectory.json` | 10 Hz samples of triage palm pose, three fingertip poses, object poses, fingertip/object XY distance, and attachment state. |
 | `media/mission_metrics.json` | Summary of success state, delivery error, logged sensors, and rubric evidence. |
 
 These files can be regenerated with:
@@ -173,22 +192,23 @@ Expected output:
 media/demo.mp4
 ```
 
-The video is approximately 2 minutes long and contains easy, medium, hard A*
-planning, chase-camera, and final-success segments generated from MuJoCo frames.
+The video is 154 seconds long (2:34) and contains easy, medium, hard A*
+planning, chase-camera, dexterous triage, and final-success segments generated
+from MuJoCo frames.
 
 ## Rubric Alignment
 
 | Criterion | RescueRack response |
 | --- | --- |
 | Reproducibility | One install command plus smoke, hard-mode, clearance, and video scripts. |
-| MuJoCo depth | MJCF scene, joints, actuators, sensors, collisions, free bodies, cameras. |
+| MuJoCo depth | MJCF scene, joints, actuators, sensors, collisions, free bodies, cameras, rangefinder, and fingertip sensors. |
 | Task design | Clear emergency logistics mission with escalating difficulty. |
-| Control | State-machine autonomy for navigation, grasp preparation, carry, and release. |
+| Control | State-machine autonomy for navigation, grasp preparation, carry, release, and closed-loop triage targeting. |
 | Planning | Hard-mode grid A* generates obstacle-aware pickup and delivery waypoints. |
 | Data collection | Generated hard-mode trajectory and mission metrics JSON artifacts. |
-| Dexterity | Three-finger triage station sorts a vial, tool, and soft pack with fingertip/object trajectory logging. |
+| Dexterity | Three-finger triage station sorts a vial, tool, and soft pack with fingertip/object trajectory and proximity logging. |
 | Engineering quality | Separated model, package code, scripts, README, and registration metadata. |
-| Presentation | Demo video generated from the submitted code. |
+| Presentation | 2:34 demo video generated from the submitted code with timeline metadata. |
 | Innovation | Compact rescue-warehouse benchmark for AI-generated robot simulations. |
 
 ## AI Tools Used

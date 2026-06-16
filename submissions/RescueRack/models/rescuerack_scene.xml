@@ -227,6 +227,12 @@
     <framepos name="safe_zone_position" objtype="site" objname="safe_zone_site"/>
     <rangefinder name="front_range" site="front_range_site"/>
     <framepos name="triage_palm_position" objtype="site" objname="triage_palm_site"/>
+    <jointpos name="thumb_joint_sensor" joint="thumb_joint"/>
+    <jointpos name="index_joint_sensor" joint="index_joint"/>
+    <jointpos name="middle_joint_sensor" joint="middle_joint"/>
+    <framepos name="thumb_tip_position" objtype="site" objname="thumb_tip"/>
+    <framepos name="index_tip_position" objtype="site" objname="index_tip"/>
+    <framepos name="middle_tip_position" objtype="site" objname="middle_tip"/>
     <framepos name="vial_position" objtype="site" objname="vial_site"/>
     <framepos name="tool_position" objtype="site" objname="tool_site"/>
     <framepos name="soft_pack_position" objtype="site" objname="soft_pack_site"/>

@@ -62,6 +62,8 @@ def main() -> None:
                 "mode": "dexterous_triage",
                 "objects_sorted": triage_summary["objects_sorted"],
                 "contact_samples": triage_summary["contact_samples"],
+                "closed_loop_corrections": triage_summary["closed_loop_corrections"],
+                "min_fingertip_object_xy_distance_m": triage_summary["min_fingertip_object_xy_distance_m"],
                 "placement_error_m": triage_summary["placement_error_m"],
                 "success": triage_summary["success"],
             },
@@ -80,8 +82,19 @@ def main() -> None:
                 "medkit_xyz",
                 "safe_zone_xyz",
                 "distance_medkit_to_safe_xy",
+                "triage_palm_xyz",
+                "thumb_tip_xyz",
+                "index_tip_xyz",
+                "middle_tip_xyz",
+                "triage_object_xyz",
+                "fingertip_object_xy_distance_m",
             ],
             "success_threshold_m": 0.45,
+            "demo_video": {
+                "duration_seconds": 154,
+                "duration_label": "2:34",
+                "generated_from": "scripts/make_demo_video.py",
+            },
         },
     }
     (ROOT / "media").mkdir(exist_ok=True)

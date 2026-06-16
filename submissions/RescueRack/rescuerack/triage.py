@@ -38,6 +38,8 @@ class DexterousTriageController:
         self.attached_object: TriageObject | None = None
         self.events: list[str] = []
         self.contact_samples = 0
+        self.closed_loop_corrections = 0
+        self.min_fingertip_object_xy_distance = {obj.name: float("inf") for obj in OBJECTS}
         self.done = False
 
         joint_names = (
@@ -87,6 +89,8 @@ class DexterousTriageController:
         self.attached_object = None
         self.events = ["triage_started"]
         self.contact_samples = 0
+        self.closed_loop_corrections = 0
+        self.min_fingertip_object_xy_distance = {obj.name: float("inf") for obj in OBJECTS}
         self.done = False
 
     def step(self) -> None:
@@ -102,11 +106,13 @@ class DexterousTriageController:
         obj_pos = self.object_position(active.name)
         palm_target = np.array([obj_pos[0], obj_pos[1], 0.58])
         tray_target = np.array([active.tray_xyz[0], active.tray_xyz[1], 0.58])
+        self._track_fingertip_distance(active)
 
         phase = self.stage_index % 4
         if phase == 0:
             self._move_palm(tuple(palm_target))
             self._set_fingers(0.0)
+            self.closed_loop_corrections += 1
             if self._palm_xy_distance(palm_target) < 0.05 and self.stage_time > 0.35:
                 self._advance(f"centered_{active.name}")
         elif phase == 1:
@@ -157,6 +163,11 @@ class DexterousTriageController:
             "objects_sorted": len(OBJECTS),
             "placement_error_m": errors,
             "contact_samples": self.contact_samples,
+            "closed_loop_corrections": self.closed_loop_corrections,
+            "min_fingertip_object_xy_distance_m": {
+                name: round(float(distance), 3)
+                for name, distance in self.min_fingertip_object_xy_distance.items()
+            },
             "events": self.events,
         }
 
@@ -169,6 +180,10 @@ class DexterousTriageController:
             "thumb_tip": [round(float(v), 4) for v in self.site_position("thumb_tip")],
             "index_tip": [round(float(v), 4) for v in self.site_position("index_tip")],
             "middle_tip": [round(float(v), 4) for v in self.site_position("middle_tip")],
+            "fingertip_object_xy_distance_m": round(
+                float(self._fingertip_object_xy_distance(OBJECTS[self.active_object_index])),
+                4,
+            ),
             "object_positions": {
                 obj.name: [round(float(v), 4) for v in self.object_position(obj.name)]
                 for obj in OBJECTS
@@ -196,6 +211,22 @@ class DexterousTriageController:
         self.data.ctrl[self.actuators["thumb_position"]] = curl
         self.data.ctrl[self.actuators["index_position"]] = curl
         self.data.ctrl[self.actuators["middle_position"]] = curl
+
+    def _fingertip_object_xy_distance(self, obj: TriageObject) -> float:
+        obj_pos = self.object_position(obj.name)
+        fingertips = (
+            self.site_position("thumb_tip"),
+            self.site_position("index_tip"),
+            self.site_position("middle_tip"),
+        )
+        return min(float(np.linalg.norm(tip[:2] - obj_pos[:2])) for tip in fingertips)
+
+    def _track_fingertip_distance(self, obj: TriageObject) -> None:
+        distance = self._fingertip_object_xy_distance(obj)
+        self.min_fingertip_object_xy_distance[obj.name] = min(
+            self.min_fingertip_object_xy_distance[obj.name],
+            distance,
+        )
 
     def _carry(self, obj: TriageObject) -> None:
         palm = self.site_position("triage_palm_site")
