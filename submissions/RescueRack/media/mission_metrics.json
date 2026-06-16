@@ -31,6 +31,7 @@
   },
   "data_artifacts": {
     "trajectory": "media/hard_trajectory.json",
+    "triage_trajectory": "media/triage_trajectory.json",
     "demo_video": "media/demo.mp4"
   },
   "rubric_evidence": {
@@ -42,6 +43,17 @@
       "expanded_nodes": 199,
       "fallback_used": false,
       "min_route_clearance_m": 0.254
+    },
+    "dexterous_manipulation": {
+      "mode": "dexterous_triage",
+      "objects_sorted": 3,
+      "contact_samples": 675,
+      "placement_error_m": {
+        "vial": 0.0,
+        "tool": 0.0,
+        "soft_pack": 0.0
+      },
+      "success": true
     },
     "long_horizon_stages": [
       "navigate_to_supply",

@@ -4,15 +4,18 @@ Registration UUID: `86ba8442-48da-4131-bb86-f5e4aa67c852`
 
 RescueRack is a MuJoCo emergency-logistics simulation where a wheeled mobile
 manipulator retrieves a red medical supply kit from a damaged warehouse aisle,
-navigates around debris, and delivers the kit to a marked safe zone.
+navigates around debris, and delivers the kit to a marked safe zone. The project
+also includes a dexterous triage station where a three-finger hand sorts a vial,
+tool, and soft pack into rescue trays.
 
 ## Robot Platform
 
 - Wheeled mobile base with bumper collision geometry.
 - Three-joint arm: shoulder, elbow, wrist.
 - Two-finger gripper with an assisted final grasp for reproducible evaluation.
+- Three-finger dexterous triage hand with thumb, index, and middle joints.
 - MuJoCo sensors for base pose, gripper pose, target pose, safe-zone pose, and
-  front range sensing.
+  front range sensing, plus triage palm/object/fingertip pose logging.
 
 ## Task Goal
 
@@ -26,6 +29,8 @@ The robot must complete a long-horizon rescue supply mission:
 6. Print a JSON mission summary with success state and final delivery error.
 7. Optionally export a timestamped trajectory dataset for reproducibility and
    data-collection scoring.
+8. Sort three small rescue items with the dexterous triage hand: a vial, a tool,
+   and a soft pack.
 
 ## Technical Approach
 
@@ -65,6 +70,7 @@ route completes without contacting named obstacles.
 - `scripts/verify_clearance.py` checks mission success, minimum obstacle clearance,
   and named-obstacle contact count.
 - `scripts/make_demo_video.py` generates `media/demo.mp4` from submitted code.
+- `media/demo_timeline.json` documents the generated multi-scene video sequence.
 - `scripts/generate_data.py` exports `media/hard_trajectory.json` and
   `media/mission_metrics.json` with robot, gripper, target, stage, and success
   measurements.
@@ -77,12 +83,20 @@ submitted MuJoCo code:
 | Artifact | Description |
 | --- | --- |
 | `media/hard_trajectory.json` | 10 Hz samples of mission stage, base pose, gripper pose, medkit pose, safe-zone pose, and target-to-safe distance. |
+| `media/triage_trajectory.json` | 10 Hz samples of triage palm pose, three fingertip poses, object poses, and attachment state. |
 | `media/mission_metrics.json` | Summary of success state, delivery error, logged sensors, and rubric evidence. |
 
 These files can be regenerated with:
 
 ```bash
 python scripts/generate_data.py
+```
+
+Run the dexterous triage station:
+
+```bash
+cd submissions/RescueRack
+python scripts/run_triage_demo.py
 ```
 
 ## Current Limitations
@@ -159,6 +173,9 @@ Expected output:
 media/demo.mp4
 ```
 
+The video is approximately 2 minutes long and contains easy, medium, hard A*
+planning, chase-camera, and final-success segments generated from MuJoCo frames.
+
 ## Rubric Alignment
 
 | Criterion | RescueRack response |
@@ -169,7 +186,7 @@ media/demo.mp4
 | Control | State-machine autonomy for navigation, grasp preparation, carry, and release. |
 | Planning | Hard-mode grid A* generates obstacle-aware pickup and delivery waypoints. |
 | Data collection | Generated hard-mode trajectory and mission metrics JSON artifacts. |
-| Dexterity | Two-finger gripper alignment and object acquisition with deterministic carry. |
+| Dexterity | Three-finger triage station sorts a vial, tool, and soft pack with fingertip/object trajectory logging. |
 | Engineering quality | Separated model, package code, scripts, README, and registration metadata. |
 | Presentation | Demo video generated from the submitted code. |
 | Innovation | Compact rescue-warehouse benchmark for AI-generated robot simulations. |

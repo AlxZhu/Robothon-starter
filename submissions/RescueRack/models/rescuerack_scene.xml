@@ -31,6 +31,7 @@
     <light name="fill_light" pos="3 2.5 3" dir="-0.6 -0.45 -1" diffuse="0.35 0.35 0.35"/>
     <camera name="overview" pos="0 -6.4 4.6" xyaxes="1 0 0 0 0.62 0.78" fovy="44"/>
     <camera name="robot_chase" pos="-1.5 -2.8 1.5" xyaxes="1 0 0 0 0.45 0.89" fovy="55"/>
+    <camera name="triage_cam" pos="0 0.7 2.6" xyaxes="1 0 0 0 0.75 0.66" fovy="42"/>
 
     <geom name="floor" type="plane" size="5 4 0.1" material="floor_mat"/>
     <geom name="safe_zone" type="box" pos="-2.65 1.35 0.012" size="0.62 0.48 0.012"
@@ -50,6 +51,45 @@
           material="shelf_mat"/>
     <geom name="loose_barrel" type="cylinder" pos="0.15 -0.45 0.22" size="0.18 0.22"
           material="warning_orange"/>
+
+    <geom name="triage_table" type="box" pos="0 2.6 0.05" size="1.25 0.9 0.05"
+          rgba="0.18 0.19 0.19 1"/>
+    <geom name="vial_tray" type="box" pos="-0.58 2.45 0.115" size="0.22 0.18 0.02"
+          rgba="0.5 0.2 0.75 1" contype="0" conaffinity="0"/>
+    <geom name="tool_tray" type="box" pos="0.58 2.45 0.115" size="0.22 0.18 0.02"
+          rgba="0.2 0.55 0.72 1" contype="0" conaffinity="0"/>
+    <geom name="pack_tray" type="box" pos="0 3.18 0.115" size="0.26 0.18 0.02"
+          rgba="0.15 0.65 0.35 1" contype="0" conaffinity="0"/>
+
+    <body name="triage_hand" pos="0 0 0">
+      <joint name="triage_palm_x" type="slide" axis="1 0 0" range="-0.95 0.95" damping="28"/>
+      <joint name="triage_palm_y" type="slide" axis="0 1 0" range="1.85 3.32" damping="28"/>
+      <joint name="triage_palm_z" type="slide" axis="0 0 1" range="0.36 0.78" damping="28"/>
+      <geom name="triage_palm" type="box" pos="0 0 0" size="0.13 0.09 0.035"
+            material="robot_blue" mass="1.6" contype="0" conaffinity="0"/>
+      <site name="triage_palm_site" pos="0 0 0" size="0.04" rgba="0.2 1 1 0.8"/>
+
+      <body name="thumb" pos="-0.08 -0.04 -0.02" euler="0 0 -0.85">
+        <joint name="thumb_joint" type="hinge" axis="0 0 1" range="0 1.05" damping="2"/>
+        <geom name="thumb_link" type="capsule" fromto="0 0 0 0.18 0 0" size="0.018"
+              material="robot_dark" mass="0.18" contype="0" conaffinity="0"/>
+        <site name="thumb_tip" pos="0.19 0 0" size="0.018" rgba="1 0.7 0.2 0.9"/>
+      </body>
+
+      <body name="index" pos="0.08 -0.035 -0.02" euler="0 0 -0.25">
+        <joint name="index_joint" type="hinge" axis="0 0 1" range="0 1.05" damping="2"/>
+        <geom name="index_link" type="capsule" fromto="0 0 0 0.2 0 0" size="0.016"
+              material="robot_dark" mass="0.16" contype="0" conaffinity="0"/>
+        <site name="index_tip" pos="0.21 0 0" size="0.018" rgba="1 0.7 0.2 0.9"/>
+      </body>
+
+      <body name="middle" pos="0.0 0.075 -0.02" euler="0 0 1.57">
+        <joint name="middle_joint" type="hinge" axis="0 0 1" range="0 1.05" damping="2"/>
+        <geom name="middle_link" type="capsule" fromto="0 0 0 0.2 0 0" size="0.016"
+              material="robot_dark" mass="0.16" contype="0" conaffinity="0"/>
+        <site name="middle_tip" pos="0.21 0 0" size="0.018" rgba="1 0.7 0.2 0.9"/>
+      </body>
+    </body>
 
     <body name="robot" pos="0 0 0.05">
       <joint name="base_x" type="slide" axis="1 0 0" range="-3.6 3.6" damping="55"/>
@@ -141,6 +181,24 @@
       <geom name="battery_box" type="box" size="0.13 0.1 0.08" material="battery_yellow" mass="1.4"/>
       <site name="battery_site" pos="0 0 0" size="0.045" rgba="1 0.8 0.1 0.8"/>
     </body>
+
+    <body name="vial" pos="0 2.45 0.18">
+      <freejoint name="vial_free"/>
+      <geom name="vial_body" type="cylinder" size="0.045 0.12" rgba="0.75 0.35 0.95 1" mass="0.18"/>
+      <site name="vial_site" pos="0 0 0" size="0.025" rgba="0.8 0.35 1 0.9"/>
+    </body>
+
+    <body name="tool" pos="0 2.05 0.16">
+      <freejoint name="tool_free"/>
+      <geom name="tool_body" type="box" size="0.17 0.035 0.035" rgba="0.2 0.65 0.8 1" mass="0.22"/>
+      <site name="tool_site" pos="0 0 0" size="0.025" rgba="0.2 0.8 1 0.9"/>
+    </body>
+
+    <body name="soft_pack" pos="0 2.85 0.16">
+      <freejoint name="soft_pack_free"/>
+      <geom name="soft_pack_body" type="box" size="0.13 0.09 0.04" material="medkit_red" mass="0.2"/>
+      <site name="soft_pack_site" pos="0 0 0" size="0.025" rgba="1 0.25 0.25 0.9"/>
+    </body>
   </worldbody>
 
   <actuator>
@@ -152,6 +210,12 @@
     <position name="wrist_position" joint="wrist" kp="16" kv="7" ctrlrange="-1.2 1.2"/>
     <position name="left_gripper_position" joint="left_finger_joint" kp="18" kv="5" ctrlrange="0 0.055"/>
     <position name="right_gripper_position" joint="right_finger_joint" kp="18" kv="5" ctrlrange="0 0.055"/>
+    <position name="triage_palm_x_position" joint="triage_palm_x" kp="95" kv="22" ctrlrange="-0.95 0.95"/>
+    <position name="triage_palm_y_position" joint="triage_palm_y" kp="95" kv="22" ctrlrange="1.85 3.32"/>
+    <position name="triage_palm_z_position" joint="triage_palm_z" kp="260" kv="40" ctrlrange="0.36 0.78"/>
+    <position name="thumb_position" joint="thumb_joint" kp="28" kv="7" ctrlrange="0 1.05"/>
+    <position name="index_position" joint="index_joint" kp="28" kv="7" ctrlrange="0 1.05"/>
+    <position name="middle_position" joint="middle_joint" kp="28" kv="7" ctrlrange="0 1.05"/>
   </actuator>
 
   <sensor>
@@ -162,5 +226,9 @@
     <framepos name="medkit_position" objtype="site" objname="medkit_site"/>
     <framepos name="safe_zone_position" objtype="site" objname="safe_zone_site"/>
     <rangefinder name="front_range" site="front_range_site"/>
+    <framepos name="triage_palm_position" objtype="site" objname="triage_palm_site"/>
+    <framepos name="vial_position" objtype="site" objname="vial_site"/>
+    <framepos name="tool_position" objtype="site" objname="tool_site"/>
+    <framepos name="soft_pack_position" objtype="site" objname="soft_pack_site"/>
   </sensor>
 </mujoco>

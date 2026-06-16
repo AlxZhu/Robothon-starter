@@ -1,0 +1,201 @@
+{
+  "video": "media/demo.mp4",
+  "duration_seconds": 154,
+  "fps": 30,
+  "clips": [
+    {
+      "mode": "easy",
+      "stage": "complete",
+      "success": true,
+      "sim_time": 17.008,
+      "delivery_error_m": 0.363,
+      "target": "medkit",
+      "events": [
+        "mission_started",
+        "navigate_to_supply_done",
+        "prepare_grasp_done",
+        "medkit_secured",
+        "secure_supply_done",
+        "transport_to_safe_zone_done",
+        "entered_safe_zone",
+        "release_supply_done",
+        "mission_complete"
+      ],
+      "planner": {
+        "enabled": false,
+        "mode": "static_waypoints"
+      },
+      "clip_label": "easy_direct_retrieval"
+    },
+    {
+      "mode": "medium",
+      "stage": "complete",
+      "success": true,
+      "sim_time": 17.582,
+      "delivery_error_m": 0.363,
+      "target": "medkit",
+      "events": [
+        "mission_started",
+        "navigate_to_supply_done",
+        "prepare_grasp_done",
+        "medkit_secured",
+        "secure_supply_done",
+        "transport_to_safe_zone_done",
+        "entered_safe_zone",
+        "release_supply_done",
+        "mission_complete"
+      ],
+      "planner": {
+        "enabled": false,
+        "mode": "static_waypoints"
+      },
+      "clip_label": "medium_debris_route"
+    },
+    {
+      "mode": "hard",
+      "stage": "complete",
+      "success": true,
+      "sim_time": 25.12,
+      "delivery_error_m": 0.0,
+      "target": "medkit",
+      "events": [
+        "mission_started",
+        "navigate_to_supply_done",
+        "prepare_grasp_done",
+        "medkit_secured",
+        "secure_supply_done",
+        "transport_to_safe_zone_done",
+        "entered_safe_zone",
+        "release_supply_done",
+        "mission_complete"
+      ],
+      "planner": {
+        "enabled": true,
+        "algorithm": "grid_astar",
+        "pickup_waypoints": 3,
+        "delivery_waypoints": 11,
+        "expanded_nodes": 199,
+        "fallback_used": false,
+        "min_route_clearance_m": 0.254
+      },
+      "clip_label": "hard_astar_planned_route"
+    },
+    {
+      "mode": "hard",
+      "stage": "complete",
+      "success": true,
+      "sim_time": 23.568,
+      "delivery_error_m": 0.0,
+      "target": "medkit",
+      "events": [
+        "mission_started",
+        "navigate_to_supply_done",
+        "prepare_grasp_done",
+        "medkit_secured",
+        "secure_supply_done",
+        "transport_to_safe_zone_done",
+        "entered_safe_zone",
+        "release_supply_done",
+        "mission_complete"
+      ],
+      "planner": {
+        "enabled": true,
+        "algorithm": "grid_astar",
+        "pickup_waypoints": 3,
+        "delivery_waypoints": 11,
+        "expanded_nodes": 199,
+        "fallback_used": false,
+        "min_route_clearance_m": 0.254
+      },
+      "clip_label": "hard_robot_chase_view"
+    },
+    {
+      "mode": "dexterous_triage",
+      "success": true,
+      "sim_time": 10.662,
+      "objects_sorted": 3,
+      "placement_error_m": {
+        "vial": 0.0,
+        "tool": 0.0,
+        "soft_pack": 0.0
+      },
+      "contact_samples": 675,
+      "events": [
+        "triage_started",
+        "centered_vial",
+        "grasped_vial",
+        "transported_vial",
+        "placed_vial",
+        "next_object_tool",
+        "centered_tool",
+        "grasped_tool",
+        "transported_tool",
+        "placed_tool",
+        "next_object_soft_pack",
+        "centered_soft_pack",
+        "grasped_soft_pack",
+        "transported_soft_pack",
+        "placed_soft_pack",
+        "triage_complete"
+      ],
+      "clip_label": "dexterous_triage_station"
+    },
+    {
+      "mode": "hard",
+      "stage": "complete",
+      "success": true,
+      "sim_time": 22.816,
+      "delivery_error_m": 0.0,
+      "target": "medkit",
+      "events": [
+        "mission_started",
+        "navigate_to_supply_done",
+        "prepare_grasp_done",
+        "medkit_secured",
+        "secure_supply_done",
+        "transport_to_safe_zone_done",
+        "entered_safe_zone",
+        "release_supply_done",
+        "mission_complete"
+      ],
+      "planner": {
+        "enabled": true,
+        "algorithm": "grid_astar",
+        "pickup_waypoints": 3,
+        "delivery_waypoints": 11,
+        "expanded_nodes": 199,
+        "fallback_used": false,
+        "min_route_clearance_m": 0.254
+      },
+      "clip_label": "final_success_hold"
+    }
+  ],
+  "hard_mode_data_summary": {
+    "mode": "hard",
+    "stage": "complete",
+    "success": true,
+    "sim_time": 22.816,
+    "delivery_error_m": 0.0,
+    "target": "medkit",
+    "events": [
+      "mission_started",
+      "navigate_to_supply_done",
+      "prepare_grasp_done",
+      "medkit_secured",
+      "secure_supply_done",
+      "transport_to_safe_zone_done",
+      "entered_safe_zone",
+      "release_supply_done",
+      "mission_complete"
+    ],
+    "planner": {
+      "enabled": true,
+      "algorithm": "grid_astar",
+      "pickup_waypoints": 3,
+      "delivery_waypoints": 11,
+      "expanded_nodes": 199,
+      "fallback_used": false,
+      "min_route_clearance_m": 0.254
+    }
+  }
+}
