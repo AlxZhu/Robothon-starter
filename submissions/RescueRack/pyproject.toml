@@ -1,0 +1,18 @@
+[project]
+name = "rescuerack"
+version = "0.1.0"
+description = "A MuJoCo mobile manipulator benchmark for emergency supply retrieval."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "mujoco>=3.2.0",
+  "numpy>=1.26",
+  "imageio>=2.34",
+  "imageio-ffmpeg>=0.5",
+]
+
+[project.scripts]
+rescuerack-demo = "rescuerack.run_demo:main"
+
+[tool.setuptools]
+packages = ["rescuerack"]

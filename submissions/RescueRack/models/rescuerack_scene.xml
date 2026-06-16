@@ -1,0 +1,166 @@
+<mujoco model="RescueRack">
+  <compiler angle="radian" autolimits="true"/>
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast"/>
+  <visual>
+    <global offwidth="1280" offheight="720"/>
+  </visual>
+
+  <default>
+    <joint damping="8" armature="0.08"/>
+    <geom friction="1.1 0.08 0.02" solref="0.02 1" solimp="0.9 0.95 0.001"/>
+    <site size="0.035" rgba="0.2 0.8 1 0.7"/>
+    <position kp="20" kv="6"/>
+  </default>
+
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512"
+             rgb1="0.16 0.17 0.18" rgb2="0.22 0.23 0.24"/>
+    <material name="floor_mat" texture="grid" texrepeat="8 8" reflectance="0.12"/>
+    <material name="robot_blue" rgba="0.12 0.38 0.76 1"/>
+    <material name="robot_dark" rgba="0.08 0.09 0.11 1"/>
+    <material name="safe_green" rgba="0.1 0.65 0.38 1"/>
+    <material name="warning_orange" rgba="0.95 0.47 0.16 1"/>
+    <material name="medkit_red" rgba="0.88 0.12 0.13 1"/>
+    <material name="water_blue" rgba="0.16 0.55 0.95 1"/>
+    <material name="battery_yellow" rgba="0.95 0.74 0.18 1"/>
+    <material name="shelf_mat" rgba="0.34 0.30 0.26 1"/>
+  </asset>
+
+  <worldbody>
+    <light name="key_light" pos="-2.5 -3 4.5" dir="0.45 0.55 -1"/>
+    <light name="fill_light" pos="3 2.5 3" dir="-0.6 -0.45 -1" diffuse="0.35 0.35 0.35"/>
+    <camera name="overview" pos="0 -6.4 4.6" xyaxes="1 0 0 0 0.62 0.78" fovy="44"/>
+    <camera name="robot_chase" pos="-1.5 -2.8 1.5" xyaxes="1 0 0 0 0.45 0.89" fovy="55"/>
+
+    <geom name="floor" type="plane" size="5 4 0.1" material="floor_mat"/>
+    <geom name="safe_zone" type="box" pos="-2.65 1.35 0.012" size="0.62 0.48 0.012"
+          material="safe_green" contype="0" conaffinity="0"/>
+    <site name="safe_zone_site" pos="-2.65 1.35 0.08" size="0.07" rgba="0.1 1 0.45 0.75"/>
+
+    <geom name="rack_back_left" type="box" pos="0.4 1.85 0.62" size="1.1 0.08 0.62"
+          material="shelf_mat"/>
+    <geom name="rack_back_right" type="box" pos="2.3 1.85 0.62" size="0.7 0.08 0.62"
+          material="shelf_mat"/>
+    <geom name="rack_side" type="box" pos="3.15 0.65 0.62" size="0.08 1.05 0.62"
+          material="shelf_mat"/>
+
+    <geom name="fallen_beam" type="box" pos="-0.35 0.18 0.11" euler="0 0 0.45"
+          size="0.9 0.08 0.11" material="warning_orange"/>
+    <geom name="pallet_block" type="box" pos="-1.15 0.78 0.18" size="0.38 0.34 0.18"
+          material="shelf_mat"/>
+    <geom name="loose_barrel" type="cylinder" pos="0.15 -0.45 0.22" size="0.18 0.22"
+          material="warning_orange"/>
+
+    <body name="robot" pos="0 0 0.05">
+      <joint name="base_x" type="slide" axis="1 0 0" range="-3.6 3.6" damping="55"/>
+      <joint name="base_y" type="slide" axis="0 1 0" range="-2.8 2.8" damping="55"/>
+      <joint name="base_yaw" type="hinge" axis="0 0 1" range="-3.1416 3.1416" damping="12"/>
+
+      <geom name="base_body" type="box" pos="0 0 0.09" size="0.36 0.26 0.09"
+            contype="1" conaffinity="1"
+            material="robot_blue" mass="22"/>
+      <geom name="front_bumper" type="box" pos="0.38 0 0.09" size="0.04 0.25 0.08"
+            contype="1" conaffinity="1"
+            material="robot_dark" mass="1"/>
+      <geom name="rear_bumper" type="box" pos="-0.38 0 0.09" size="0.04 0.25 0.08"
+            contype="1" conaffinity="1"
+            material="robot_dark" mass="1"/>
+      <geom name="left_wheel_front" type="cylinder" pos="0.21 0.31 0.07" euler="1.5708 0 0"
+            contype="0" conaffinity="0"
+            size="0.08 0.035" material="robot_dark" mass="1"/>
+      <geom name="right_wheel_front" type="cylinder" pos="0.21 -0.31 0.07" euler="1.5708 0 0"
+            contype="0" conaffinity="0"
+            size="0.08 0.035" material="robot_dark" mass="1"/>
+      <geom name="left_wheel_back" type="cylinder" pos="-0.21 0.31 0.07" euler="1.5708 0 0"
+            contype="0" conaffinity="0"
+            size="0.08 0.035" material="robot_dark" mass="1"/>
+      <geom name="right_wheel_back" type="cylinder" pos="-0.21 -0.31 0.07" euler="1.5708 0 0"
+            contype="0" conaffinity="0"
+            size="0.08 0.035" material="robot_dark" mass="1"/>
+
+      <site name="front_range_site" pos="0.46 0 0.19" zaxis="1 0 0" size="0.025"
+            rgba="1 0.9 0.2 0.8"/>
+
+      <body name="shoulder_link" pos="0.2 0 0.28">
+        <joint name="shoulder" type="hinge" axis="0 1 0" range="-1.2 1.2" damping="5"/>
+        <geom name="upper_arm" type="capsule" fromto="0 0 0 0.42 0 0" size="0.045"
+              contype="0" conaffinity="0"
+              material="robot_dark" mass="2.2"/>
+
+        <body name="elbow_link" pos="0.42 0 0">
+          <joint name="elbow" type="hinge" axis="0 1 0" range="-1.65 1.4" damping="4"/>
+          <geom name="forearm" type="capsule" fromto="0 0 0 0.34 0 0" size="0.038"
+                contype="0" conaffinity="0"
+                material="robot_blue" mass="1.6"/>
+
+          <body name="wrist_link" pos="0.34 0 0">
+            <joint name="wrist" type="hinge" axis="0 1 0" range="-1.2 1.2" damping="3"/>
+            <geom name="wrist_block" type="box" pos="0.05 0 0" size="0.06 0.08 0.055"
+                  contype="0" conaffinity="0"
+                  material="robot_dark" mass="0.7"/>
+            <site name="gripper_site" pos="0.15 0 0" size="0.045" rgba="0.2 1 1 0.8"/>
+
+            <body name="left_finger" pos="0.13 0.085 0">
+              <joint name="left_finger_joint" type="slide" axis="0 -1 0" range="0 0.055" damping="1"/>
+              <geom name="left_finger_pad" type="box" pos="0.055 0 0" size="0.07 0.014 0.04"
+                    contype="0" conaffinity="0"
+                    material="robot_dark" mass="0.25"/>
+              <site name="left_pad_site" pos="0.12 0 0" size="0.025" rgba="0.2 1 0.6 0.8"/>
+            </body>
+
+            <body name="right_finger" pos="0.13 -0.085 0">
+              <joint name="right_finger_joint" type="slide" axis="0 1 0" range="0 0.055" damping="1"/>
+              <geom name="right_finger_pad" type="box" pos="0.055 0 0" size="0.07 0.014 0.04"
+                    contype="0" conaffinity="0"
+                    material="robot_dark" mass="0.25"/>
+              <site name="right_pad_site" pos="0.12 0 0" size="0.025" rgba="0.2 1 0.6 0.8"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+
+    <body name="medkit" pos="1.42 -1.15 0.12">
+      <freejoint name="medkit_free"/>
+      <geom name="medkit_box" type="box" size="0.16 0.12 0.08" material="medkit_red" mass="1.2"/>
+      <geom name="medkit_cross_x" type="box" pos="0 0 0.085" size="0.11 0.018 0.006"
+            rgba="1 1 1 1" contype="0" conaffinity="0"/>
+      <geom name="medkit_cross_y" type="box" pos="0 0 0.092" size="0.018 0.085 0.006"
+            rgba="1 1 1 1" contype="0" conaffinity="0"/>
+      <site name="medkit_site" pos="0 0 0" size="0.05" rgba="1 0.15 0.15 0.85"/>
+    </body>
+
+    <body name="water" pos="1.8 0.55 0.12">
+      <freejoint name="water_free"/>
+      <geom name="water_box" type="box" size="0.14 0.11 0.08" material="water_blue" mass="1.0"/>
+      <site name="water_site" pos="0 0 0" size="0.045" rgba="0.2 0.7 1 0.8"/>
+    </body>
+
+    <body name="battery" pos="2.25 -0.35 0.12">
+      <freejoint name="battery_free"/>
+      <geom name="battery_box" type="box" size="0.13 0.1 0.08" material="battery_yellow" mass="1.4"/>
+      <site name="battery_site" pos="0 0 0" size="0.045" rgba="1 0.8 0.1 0.8"/>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <position name="base_x_position" joint="base_x" kp="90" kv="28" ctrlrange="-3.6 3.6"/>
+    <position name="base_y_position" joint="base_y" kp="90" kv="28" ctrlrange="-2.8 2.8"/>
+    <position name="base_yaw_position" joint="base_yaw" kp="45" kv="14" ctrlrange="-3.1416 3.1416"/>
+    <position name="shoulder_position" joint="shoulder" kp="20" kv="8" ctrlrange="-1.2 1.2"/>
+    <position name="elbow_position" joint="elbow" kp="18" kv="8" ctrlrange="-1.65 1.4"/>
+    <position name="wrist_position" joint="wrist" kp="16" kv="7" ctrlrange="-1.2 1.2"/>
+    <position name="left_gripper_position" joint="left_finger_joint" kp="18" kv="5" ctrlrange="0 0.055"/>
+    <position name="right_gripper_position" joint="right_finger_joint" kp="18" kv="5" ctrlrange="0 0.055"/>
+  </actuator>
+
+  <sensor>
+    <jointpos name="base_x_sensor" joint="base_x"/>
+    <jointpos name="base_y_sensor" joint="base_y"/>
+    <jointpos name="base_yaw_sensor" joint="base_yaw"/>
+    <framepos name="gripper_position" objtype="site" objname="gripper_site"/>
+    <framepos name="medkit_position" objtype="site" objname="medkit_site"/>
+    <framepos name="safe_zone_position" objtype="site" objname="safe_zone_site"/>
+    <rangefinder name="front_range" site="front_range_site"/>
+  </sensor>
+</mujoco>
