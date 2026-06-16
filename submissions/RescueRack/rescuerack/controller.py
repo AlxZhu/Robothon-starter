@@ -258,6 +258,23 @@ class RescueRackController:
             "events": self.events,
         }
 
+    def observation(self) -> dict[str, object]:
+        medkit_pos = self.site_position("medkit_site")
+        safe_pos = self.site_position("safe_zone_site")
+        gripper_pos = self.site_position("gripper_site")
+        base_xy = self.base_xy()
+        return {
+            "time": round(self.time, 3),
+            "stage": self.stage.value,
+            "base_xy": [round(float(base_xy[0]), 4), round(float(base_xy[1]), 4)],
+            "base_yaw": round(float(self.data.qpos[self.qadr["base_yaw"]]), 4),
+            "gripper_xyz": [round(float(value), 4) for value in gripper_pos],
+            "medkit_xyz": [round(float(value), 4) for value in medkit_pos],
+            "safe_zone_xyz": [round(float(value), 4) for value in safe_pos],
+            "distance_medkit_to_safe_xy": round(float(np.linalg.norm(medkit_pos[:2] - safe_pos[:2])), 4),
+            "attached": self.attached,
+        }
+
     def site_position(self, name: str) -> np.ndarray:
         return np.array(self.data.site_xpos[self.sites[name]], dtype=float)
 

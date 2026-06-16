@@ -1,0 +1,46 @@
+{
+  "project": "RescueRack",
+  "mode": "hard",
+  "mission_summary": {
+    "mode": "hard",
+    "stage": "complete",
+    "success": true,
+    "sim_time": 15.508,
+    "delivery_error_m": 0.365,
+    "target": "medkit",
+    "events": [
+      "mission_started",
+      "navigate_to_supply_done",
+      "prepare_grasp_done",
+      "medkit_secured",
+      "secure_supply_done",
+      "transport_to_safe_zone_done",
+      "entered_safe_zone",
+      "release_supply_done",
+      "mission_complete"
+    ]
+  },
+  "data_artifacts": {
+    "trajectory": "media/hard_trajectory.json",
+    "demo_video": "media/demo.mp4"
+  },
+  "rubric_evidence": {
+    "long_horizon_stages": [
+      "navigate_to_supply",
+      "prepare_grasp",
+      "secure_supply",
+      "transport_to_safe_zone",
+      "release_supply",
+      "complete"
+    ],
+    "sensors_logged": [
+      "base_xy",
+      "base_yaw",
+      "gripper_xyz",
+      "medkit_xyz",
+      "safe_zone_xyz",
+      "distance_medkit_to_safe_xy"
+    ],
+    "success_threshold_m": 0.45
+  }
+}

@@ -23,6 +23,8 @@ def main() -> None:
         "24",
         "--record",
         str(output),
+        "--trajectory",
+        str(ROOT / "media" / "hard_trajectory.json"),
         "--width",
         "640",
         "--height",

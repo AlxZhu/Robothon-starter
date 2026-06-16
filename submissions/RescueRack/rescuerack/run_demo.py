@@ -23,6 +23,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--width", type=int, default=640, help="Video width.")
     parser.add_argument("--height", type=int, default=368, help="Video height.")
     parser.add_argument("--fps", type=int, default=30, help="Video frame rate.")
+    parser.add_argument("--trajectory", type=Path, help="Optional JSON path for sampled trajectory data.")
+    parser.add_argument("--sample-hz", type=float, default=10.0, help="Trajectory sampling rate.")
     return parser.parse_args()
 
 
@@ -32,6 +34,8 @@ def run_headless(args: argparse.Namespace) -> dict[str, object]:
     writer = None
     renderer = None
     frame_interval = max(1, round(1.0 / (args.fps * model.opt.timestep)))
+    trajectory: list[dict[str, object]] = []
+    sample_interval = max(1, round(1.0 / (args.sample_hz * model.opt.timestep)))
 
     if args.record:
         import imageio.v2 as imageio
@@ -49,6 +53,9 @@ def run_headless(args: argparse.Namespace) -> dict[str, object]:
             renderer.update_scene(data, camera=args.camera)
             writer.append_data(renderer.render())
 
+        if args.trajectory and step % sample_interval == 0:
+            trajectory.append(controller.observation())
+
         if controller.stage == MissionStage.COMPLETE and controller.stage_time > 0.75:
             break
 
@@ -57,7 +64,15 @@ def run_headless(args: argparse.Namespace) -> dict[str, object]:
     if writer is not None:
         writer.close()
 
-    return controller.summary()
+    summary = controller.summary()
+    if args.trajectory:
+        args.trajectory.parent.mkdir(parents=True, exist_ok=True)
+        args.trajectory.write_text(
+            json.dumps({"summary": summary, "samples": trajectory}, indent=2),
+            encoding="utf-8",
+        )
+
+    return summary
 
 
 def run_viewer(args: argparse.Namespace) -> dict[str, object]:

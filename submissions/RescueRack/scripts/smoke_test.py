@@ -23,6 +23,8 @@ class Args:
     width = 640
     height = 360
     fps = 20
+    trajectory = None
+    sample_hz = 10.0
 
 
 def main() -> None:

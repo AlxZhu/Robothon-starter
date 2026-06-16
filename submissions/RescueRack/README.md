@@ -24,6 +24,8 @@ The robot must complete a long-horizon rescue supply mission:
 4. Align the arm-mounted gripper to the medkit.
 5. Secure, transport, and release the medkit in the green safe zone.
 6. Print a JSON mission summary with success state and final delivery error.
+7. Optionally export a timestamped trajectory dataset for reproducibility and
+   data-collection scoring.
 
 ## Technical Approach
 
@@ -59,6 +61,25 @@ route completes without contacting named obstacles.
 - `scripts/verify_clearance.py` checks mission success, minimum obstacle clearance,
   and named-obstacle contact count.
 - `scripts/make_demo_video.py` generates `media/demo.mp4` from submitted code.
+- `scripts/generate_data.py` exports `media/hard_trajectory.json` and
+  `media/mission_metrics.json` with robot, gripper, target, stage, and success
+  measurements.
+
+## Data Collection Artifacts
+
+RescueRack includes a reproducible hard-mode trajectory dataset generated from the
+submitted MuJoCo code:
+
+| Artifact | Description |
+| --- | --- |
+| `media/hard_trajectory.json` | 10 Hz samples of mission stage, base pose, gripper pose, medkit pose, safe-zone pose, and target-to-safe distance. |
+| `media/mission_metrics.json` | Summary of success state, delivery error, logged sensors, and rubric evidence. |
+
+These files can be regenerated with:
+
+```bash
+python scripts/generate_data.py
+```
 
 ## Current Limitations
 
@@ -106,6 +127,13 @@ cd submissions/RescueRack
 python scripts/make_demo_video.py
 ```
 
+Generate trajectory and metrics data:
+
+```bash
+cd submissions/RescueRack
+python scripts/generate_data.py
+```
+
 Open the interactive MuJoCo viewer:
 
 ```bash
@@ -135,6 +163,7 @@ media/demo.mp4
 | MuJoCo depth | MJCF scene, joints, actuators, sensors, collisions, free bodies, cameras. |
 | Task design | Clear emergency logistics mission with escalating difficulty. |
 | Control | State-machine autonomy for navigation, grasp preparation, carry, and release. |
+| Data collection | Generated hard-mode trajectory and mission metrics JSON artifacts. |
 | Dexterity | Two-finger gripper alignment and object acquisition with deterministic carry. |
 | Engineering quality | Separated model, package code, scripts, README, and registration metadata. |
 | Presentation | Demo video generated from the submitted code. |
