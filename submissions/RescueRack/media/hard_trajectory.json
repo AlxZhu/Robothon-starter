@@ -3,8 +3,8 @@
     "mode": "hard",
     "stage": "complete",
     "success": true,
-    "sim_time": 15.508,
-    "delivery_error_m": 0.365,
+    "sim_time": 22.816,
+    "delivery_error_m": 0.0,
     "target": "medkit",
     "events": [
       "mission_started",
@@ -16,7 +16,16 @@
       "entered_safe_zone",
       "release_supply_done",
       "mission_complete"
-    ]
+    ],
+    "planner": {
+      "enabled": true,
+      "algorithm": "grid_astar",
+      "pickup_waypoints": 3,
+      "delivery_waypoints": 11,
+      "expanded_nodes": 199,
+      "fallback_used": false,
+      "min_route_clearance_m": 0.254
+    }
   },
   "samples": [
     {
@@ -26,7 +35,7 @@
         -2.65,
         -1.45
       ],
-      "base_yaw": -0.0,
+      "base_yaw": 0.0,
       "gripper_xyz": [
         -1.5447,
         -1.45,
@@ -49,14 +58,14 @@
       "time": 0.102,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.6445,
-        -1.4515
+        -2.6117,
+        -1.4491
       ],
-      "base_yaw": -0.0226,
+      "base_yaw": 0.0005,
       "gripper_xyz": [
-        -1.5411,
-        -1.4756,
-        0.2615
+        -1.5096,
+        -1.4486,
+        0.2605
       ],
       "medkit_xyz": [
         1.42,
@@ -75,14 +84,14 @@
       "time": 0.202,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.6296,
-        -1.4567
+        -2.5128,
+        -1.4468
       ],
-      "base_yaw": -0.0735,
+      "base_yaw": 0.0017,
       "gripper_xyz": [
-        -1.5436,
-        -1.5352,
-        0.1459
+        -1.4276,
+        -1.445,
+        0.1397
       ],
       "medkit_xyz": [
         1.42,
@@ -101,14 +110,14 @@
       "time": 0.302,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.607,
-        -1.466
+        -2.3685,
+        -1.4435
       ],
-      "base_yaw": -0.1396,
+      "base_yaw": 0.0035,
       "gripper_xyz": [
-        -1.5664,
-        -1.6105,
-        0.0106
+        -1.3267,
+        -1.4399,
+        -0.0053
       ],
       "medkit_xyz": [
         1.42,
@@ -127,14 +136,14 @@
       "time": 0.402,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.5793,
-        -1.4793
+        -2.1923,
+        -1.4394
       ],
-      "base_yaw": -0.2125,
+      "base_yaw": 0.0058,
       "gripper_xyz": [
-        -1.6089,
-        -1.687,
-        -0.1151
+        -1.2189,
+        -1.4339,
+        -0.1422
       ],
       "medkit_xyz": [
         1.42,
@@ -153,14 +162,14 @@
       "time": 0.502,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.5491,
-        -1.4962
+        -1.9966,
+        -1.4348
       ],
-      "base_yaw": -0.2863,
+      "base_yaw": 0.0083,
       "gripper_xyz": [
-        -1.6603,
-        -1.7562,
-        -0.2158
+        -1.102,
+        -1.4275,
+        -0.2512
       ],
       "medkit_xyz": [
         1.42,
@@ -179,14 +188,14 @@
       "time": 0.602,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.5186,
-        -1.5155
+        -1.7914,
+        -1.4299
       ],
-      "base_yaw": -0.3561,
+      "base_yaw": 0.011,
       "gripper_xyz": [
-        -1.7078,
-        -1.8157,
-        -0.2881
+        -0.9682,
+        -1.4209,
+        -0.326
       ],
       "medkit_xyz": [
         1.42,
@@ -205,14 +214,14 @@
       "time": 0.702,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.4893,
-        -1.5363
+        -1.5845,
+        -1.4249
       ],
-      "base_yaw": -0.4185,
+      "base_yaw": 0.0136,
       "gripper_xyz": [
-        -1.7433,
-        -1.8669,
-        -0.3356
+        -0.813,
+        -1.4145,
+        -0.3706
       ],
       "medkit_xyz": [
         1.42,
@@ -231,14 +240,14 @@
       "time": 0.802,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.4618,
-        -1.5575
+        -1.3814,
+        -1.4199
       ],
-      "base_yaw": -0.4718,
+      "base_yaw": 0.0158,
       "gripper_xyz": [
-        -1.7642,
-        -1.9123,
-        -0.3642
+        -0.6384,
+        -1.4081,
+        -0.3924
       ],
       "medkit_xyz": [
         1.42,
@@ -257,14 +266,14 @@
       "time": 0.902,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.4363,
-        -1.5783
+        -1.1859,
+        -1.415
       ],
-      "base_yaw": -0.515,
+      "base_yaw": 0.0178,
       "gripper_xyz": [
-        -1.772,
-        -1.9535,
-        -0.3798
+        -0.4516,
+        -1.402,
+        -0.3987
       ],
       "medkit_xyz": [
         1.42,
@@ -283,14 +292,14 @@
       "time": 1.002,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.4128,
-        -1.5983
+        -1.0006,
+        -1.4104
       ],
-      "base_yaw": -0.5488,
+      "base_yaw": 0.0194,
       "gripper_xyz": [
-        -1.7696,
-        -1.991,
-        -0.3869
+        -0.2614,
+        -1.396,
+        -0.3952
       ],
       "medkit_xyz": [
         1.42,
@@ -309,14 +318,14 @@
       "time": 1.102,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.3913,
-        -1.6172
+        -0.8274,
+        -1.406
       ],
-      "base_yaw": -0.574,
+      "base_yaw": 0.0207,
       "gripper_xyz": [
-        -1.7604,
-        -2.0246,
-        -0.3888
+        -0.0757,
+        -1.3905,
+        -0.3862
       ],
       "medkit_xyz": [
         1.42,
@@ -335,14 +344,14 @@
       "time": 1.202,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.3716,
-        -1.6346
+        -0.6673,
+        -1.402
       ],
-      "base_yaw": -0.5916,
+      "base_yaw": 0.0217,
       "gripper_xyz": [
-        -1.7469,
-        -2.0539,
-        -0.3879
+        0.0993,
+        -1.3854,
+        -0.3749
       ],
       "medkit_xyz": [
         1.42,
@@ -361,14 +370,14 @@
       "time": 1.302,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.3537,
-        -1.6506
+        -0.5211,
+        -1.3983
       ],
-      "base_yaw": -0.6023,
+      "base_yaw": 0.0225,
       "gripper_xyz": [
-        -1.7311,
-        -2.0784,
-        -0.3856
+        0.2597,
+        -1.3808,
+        -0.3638
       ],
       "medkit_xyz": [
         1.42,
@@ -387,14 +396,14 @@
       "time": 1.402,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.3375,
-        -1.665
+        -0.3891,
+        -1.395
       ],
-      "base_yaw": -0.6069,
+      "base_yaw": 0.023,
       "gripper_xyz": [
-        -1.7141,
-        -2.0977,
-        -0.3831
+        0.4034,
+        -1.3767,
+        -0.3543
       ],
       "medkit_xyz": [
         1.42,
@@ -413,14 +422,14 @@
       "time": 1.502,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.323,
-        -1.6779
+        -0.2713,
+        -1.392
       ],
-      "base_yaw": -0.6053,
+      "base_yaw": 0.0235,
       "gripper_xyz": [
-        -1.6964,
-        -2.1115,
-        -0.3807
+        0.5298,
+        -1.3733,
+        -0.3471
       ],
       "medkit_xyz": [
         1.42,
@@ -439,14 +448,14 @@
       "time": 1.602,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.2996,
-        -1.6908
+        -0.1674,
+        -1.3894
       ],
-      "base_yaw": -0.5896,
+      "base_yaw": 0.0237,
       "gripper_xyz": [
-        -1.6701,
-        -2.1128,
-        -0.3836
+        0.6393,
+        -1.3703,
+        -0.3424
       ],
       "medkit_xyz": [
         1.42,
@@ -465,14 +474,14 @@
       "time": 1.702,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.2444,
-        -1.7063
+        -0.0768,
+        -1.3872
       ],
-      "base_yaw": -0.5483,
+      "base_yaw": 0.0239,
       "gripper_xyz": [
-        -1.6141,
-        -2.0926,
-        -0.397
+        0.7327,
+        -1.3678,
+        -0.3401
       ],
       "medkit_xyz": [
         1.42,
@@ -491,14 +500,14 @@
       "time": 1.802,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.1647,
-        -1.7223
+        0.0012,
+        -1.3852
       ],
-      "base_yaw": -0.494,
+      "base_yaw": 0.0239,
       "gripper_xyz": [
-        -1.5315,
-        -2.0649,
-        -0.4103
+        0.8114,
+        -1.3658,
+        -0.3398
       ],
       "medkit_xyz": [
         1.42,
@@ -517,14 +526,14 @@
       "time": 1.902,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -2.0678,
-        -1.7377
+        0.0675,
+        -1.3836
       ],
-      "base_yaw": -0.4351,
+      "base_yaw": 0.0239,
       "gripper_xyz": [
-        -1.427,
-        -2.0372,
-        -0.4185
+        0.8767,
+        -1.3643,
+        -0.3409
       ],
       "medkit_xyz": [
         1.42,
@@ -543,14 +552,14 @@
       "time": 2.002,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -1.9599,
-        -1.7519
+        0.1232,
+        -1.3822
       ],
-      "base_yaw": -0.3773,
+      "base_yaw": 0.0237,
       "gripper_xyz": [
-        -1.3062,
-        -2.0124,
-        -0.4207
+        0.93,
+        -1.3631,
+        -0.3431
       ],
       "medkit_xyz": [
         1.42,
@@ -569,14 +578,14 @@
       "time": 2.102,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -1.8459,
-        -1.7646
+        0.1695,
+        -1.381
       ],
-      "base_yaw": -0.3237,
+      "base_yaw": 0.0287,
       "gripper_xyz": [
-        -1.175,
-        -1.991,
-        -0.4178
+        0.9729,
+        -1.3584,
+        -0.3461
       ],
       "medkit_xyz": [
         1.42,
@@ -595,14 +604,14 @@
       "time": 2.202,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -1.7297,
-        -1.776
+        0.2109,
+        -1.3794
       ],
-      "base_yaw": -0.2758,
+      "base_yaw": 0.0748,
       "gripper_xyz": [
-        -1.0392,
-        -1.9726,
-        -0.4112
+        1.007,
+        -1.3208,
+        -0.351
       ],
       "medkit_xyz": [
         1.42,
@@ -621,14 +630,14 @@
       "time": 2.302,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -1.6146,
-        -1.7861
+        0.2484,
+        -1.376
       ],
-      "base_yaw": -0.2342,
+      "base_yaw": 0.1518,
       "gripper_xyz": [
-        -0.904,
-        -1.9566,
-        -0.4024
+        1.0324,
+        -1.2574,
+        -0.3555
       ],
       "medkit_xyz": [
         1.42,
@@ -647,14 +656,14 @@
       "time": 2.402,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -1.5029,
-        -1.7949
+        0.282,
+        -1.3702
       ],
-      "base_yaw": -0.1987,
+      "base_yaw": 0.2463,
       "gripper_xyz": [
-        -0.7733,
-        -1.9425,
-        -0.3927
+        1.0483,
+        -1.1792,
+        -0.3582
       ],
       "medkit_xyz": [
         1.42,
@@ -673,14 +682,14 @@
       "time": 2.502,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -1.3964,
-        -1.8025
+        0.3119,
+        -1.3621
       ],
-      "base_yaw": -0.1688,
+      "base_yaw": 0.3502,
       "gripper_xyz": [
-        -0.6503,
-        -1.9303,
-        -0.3833
+        1.0534,
+        -1.0931,
+        -0.3591
       ],
       "medkit_xyz": [
         1.42,
@@ -699,14 +708,14 @@
       "time": 2.602,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -1.2967,
-        -1.8091
+        0.3383,
+        -1.352
       ],
-      "base_yaw": -0.1439,
+      "base_yaw": 0.4588,
       "gripper_xyz": [
-        -0.5368,
-        -1.9197,
-        -0.375
+        1.0469,
+        -1.004,
+        -0.3586
       ],
       "medkit_xyz": [
         1.42,
@@ -725,14 +734,14 @@
       "time": 2.702,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -1.2045,
-        -1.8147
+        0.3614,
+        -1.3403
       ],
-      "base_yaw": -0.1234,
+      "base_yaw": 0.5695,
       "gripper_xyz": [
-        -0.4338,
-        -1.9106,
-        -0.3682
+        1.0285,
+        -0.9153,
+        -0.3574
       ],
       "medkit_xyz": [
         1.42,
@@ -751,14 +760,14 @@
       "time": 2.802,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -1.1205,
-        -1.8194
+        0.3813,
+        -1.3275
       ],
-      "base_yaw": -0.1067,
+      "base_yaw": 0.6811,
       "gripper_xyz": [
-        -0.3417,
-        -1.9031,
-        -0.363
+        0.9982,
+        -0.8297,
+        -0.356
       ],
       "medkit_xyz": [
         1.42,
@@ -777,14 +786,14 @@
       "time": 2.902,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -1.0448,
-        -1.8234
+        0.3982,
+        -1.3139
       ],
-      "base_yaw": -0.0931,
+      "base_yaw": 0.7934,
       "gripper_xyz": [
-        -0.2605,
-        -1.8969,
-        -0.3594
+        0.9566,
+        -0.749,
+        -0.3547
       ],
       "medkit_xyz": [
         1.42,
@@ -803,14 +812,14 @@
       "time": 3.002,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -0.9775,
-        -1.8267
+        0.4124,
+        -1.2999
       ],
-      "base_yaw": -0.0823,
+      "base_yaw": 0.9068,
       "gripper_xyz": [
-        -0.1898,
-        -1.8919,
-        -0.3573
+        0.904,
+        -0.6746,
+        -0.3537
       ],
       "medkit_xyz": [
         1.42,
@@ -829,14 +838,14 @@
       "time": 3.102,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -0.9183,
-        -1.8295
+        0.4241,
+        -1.2861
       ],
-      "base_yaw": -0.0738,
+      "base_yaw": 1.022,
       "gripper_xyz": [
-        -0.1288,
-        -1.888,
-        -0.3564
+        0.841,
+        -0.6076,
+        -0.353
       ],
       "medkit_xyz": [
         1.42,
@@ -855,14 +864,14 @@
       "time": 3.202,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -0.8669,
-        -1.8317
+        0.4333,
+        -1.2722
       ],
-      "base_yaw": -0.0672,
+      "base_yaw": 1.133,
       "gripper_xyz": [
-        -0.077,
-        -1.885,
-        -0.3564
+        0.7723,
+        -0.551,
+        -0.3526
       ],
       "medkit_xyz": [
         1.42,
@@ -881,14 +890,14 @@
       "time": 3.302,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -0.8228,
-        -1.8336
+        0.4386,
+        -1.2559
       ],
-      "base_yaw": -0.0623,
+      "base_yaw": 1.1732,
       "gripper_xyz": [
-        -0.0334,
-        -1.8829,
-        -0.3572
+        0.7463,
+        -0.5238,
+        -0.355
       ],
       "medkit_xyz": [
         1.42,
@@ -907,14 +916,14 @@
       "time": 3.402,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -0.7855,
-        -1.8351
+        0.442,
+        -1.2388
       ],
-      "base_yaw": -0.0589,
+      "base_yaw": 1.1566,
       "gripper_xyz": [
-        0.0026,
-        -1.8816,
-        -0.3584
+        0.7586,
+        -0.5176,
+        -0.3603
       ],
       "medkit_xyz": [
         1.42,
@@ -933,14 +942,14 @@
       "time": 3.502,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -0.7433,
-        -1.832
+        0.4454,
+        -1.2224
       ],
-      "base_yaw": -0.0441,
+      "base_yaw": 1.1061,
       "gripper_xyz": [
-        0.0366,
-        -1.8671,
-        -0.3654
+        0.7944,
+        -0.524,
+        -0.366
       ],
       "medkit_xyz": [
         1.42,
@@ -959,14 +968,14 @@
       "time": 3.602,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -0.6786,
-        -1.8169
+        0.4495,
+        -1.2071
       ],
-      "base_yaw": -0.0039,
+      "base_yaw": 1.0356,
       "gripper_xyz": [
-        0.0818,
-        -1.821,
-        -0.3811
+        0.8441,
+        -0.5393,
+        -0.3701
       ],
       "medkit_xyz": [
         1.42,
@@ -985,14 +994,14 @@
       "time": 3.702,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -0.5979,
-        -1.7917
+        0.4549,
+        -1.1932
       ],
-      "base_yaw": 0.0494,
+      "base_yaw": 0.9533,
       "gripper_xyz": [
-        0.1418,
-        -1.7565,
-        -0.3957
+        0.9014,
+        -0.5621,
+        -0.3722
       ],
       "medkit_xyz": [
         1.42,
@@ -1011,14 +1020,14 @@
       "time": 3.802,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -0.5071,
-        -1.7586
+        0.4614,
+        -1.1808
       ],
-      "base_yaw": 0.1072,
+      "base_yaw": 0.8646,
       "gripper_xyz": [
-        0.2162,
-        -1.6821,
-        -0.4049
+        0.9618,
+        -0.592,
+        -0.3725
       ],
       "medkit_xyz": [
         1.42,
@@ -1037,14 +1046,14 @@
       "time": 3.902,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -0.4107,
-        -1.7198
+        0.469,
+        -1.1698
       ],
-      "base_yaw": 0.1643,
+      "base_yaw": 0.7727,
       "gripper_xyz": [
-        0.3022,
-        -1.603,
-        -0.4083
+        1.0221,
+        -0.6287,
+        -0.3716
       ],
       "medkit_xyz": [
         1.42,
@@ -1063,14 +1072,14 @@
       "time": 4.002,
       "stage": "navigate_to_supply",
       "base_xy": [
-        -0.3122,
-        -1.6774
+        0.4775,
+        -1.1604
       ],
-      "base_yaw": 0.2173,
+      "base_yaw": 0.6794,
       "gripper_xyz": [
-        0.3958,
-        -1.5223,
-        -0.4066
+        1.08,
+        -0.672,
+        -0.3702
       ],
       "medkit_xyz": [
         1.42,
@@ -1087,16 +1096,16 @@
     },
     {
       "time": 4.102,
-      "stage": "navigate_to_supply",
+      "stage": "prepare_grasp",
       "base_xy": [
-        -0.2143,
-        -1.6332
+        0.4863,
+        -1.1524
       ],
-      "base_yaw": 0.2649,
+      "base_yaw": 0.5841,
       "gripper_xyz": [
-        0.4925,
-        -1.4425,
-        -0.4015
+        1.1344,
+        -0.7222,
+        -0.3679
       ],
       "medkit_xyz": [
         1.42,
@@ -1113,145 +1122,15 @@
     },
     {
       "time": 4.202,
-      "stage": "navigate_to_supply",
+      "stage": "prepare_grasp",
       "base_xy": [
-        -0.1192,
-        -1.5885
+        0.4952,
+        -1.1457
       ],
-      "base_yaw": 0.3065,
+      "base_yaw": 0.4878,
       "gripper_xyz": [
-        0.5887,
-        -1.3654,
-        -0.3943
-      ],
-      "medkit_xyz": [
-        1.42,
-        -1.15,
-        0.0799
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.7765,
-      "attached": false
-    },
-    {
-      "time": 4.302,
-      "stage": "navigate_to_supply",
-      "base_xy": [
-        -0.0285,
-        -1.5446
-      ],
-      "base_yaw": 0.3423,
-      "gripper_xyz": [
-        0.6811,
-        -1.2925,
-        -0.3864
-      ],
-      "medkit_xyz": [
-        1.42,
-        -1.15,
-        0.0799
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.7765,
-      "attached": false
-    },
-    {
-      "time": 4.402,
-      "stage": "navigate_to_supply",
-      "base_xy": [
-        0.0568,
-        -1.5022
-      ],
-      "base_yaw": 0.3727,
-      "gripper_xyz": [
-        0.7677,
-        -1.2249,
-        -0.3788
-      ],
-      "medkit_xyz": [
-        1.42,
-        -1.15,
-        0.0799
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.7765,
-      "attached": false
-    },
-    {
-      "time": 4.502,
-      "stage": "navigate_to_supply",
-      "base_xy": [
-        0.1357,
-        -1.4621
-      ],
-      "base_yaw": 0.3984,
-      "gripper_xyz": [
-        0.8472,
-        -1.1632,
-        -0.3721
-      ],
-      "medkit_xyz": [
-        1.42,
-        -1.15,
-        0.0799
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.7765,
-      "attached": false
-    },
-    {
-      "time": 4.602,
-      "stage": "navigate_to_supply",
-      "base_xy": [
-        0.2078,
-        -1.4248
-      ],
-      "base_yaw": 0.4199,
-      "gripper_xyz": [
-        0.919,
-        -1.1078,
-        -0.3668
-      ],
-      "medkit_xyz": [
-        1.42,
-        -1.15,
-        0.0799
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.7765,
-      "attached": false
-    },
-    {
-      "time": 4.702,
-      "stage": "navigate_to_supply",
-      "base_xy": [
-        0.273,
-        -1.3906
-      ],
-      "base_yaw": 0.438,
-      "gripper_xyz": [
-        0.9827,
-        -1.0586,
+        1.1865,
+        -0.7773,
         -0.3628
       ],
       "medkit_xyz": [
@@ -1268,147 +1147,17 @@
       "attached": false
     },
     {
-      "time": 4.802,
-      "stage": "navigate_to_supply",
-      "base_xy": [
-        0.331,
-        -1.3596
-      ],
-      "base_yaw": 0.453,
-      "gripper_xyz": [
-        1.0387,
-        -1.0154,
-        -0.3602
-      ],
-      "medkit_xyz": [
-        1.42,
-        -1.15,
-        0.0799
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.7765,
-      "attached": false
-    },
-    {
-      "time": 4.902,
-      "stage": "navigate_to_supply",
-      "base_xy": [
-        0.3823,
-        -1.332
-      ],
-      "base_yaw": 0.4657,
-      "gripper_xyz": [
-        1.0871,
-        -0.978,
-        -0.3588
-      ],
-      "medkit_xyz": [
-        1.42,
-        -1.15,
-        0.0799
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.7765,
-      "attached": false
-    },
-    {
-      "time": 5.002,
-      "stage": "navigate_to_supply",
-      "base_xy": [
-        0.4269,
-        -1.3076
-      ],
-      "base_yaw": 0.4764,
-      "gripper_xyz": [
-        1.1284,
-        -0.9458,
-        -0.3584
-      ],
-      "medkit_xyz": [
-        1.42,
-        -1.15,
-        0.0799
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.7765,
-      "attached": false
-    },
-    {
-      "time": 5.102,
-      "stage": "navigate_to_supply",
-      "base_xy": [
-        0.4653,
-        -1.2864
-      ],
-      "base_yaw": 0.4855,
-      "gripper_xyz": [
-        1.1632,
-        -0.9183,
-        -0.3587
-      ],
-      "medkit_xyz": [
-        1.42,
-        -1.15,
-        0.0799
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.7765,
-      "attached": false
-    },
-    {
-      "time": 5.202,
-      "stage": "navigate_to_supply",
-      "base_xy": [
-        0.498,
-        -1.2682
-      ],
-      "base_yaw": 0.4936,
-      "gripper_xyz": [
-        1.192,
-        -0.895,
-        -0.3597
-      ],
-      "medkit_xyz": [
-        1.42,
-        -1.15,
-        0.0799
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.7765,
-      "attached": false
-    },
-    {
-      "time": 5.302,
+      "time": 4.302,
       "stage": "prepare_grasp",
       "base_xy": [
-        0.5249,
-        -1.2521
+        0.5043,
+        -1.1408
       ],
-      "base_yaw": 0.4927,
+      "base_yaw": 0.3988,
       "gripper_xyz": [
-        1.2178,
-        -0.8798,
-        -0.3607
+        1.2319,
+        -0.8328,
+        -0.3567
       ],
       "medkit_xyz": [
         1.42,
@@ -1424,68 +1173,16 @@
       "attached": false
     },
     {
-      "time": 5.402,
+      "time": 4.402,
       "stage": "prepare_grasp",
       "base_xy": [
-        0.5454,
-        -1.235
+        0.5136,
+        -1.1375
       ],
-      "base_yaw": 0.4541,
+      "base_yaw": 0.3207,
       "gripper_xyz": [
-        1.2529,
-        -0.889,
-        -0.3591
-      ],
-      "medkit_xyz": [
-        1.42,
-        -1.15,
-        0.0799
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.7765,
-      "attached": false
-    },
-    {
-      "time": 5.502,
-      "stage": "prepare_grasp",
-      "base_xy": [
-        0.5611,
-        -1.2184
-      ],
-      "base_yaw": 0.3964,
-      "gripper_xyz": [
-        1.2907,
-        -0.9122,
-        -0.3556
-      ],
-      "medkit_xyz": [
-        1.42,
-        -1.15,
-        0.0799
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.7765,
-      "attached": false
-    },
-    {
-      "time": 5.602,
-      "stage": "prepare_grasp",
-      "base_xy": [
-        0.5734,
-        -1.2035
-      ],
-      "base_yaw": 0.3343,
-      "gripper_xyz": [
-        1.3246,
-        -0.9417,
+        1.2683,
+        -0.8856,
         -0.3515
       ],
       "medkit_xyz": [
@@ -1502,17 +1199,17 @@
       "attached": false
     },
     {
-      "time": 5.702,
+      "time": 4.502,
       "stage": "prepare_grasp",
       "base_xy": [
-        0.583,
-        -1.1906
+        0.5227,
+        -1.1359
       ],
-      "base_yaw": 0.2753,
+      "base_yaw": 0.2544,
       "gripper_xyz": [
-        1.3519,
-        -0.9726,
-        -0.348
+        1.2959,
+        -0.9338,
+        -0.3481
       ],
       "medkit_xyz": [
         1.42,
@@ -1528,17 +1225,17 @@
       "attached": false
     },
     {
-      "time": 5.802,
+      "time": 4.602,
       "stage": "secure_supply",
       "base_xy": [
-        0.5904,
-        -1.1799
+        0.5313,
+        -1.1356
       ],
-      "base_yaw": 0.2227,
+      "base_yaw": 0.1993,
       "gripper_xyz": [
-        1.3719,
-        -1.0023,
-        -0.3457
+        1.3158,
+        -0.9763,
+        -0.3465
       ],
       "medkit_xyz": [
         1.42,
@@ -1554,17 +1251,17 @@
       "attached": false
     },
     {
-      "time": 5.902,
+      "time": 4.702,
       "stage": "secure_supply",
       "base_xy": [
-        0.5958,
-        -1.1713
+        0.5391,
+        -1.1364
       ],
-      "base_yaw": 0.1777,
+      "base_yaw": 0.1545,
       "gripper_xyz": [
-        1.3852,
-        -1.029,
-        -0.3448
+        1.3296,
+        -1.0126,
+        -0.3465
       ],
       "medkit_xyz": [
         1.42,
@@ -1580,17 +1277,17 @@
       "attached": false
     },
     {
-      "time": 6.002,
+      "time": 4.802,
       "stage": "secure_supply",
       "base_xy": [
-        0.5995,
-        -1.1646
+        0.546,
+        -1.1379
       ],
-      "base_yaw": 0.1402,
+      "base_yaw": 0.1185,
       "gripper_xyz": [
-        1.3929,
-        -1.0522,
-        -0.3451
+        1.3389,
+        -1.0429,
+        -0.3475
       ],
       "medkit_xyz": [
         1.42,
@@ -1606,17 +1303,17 @@
       "attached": false
     },
     {
-      "time": 6.102,
+      "time": 4.902,
       "stage": "secure_supply",
       "base_xy": [
-        0.6016,
-        -1.1595
+        0.5518,
+        -1.1399
       ],
-      "base_yaw": 0.1096,
+      "base_yaw": 0.09,
       "gripper_xyz": [
-        1.3964,
-        -1.0717,
-        -0.3464
+        1.3449,
+        -1.0679,
+        -0.3492
       ],
       "medkit_xyz": [
         1.42,
@@ -1632,17 +1329,17 @@
       "attached": false
     },
     {
-      "time": 6.202,
+      "time": 5.002,
       "stage": "secure_supply",
       "base_xy": [
-        0.6024,
-        -1.1558
+        0.5567,
+        -1.1422
       ],
-      "base_yaw": 0.085,
+      "base_yaw": 0.0676,
       "gripper_xyz": [
-        1.3968,
-        -1.0878,
-        -0.3482
+        1.3488,
+        -1.0882,
+        -0.351
       ],
       "medkit_xyz": [
         1.42,
@@ -1658,21 +1355,21 @@
       "attached": false
     },
     {
-      "time": 6.302,
+      "time": 5.102,
       "stage": "secure_supply",
       "base_xy": [
-        0.6021,
-        -1.1531
+        0.5606,
+        -1.1445
       ],
-      "base_yaw": 0.0655,
+      "base_yaw": 0.0503,
       "gripper_xyz": [
-        1.395,
-        -1.1008,
-        -0.3503
+        1.3512,
+        -1.1044,
+        -0.3528
       ],
       "medkit_xyz": [
-        1.4751,
-        -1.1006,
+        1.4311,
+        -1.1041,
         0.34
       ],
       "safe_zone_xyz": [
@@ -1680,25 +1377,337 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.7981,
+      "distance_medkit_to_safe_xy": 4.7622,
+      "attached": true
+    },
+    {
+      "time": 5.202,
+      "stage": "secure_supply",
+      "base_xy": [
+        0.5637,
+        -1.1467
+      ],
+      "base_yaw": 0.0369,
+      "gripper_xyz": [
+        1.3526,
+        -1.1173,
+        -0.3544
+      ],
+      "medkit_xyz": [
+        1.4326,
+        -1.1171,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.7701,
+      "attached": true
+    },
+    {
+      "time": 5.302,
+      "stage": "secure_supply",
+      "base_xy": [
+        0.566,
+        -1.1487
+      ],
+      "base_yaw": 0.0268,
+      "gripper_xyz": [
+        1.3534,
+        -1.1275,
+        -0.3557
+      ],
+      "medkit_xyz": [
+        1.4334,
+        -1.1273,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.7761,
+      "attached": true
+    },
+    {
+      "time": 5.402,
+      "stage": "secure_supply",
+      "base_xy": [
+        0.5676,
+        -1.1505
+      ],
+      "base_yaw": 0.0191,
+      "gripper_xyz": [
+        1.3538,
+        -1.1354,
+        -0.3567
+      ],
+      "medkit_xyz": [
+        1.4338,
+        -1.1352,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.7806,
+      "attached": true
+    },
+    {
+      "time": 5.502,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.5687,
+        -1.152
+      ],
+      "base_yaw": 0.0115,
+      "gripper_xyz": [
+        1.3539,
+        -1.1425,
+        -0.3576
+      ],
+      "medkit_xyz": [
+        1.4339,
+        -1.1421,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.7843,
+      "attached": true
+    },
+    {
+      "time": 5.602,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.5703,
+        -1.151
+      ],
+      "base_yaw": -0.0784,
+      "gripper_xyz": [
+        1.3515,
+        -1.2102,
+        -0.3606
+      ],
+      "medkit_xyz": [
+        1.4316,
+        -1.2082,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.8171,
+      "attached": true
+    },
+    {
+      "time": 5.702,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.5735,
+        -1.1508
+      ],
+      "base_yaw": -0.2391,
+      "gripper_xyz": [
+        1.3343,
+        -1.3333,
+        -0.3625
+      ],
+      "medkit_xyz": [
+        1.4148,
+        -1.3306,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.8691,
+      "attached": true
+    },
+    {
+      "time": 5.802,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.5785,
+        -1.1549
+      ],
+      "base_yaw": -0.4238,
+      "gripper_xyz": [
+        1.2965,
+        -1.4755,
+        -0.3601
+      ],
+      "medkit_xyz": [
+        1.3775,
+        -1.4726,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.9181,
+      "attached": true
+    },
+    {
+      "time": 5.902,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.5846,
+        -1.1643
+      ],
+      "base_yaw": -0.6073,
+      "gripper_xyz": [
+        1.2382,
+        -1.6149,
+        -0.3545
+      ],
+      "medkit_xyz": [
+        1.3195,
+        -1.6123,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.953,
+      "attached": true
+    },
+    {
+      "time": 6.002,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.5909,
+        -1.1788
+      ],
+      "base_yaw": -0.7776,
+      "gripper_xyz": [
+        1.1638,
+        -1.739,
+        -0.3486
+      ],
+      "medkit_xyz": [
+        1.2454,
+        -1.7367,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.9701,
+      "attached": true
+    },
+    {
+      "time": 6.102,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.5964,
+        -1.1971
+      ],
+      "base_yaw": -0.9302,
+      "gripper_xyz": [
+        1.0802,
+        -1.842,
+        -0.3446
+      ],
+      "medkit_xyz": [
+        1.1619,
+        -1.8401,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.9707,
+      "attached": true
+    },
+    {
+      "time": 6.202,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.6006,
+        -1.2179
+      ],
+      "base_yaw": -1.0644,
+      "gripper_xyz": [
+        0.9942,
+        -1.9231,
+        -0.3436
+      ],
+      "medkit_xyz": [
+        1.0759,
+        -1.9217,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.9585,
+      "attached": true
+    },
+    {
+      "time": 6.302,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.603,
+        -1.2397
+      ],
+      "base_yaw": -1.1809,
+      "gripper_xyz": [
+        0.9111,
+        -1.9845,
+        -0.3452
+      ],
+      "medkit_xyz": [
+        0.9927,
+        -1.9834,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.9377,
       "attached": true
     },
     {
       "time": 6.402,
-      "stage": "secure_supply",
+      "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.6009,
-        -1.1512
+        0.6039,
+        -1.2615
       ],
-      "base_yaw": 0.0503,
+      "base_yaw": -1.2813,
       "gripper_xyz": [
-        1.3919,
-        -1.1112,
-        -0.3523
+        0.8343,
+        -2.0295,
+        -0.349
       ],
       "medkit_xyz": [
-        1.472,
-        -1.1111,
+        0.9157,
+        -2.0287,
         0.34
       ],
       "safe_zone_xyz": [
@@ -1706,25 +1715,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.8008,
+      "distance_medkit_to_safe_xy": 4.9123,
       "attached": true
     },
     {
       "time": 6.502,
-      "stage": "secure_supply",
+      "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.599,
-        -1.15
+        0.6033,
+        -1.2822
       ],
-      "base_yaw": 0.0384,
+      "base_yaw": -1.3672,
       "gripper_xyz": [
-        1.3881,
-        -1.1196,
-        -0.3542
+        0.7657,
+        -2.0617,
+        -0.354
       ],
       "medkit_xyz": [
-        1.4682,
-        -1.1194,
+        0.8469,
+        -2.0612,
         0.34
       ],
       "safe_zone_xyz": [
@@ -1732,25 +1741,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.8018,
+      "distance_medkit_to_safe_xy": 4.8852,
       "attached": true
     },
     {
       "time": 6.602,
-      "stage": "secure_supply",
+      "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.5966,
-        -1.1492
+        0.6017,
+        -1.3014
       ],
-      "base_yaw": 0.0292,
+      "base_yaw": -1.4399,
       "gripper_xyz": [
-        1.3838,
-        -1.1261,
-        -0.3558
+        0.7059,
+        -2.0845,
+        -0.3593
       ],
       "medkit_xyz": [
-        1.4639,
-        -1.126,
+        0.787,
+        -2.0841,
         0.34
       ],
       "safe_zone_xyz": [
@@ -1758,25 +1767,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.8016,
+      "distance_medkit_to_safe_xy": 4.8587,
       "attached": true
     },
     {
       "time": 6.702,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.5938,
-        -1.1488
+        0.5968,
+        -1.3233
       ],
-      "base_yaw": 0.022,
+      "base_yaw": -1.5224,
       "gripper_xyz": [
-        1.3795,
-        -1.1314,
-        -0.3571
+        0.6363,
+        -2.1039,
+        -0.3663
       ],
       "medkit_xyz": [
-        1.4596,
-        -1.1313,
+        0.7179,
+        -2.1035,
         0.34
       ],
       "safe_zone_xyz": [
@@ -1784,25 +1793,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.8006,
+      "distance_medkit_to_safe_xy": 4.8238,
       "attached": true
     },
     {
       "time": 6.802,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.5874,
-        -1.1495
+        0.5865,
+        -1.3508
       ],
-      "base_yaw": -0.0815,
+      "base_yaw": -1.6203,
       "gripper_xyz": [
-        1.3719,
-        -1.2108,
-        -0.3578
+        0.55,
+        -2.1226,
+        -0.3735
       ],
       "medkit_xyz": [
-        1.4522,
-        -1.2081,
+        0.6318,
+        -2.1222,
         0.34
       ],
       "safe_zone_xyz": [
@@ -1810,25 +1819,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.8345,
+      "distance_medkit_to_safe_xy": 4.7777,
       "attached": true
     },
     {
       "time": 6.902,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.5773,
-        -1.1568
+        0.5711,
+        -1.3821
       ],
-      "base_yaw": -0.2911,
+      "base_yaw": -1.7199,
       "gripper_xyz": [
-        1.3382,
-        -1.3806,
-        -0.3537
+        0.4589,
+        -2.14,
+        -0.3786
       ],
       "medkit_xyz": [
-        1.4193,
-        -1.3767,
+        0.5408,
+        -2.1396,
         0.34
       ],
       "safe_zone_xyz": [
@@ -1836,25 +1845,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.8984,
+      "distance_medkit_to_safe_xy": 4.7285,
       "attached": true
     },
     {
       "time": 7.002,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.566,
-        -1.1747
+        0.5516,
+        -1.4154
       ],
-      "base_yaw": -0.5365,
+      "base_yaw": -1.814,
       "gripper_xyz": [
-        1.2627,
-        -1.5838,
-        -0.3418
+        0.3695,
+        -2.1559,
+        -0.3813
       ],
       "medkit_xyz": [
-        1.3447,
-        -1.5796,
+        0.4513,
+        -2.1556,
         0.34
       ],
       "safe_zone_xyz": [
@@ -1862,25 +1871,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.9538,
+      "distance_medkit_to_safe_xy": 4.6805,
       "attached": true
     },
     {
       "time": 7.102,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.5541,
-        -1.204
+        0.5293,
+        -1.4493
       ],
-      "base_yaw": -0.7806,
+      "base_yaw": -1.8991,
       "gripper_xyz": [
-        1.144,
-        -1.7818,
-        -0.3262
+        0.2851,
+        -2.1706,
+        -0.3822
       ],
       "medkit_xyz": [
-        1.2267,
-        -1.778,
+        0.3668,
+        -2.1703,
         0.34
       ],
       "safe_zone_xyz": [
@@ -1888,25 +1897,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.9813,
+      "distance_medkit_to_safe_xy": 4.6361,
       "attached": true
     },
     {
       "time": 7.202,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.5407,
-        -1.2432
+        0.5051,
+        -1.4828
       ],
-      "base_yaw": -1.0058,
+      "base_yaw": -1.9738,
       "gripper_xyz": [
-        0.9942,
-        -1.9507,
-        -0.3125
+        0.2075,
+        -2.1841,
+        -0.382
       ],
       "medkit_xyz": [
-        1.0774,
-        -1.9476,
+        0.289,
+        -2.1839,
         0.34
       ],
       "safe_zone_xyz": [
@@ -1914,25 +1923,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.9768,
+      "distance_medkit_to_safe_xy": 4.5963,
       "attached": true
     },
     {
       "time": 7.302,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.5246,
-        -1.2897
+        0.4802,
+        -1.5151
       ],
-      "base_yaw": -1.2058,
+      "base_yaw": -2.0381,
       "gripper_xyz": [
-        0.8311,
-        -2.081,
-        -0.3045
+        0.1375,
+        -2.1967,
+        -0.3812
       ],
       "medkit_xyz": [
-        0.9144,
-        -2.0788,
+        0.2188,
+        -2.1964,
         0.34
       ],
       "safe_zone_xyz": [
@@ -1940,25 +1949,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.9459,
+      "distance_medkit_to_safe_xy": 4.5615,
       "attached": true
     },
     {
       "time": 7.402,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.5057,
-        -1.3402
+        0.4552,
+        -1.5454
       ],
-      "base_yaw": -1.3796,
+      "base_yaw": -2.0925,
       "gripper_xyz": [
-        0.6705,
-        -2.174,
-        -0.3032
+        0.0752,
+        -2.2084,
+        -0.3802
       ],
       "medkit_xyz": [
-        0.7536,
-        -2.1725,
+        0.1563,
+        -2.2082,
         0.34
       ],
       "safe_zone_xyz": [
@@ -1966,25 +1975,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.8982,
+      "distance_medkit_to_safe_xy": 4.5317,
       "attached": true
     },
     {
       "time": 7.502,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.4841,
-        -1.3916
+        0.431,
+        -1.5736
       ],
-      "base_yaw": -1.5282,
+      "base_yaw": -2.138,
       "gripper_xyz": [
-        0.5229,
-        -2.2364,
-        -0.3076
+        0.0204,
+        -2.2195,
+        -0.3794
       ],
       "medkit_xyz": [
-        0.6057,
-        -2.2354,
+        0.1014,
+        -2.2193,
         0.34
       ],
       "safe_zone_xyz": [
@@ -1992,25 +2001,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.843,
+      "distance_medkit_to_safe_xy": 4.5067,
       "attached": true
     },
     {
       "time": 7.602,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.4605,
-        -1.4418
+        0.4079,
+        -1.5993
       ],
-      "base_yaw": -1.6537,
+      "base_yaw": -2.1754,
       "gripper_xyz": [
-        0.3935,
-        -2.2764,
-        -0.3159
+        -0.0271,
+        -2.2301,
+        -0.3787
       ],
       "medkit_xyz": [
-        0.4759,
-        -2.2758,
+        0.0538,
+        -2.2299,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2018,25 +2027,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.7872,
+      "distance_medkit_to_safe_xy": 4.4862,
       "attached": true
     },
     {
       "time": 7.702,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.4361,
-        -1.489
+        0.3865,
+        -1.6225
       ],
-      "base_yaw": -1.7581,
+      "base_yaw": -2.2058,
       "gripper_xyz": [
-        0.284,
-        -2.3016,
-        -0.3261
+        -0.0679,
+        -2.2402,
+        -0.3783
       ],
       "medkit_xyz": [
-        0.366,
-        -2.3012,
+        0.0128,
+        -2.24,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2044,232 +2053,24 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.7358,
+      "distance_medkit_to_safe_xy": 4.4697,
       "attached": true
     },
     {
       "time": 7.802,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        0.4117,
-        -1.5321
+        0.3669,
+        -1.6432
       ],
-      "base_yaw": -1.8437,
+      "base_yaw": -2.2298,
       "gripper_xyz": [
-        0.1934,
-        -2.3179,
-        -0.3365
+        -0.1025,
+        -2.2499,
+        -0.3782
       ],
       "medkit_xyz": [
-        0.275,
-        -2.3177,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.6912,
-      "attached": true
-    },
-    {
-      "time": 7.902,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        0.3883,
-        -1.5707
-      ],
-      "base_yaw": -1.9131,
-      "gripper_xyz": [
-        0.1192,
-        -2.3294,
-        -0.3461
-      ],
-      "medkit_xyz": [
-        0.2005,
-        -2.3292,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.6542,
-      "attached": true
-    },
-    {
-      "time": 8.002,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        0.3663,
-        -1.6046
-      ],
-      "base_yaw": -1.9684,
-      "gripper_xyz": [
-        0.0591,
-        -2.3385,
-        -0.3543
-      ],
-      "medkit_xyz": [
-        0.1402,
-        -2.3384,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.6248,
-      "attached": true
-    },
-    {
-      "time": 8.102,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        0.3463,
-        -1.634
-      ],
-      "base_yaw": -2.0115,
-      "gripper_xyz": [
-        0.0108,
-        -2.3468,
-        -0.361
-      ],
-      "medkit_xyz": [
-        0.0917,
-        -2.3467,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.6024,
-      "attached": true
-    },
-    {
-      "time": 8.202,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        0.3284,
-        -1.659
-      ],
-      "base_yaw": -2.0438,
-      "gripper_xyz": [
-        -0.0273,
-        -2.3551,
-        -0.3662
-      ],
-      "medkit_xyz": [
-        0.0534,
-        -2.3549,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.5864,
-      "attached": true
-    },
-    {
-      "time": 8.302,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        0.3089,
-        -1.6805
-      ],
-      "base_yaw": -2.075,
-      "gripper_xyz": [
-        -0.0646,
-        -2.36,
-        -0.3713
-      ],
-      "medkit_xyz": [
-        0.0166,
-        -2.3601,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.569,
-      "attached": true
-    },
-    {
-      "time": 8.402,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        0.263,
-        -1.7012
-      ],
-      "base_yaw": -2.1546,
-      "gripper_xyz": [
-        -0.1553,
-        -2.3384,
-        -0.3815
-      ],
-      "medkit_xyz": [
-        -0.073,
-        -2.339,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.5,
-      "attached": true
-    },
-    {
-      "time": 8.502,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        0.1911,
-        -1.7203
-      ],
-      "base_yaw": -2.2637,
-      "gripper_xyz": [
-        -0.2853,
-        -2.2985,
-        -0.3912
-      ],
-      "medkit_xyz": [
-        -0.2024,
-        -2.2994,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 4.3942,
-      "attached": true
-    },
-    {
-      "time": 8.602,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        0.0995,
-        -1.7369
-      ],
-      "base_yaw": -2.3832,
-      "gripper_xyz": [
-        -0.4364,
-        -2.2487,
-        -0.397
-      ],
-      "medkit_xyz": [
-        -0.3533,
+        -0.0219,
         -2.2497,
         0.34
       ],
@@ -2278,25 +2079,233 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.27,
+      "distance_medkit_to_safe_xy": 4.457,
+      "attached": true
+    },
+    {
+      "time": 7.902,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.3491,
+        -1.6614
+      ],
+      "base_yaw": -2.2482,
+      "gripper_xyz": [
+        -0.1314,
+        -2.2592,
+        -0.3783
+      ],
+      "medkit_xyz": [
+        -0.0509,
+        -2.2591,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.4476,
+      "attached": true
+    },
+    {
+      "time": 8.002,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.3334,
+        -1.6773
+      ],
+      "base_yaw": -2.2614,
+      "gripper_xyz": [
+        -0.1548,
+        -2.2685,
+        -0.3786
+      ],
+      "medkit_xyz": [
+        -0.0744,
+        -2.2683,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.4414,
+      "attached": true
+    },
+    {
+      "time": 8.102,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.3054,
+        -1.6926
+      ],
+      "base_yaw": -2.2946,
+      "gripper_xyz": [
+        -0.1965,
+        -2.2625,
+        -0.3839
+      ],
+      "medkit_xyz": [
+        -0.1152,
+        -2.2629,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.4134,
+      "attached": true
+    },
+    {
+      "time": 8.202,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.247,
+        -1.7084
+      ],
+      "base_yaw": -2.3676,
+      "gripper_xyz": [
+        -0.2831,
+        -2.2293,
+        -0.3958
+      ],
+      "medkit_xyz": [
+        -0.201,
+        -2.2301,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.3376,
+      "attached": true
+    },
+    {
+      "time": 8.302,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.165,
+        -1.7229
+      ],
+      "base_yaw": -2.4593,
+      "gripper_xyz": [
+        -0.399,
+        -2.1842,
+        -0.4061
+      ],
+      "medkit_xyz": [
+        -0.3165,
+        -2.1852,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.2359,
+      "attached": true
+    },
+    {
+      "time": 8.402,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        0.066,
+        -1.7355
+      ],
+      "base_yaw": -2.5559,
+      "gripper_xyz": [
+        -0.533,
+        -2.1356,
+        -0.4116
+      ],
+      "medkit_xyz": [
+        -0.4502,
+        -2.1366,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.1226,
+      "attached": true
+    },
+    {
+      "time": 8.502,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -0.044,
+        -1.7457
+      ],
+      "base_yaw": -2.6493,
+      "gripper_xyz": [
+        -0.6768,
+        -2.0876,
+        -0.4122
+      ],
+      "medkit_xyz": [
+        -0.5939,
+        -2.0886,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 4.0064,
+      "attached": true
+    },
+    {
+      "time": 8.602,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -0.1601,
+        -1.7536
+      ],
+      "base_yaw": -2.7349,
+      "gripper_xyz": [
+        -0.8244,
+        -2.0419,
+        -0.4087
+      ],
+      "medkit_xyz": [
+        -0.7415,
+        -2.0428,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 3.8928,
       "attached": true
     },
     {
       "time": 8.702,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -0.0058,
-        -1.7507
+        -0.2782,
+        -1.7595
       ],
-      "base_yaw": -2.5013,
+      "base_yaw": -2.8106,
       "gripper_xyz": [
-        -0.5967,
-        -2.1944,
-        -0.3984
+        -0.9707,
+        -1.9993,
+        -0.4026
       ],
       "medkit_xyz": [
-        -0.5134,
-        -2.1955,
+        -0.8878,
+        -2.0001,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2304,25 +2313,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.1395,
+      "distance_medkit_to_safe_xy": 3.7853,
       "attached": true
     },
     {
       "time": 8.802,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -0.1199,
-        -1.761
+        -0.3968,
+        -1.7583
       ],
-      "base_yaw": -2.6025,
+      "base_yaw": -2.791,
       "gripper_xyz": [
-        -0.7558,
-        -2.1428,
-        -0.3963
+        -1.0941,
+        -2.0141,
+        -0.3955
       ],
       "medkit_xyz": [
-        -0.6732,
-        -2.1428,
+        -1.0117,
+        -2.0138,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2330,25 +2339,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.0134,
+      "distance_medkit_to_safe_xy": 3.7416,
       "attached": true
     },
     {
       "time": 8.902,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -0.2452,
-        -1.7566
+        -0.5102,
+        -1.7591
       ],
-      "base_yaw": -2.4765,
+      "base_yaw": -2.8009,
       "gripper_xyz": [
-        -0.8339,
-        -2.2188,
-        -0.3913
+        -1.2186,
+        -2.0114,
+        -0.3887
       ],
       "medkit_xyz": [
-        -0.752,
-        -2.2178,
+        -1.1361,
+        -2.0116,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2356,25 +2365,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.0412,
+      "distance_medkit_to_safe_xy": 3.6868,
       "attached": true
     },
     {
       "time": 9.002,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -0.3644,
-        -1.7586
+        -0.6177,
+        -1.7592
       ],
-      "base_yaw": -2.4562,
+      "base_yaw": -2.8031,
       "gripper_xyz": [
-        -0.9489,
-        -2.2388,
-        -0.3854
+        -1.3347,
+        -2.0122,
+        -0.3824
       ],
       "medkit_xyz": [
-        -0.8663,
-        -2.2389,
+        -1.2525,
+        -2.012,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2382,25 +2391,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.0077,
+      "distance_medkit_to_safe_xy": 3.6409,
       "attached": true
     },
     {
       "time": 9.102,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -0.481,
-        -1.7588
+        -0.7176,
+        -1.7599
       ],
-      "base_yaw": -2.4043,
+      "base_yaw": -2.8126,
       "gripper_xyz": [
-        -1.0453,
-        -2.2719,
-        -0.3807
+        -1.4437,
+        -2.0088,
+        -0.3768
       ],
       "medkit_xyz": [
-        -0.9637,
-        -2.271,
+        -1.3615,
+        -2.0091,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2408,25 +2417,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 3.9944,
+      "distance_medkit_to_safe_xy": 3.5978,
       "attached": true
     },
     {
       "time": 9.202,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -0.5909,
-        -1.7598
+        -0.8097,
+        -1.7595
       ],
-      "base_yaw": -2.368,
+      "base_yaw": -2.8063,
       "gripper_xyz": [
-        -1.1408,
-        -2.2967,
-        -0.3763
+        -1.5399,
+        -2.0147,
+        -0.3722
       ],
       "medkit_xyz": [
-        -1.0597,
-        -2.2955,
+        -1.458,
+        -2.0148,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2434,25 +2443,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 3.9773,
+      "distance_medkit_to_safe_xy": 3.5697,
       "attached": true
     },
     {
       "time": 9.302,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -0.6946,
-        -1.7597
+        -0.8931,
+        -1.7598
       ],
-      "base_yaw": -2.3093,
+      "base_yaw": -2.809,
       "gripper_xyz": [
-        -1.2151,
-        -2.3318,
-        -0.3725
+        -1.6284,
+        -2.0143,
+        -0.3686
       ],
       "medkit_xyz": [
-        -1.134,
-        -2.3309,
+        -1.5467,
+        -2.0144,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2460,25 +2469,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 3.9808,
+      "distance_medkit_to_safe_xy": 3.5407,
       "attached": true
     },
     {
       "time": 9.402,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -0.7901,
+        -0.9679,
         -1.7599
       ],
-      "base_yaw": -2.2511,
+      "base_yaw": -2.8109,
       "gripper_xyz": [
-        -1.2785,
-        -2.3646,
-        -0.3696
+        -1.7068,
+        -2.0139,
+        -0.3661
       ],
       "medkit_xyz": [
-        -1.1971,
-        -2.3641,
+        -1.6254,
+        -2.0136,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2486,25 +2495,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 3.9882,
+      "distance_medkit_to_safe_xy": 3.5162,
       "attached": true
     },
     {
       "time": 9.502,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -0.8772,
-        -1.76
+        -1.0342,
+        -1.7599
       ],
-      "base_yaw": -2.1879,
+      "base_yaw": -2.8085,
       "gripper_xyz": [
-        -1.3281,
-        -2.3966,
-        -0.3674
+        -1.7743,
+        -2.0163,
+        -0.3647
       ],
       "medkit_xyz": [
-        -1.2471,
-        -2.3961,
+        -1.693,
+        -2.0162,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2512,25 +2521,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.0002,
+      "distance_medkit_to_safe_xy": 3.4996,
       "attached": true
     },
     {
       "time": 9.602,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -0.9559,
-        -1.76
+        -1.0923,
+        -1.7599
       ],
-      "base_yaw": -2.1144,
+      "base_yaw": -2.8084,
       "gripper_xyz": [
-        -1.3605,
-        -2.4293,
-        -0.3659
+        -1.8331,
+        -2.0168,
+        -0.3641
       ],
       "medkit_xyz": [
-        -1.2801,
-        -2.4286,
+        -1.7519,
+        -2.017,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2538,25 +2547,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.0192,
+      "distance_medkit_to_safe_xy": 3.4847,
       "attached": true
     },
     {
       "time": 9.702,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -1.0263,
-        -1.76
+        -1.1425,
+        -1.7598
       ],
-      "base_yaw": -2.0311,
+      "base_yaw": -2.8052,
       "gripper_xyz": [
-        -1.3746,
-        -2.4617,
-        -0.365
+        -1.8825,
+        -2.0188,
+        -0.3642
       ],
       "medkit_xyz": [
-        -1.2948,
-        -2.461,
+        -1.8017,
+        -2.0187,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2564,25 +2573,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.0448,
+      "distance_medkit_to_safe_xy": 3.4739,
       "attached": true
     },
     {
       "time": 9.802,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -1.0891,
-        -1.76
+        -1.1855,
+        -1.7599
       ],
-      "base_yaw": -1.9298,
+      "base_yaw": -2.8043,
       "gripper_xyz": [
-        -1.3654,
-        -2.4944,
-        -0.3641
+        -1.9244,
+        -2.0194,
+        -0.365
       ],
       "medkit_xyz": [
-        -1.2859,
-        -2.4937,
+        -1.8437,
+        -2.0195,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2590,25 +2599,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.0786,
+      "distance_medkit_to_safe_xy": 3.4647,
       "attached": true
     },
     {
       "time": 9.902,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -1.1455,
-        -1.76
+        -1.2217,
+        -1.7599
       ],
-      "base_yaw": -1.7951,
+      "base_yaw": -2.8023,
       "gripper_xyz": [
-        -1.322,
-        -2.5268,
-        -0.3624
+        -1.959,
+        -2.02,
+        -0.3662
       ],
       "medkit_xyz": [
-        -1.2435,
-        -2.5261,
+        -1.8785,
+        -2.0198,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2616,25 +2625,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.1234,
+      "distance_medkit_to_safe_xy": 3.457,
       "attached": true
     },
     {
       "time": 10.002,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -1.2036,
-        -1.7605
+        -1.2686,
+        -1.7352
       ],
-      "base_yaw": -1.5197,
+      "base_yaw": -2.5262,
       "gripper_xyz": [
-        -1.1683,
-        -2.5561,
-        -0.3545
+        -1.9133,
+        -2.1838,
+        -0.3633
       ],
       "medkit_xyz": [
-        -1.0935,
-        -2.5559,
+        -1.8357,
+        -2.1785,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2642,25 +2651,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.2046,
+      "distance_medkit_to_safe_xy": 3.6212,
       "attached": true
     },
     {
       "time": 10.102,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -1.2742,
-        -1.7591
+        -1.3405,
+        -1.6926
       ],
-      "base_yaw": -1.0364,
+      "base_yaw": -1.973,
       "gripper_xyz": [
-        -0.8452,
-        -2.4984,
-        -0.3008
+        -1.6805,
+        -2.4701,
+        -0.3061
       ],
       "medkit_xyz": [
-        -0.772,
-        -2.5014,
+        -1.6075,
+        -2.4649,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2668,25 +2677,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.2849,
+      "distance_medkit_to_safe_xy": 3.9548,
       "attached": true
     },
     {
       "time": 10.202,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -1.3535,
-        -1.7379
+        -1.4287,
+        -1.6646
       ],
-      "base_yaw": -0.5419,
+      "base_yaw": -1.3552,
       "gripper_xyz": [
-        -0.5444,
-        -2.2353,
-        -0.1865
+        -1.2332,
+        -2.6047,
+        -0.1695
       ],
       "medkit_xyz": [
-        -0.4691,
-        -2.2426,
+        -1.1633,
+        -2.6052,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2694,25 +2703,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 4.2028,
+      "distance_medkit_to_safe_xy": 4.2254,
       "attached": true
     },
     {
       "time": 10.302,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -1.4266,
-        -1.6958
+        -1.5078,
+        -1.6623
       ],
-      "base_yaw": -0.092,
+      "base_yaw": -0.7661,
       "gripper_xyz": [
-        -0.4148,
-        -1.7987,
-        -0.0713
+        -0.7627,
+        -2.3941,
+        -0.0079
       ],
       "medkit_xyz": [
-        -0.3353,
-        -1.8083,
+        -0.6905,
+        -2.4015,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2720,25 +2729,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 3.9157,
+      "distance_medkit_to_safe_xy": 4.2324,
       "attached": true
     },
     {
       "time": 10.402,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -1.4915,
-        -1.6274
+        -1.5584,
+        -1.6699
       ],
-      "base_yaw": 0.3072,
+      "base_yaw": -0.2297,
       "gripper_xyz": [
-        -0.4915,
-        -1.3204,
-        -0.0031
+        -0.5096,
+        -1.9261,
+        0.1028
       ],
       "medkit_xyz": [
-        -0.4082,
-        -1.3296,
+        -0.4319,
+        -1.9366,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2746,25 +2755,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 3.4937,
+      "distance_medkit_to_safe_xy": 3.965,
       "attached": true
     },
     {
       "time": 10.502,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -1.5535,
-        -1.5329
+        -1.5825,
+        -1.6667
       ],
-      "base_yaw": 0.6581,
+      "base_yaw": 0.2458,
       "gripper_xyz": [
-        -0.7173,
-        -0.8982,
-        0.0096
+        -0.5259,
+        -1.4119,
+        0.1362
       ],
       "medkit_xyz": [
-        -0.6318,
-        -0.9057,
+        -0.4433,
+        -1.4216,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2772,25 +2781,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 3.0268,
+      "distance_medkit_to_safe_xy": 3.5428,
       "attached": true
     },
     {
       "time": 10.602,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -1.6181,
-        -1.418
+        -1.593,
+        -1.6435
       ],
-      "base_yaw": 0.964,
+      "base_yaw": 0.6581,
       "gripper_xyz": [
-        -1.0194,
-        -0.5702,
-        -0.0188
+        -0.7329,
+        -0.9898,
+        0.1089
       ],
       "medkit_xyz": [
-        -0.933,
-        -0.5758,
+        -0.6475,
+        -0.997,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2798,25 +2807,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 2.58,
+      "distance_medkit_to_safe_xy": 3.0852,
       "attached": true
     },
     {
       "time": 10.702,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -1.6881,
-        -1.2905
+        -1.6019,
+        -1.6019
       ],
-      "base_yaw": 1.2286,
+      "base_yaw": 1.0098,
       "gripper_xyz": [
-        -1.3409,
-        -0.3372,
-        -0.0693
+        -1.0301,
+        -0.7061,
+        0.0475
       ],
       "medkit_xyz": [
-        -1.2545,
-        -0.3411,
+        -0.9439,
+        -0.7104,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2824,25 +2833,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 2.1925,
+      "distance_medkit_to_safe_xy": 2.6751,
       "attached": true
     },
     {
       "time": 10.802,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -1.7636,
-        -1.1585
+        -1.6164,
+        -1.5484
       ],
-      "base_yaw": 1.4534,
+      "base_yaw": 1.3052,
       "gripper_xyz": [
-        -1.6425,
-        -0.1825,
-        -0.127
+        -1.3387,
+        -0.5512,
+        -0.0263
       ],
       "medkit_xyz": [
-        -1.5568,
-        -0.185,
+        -1.2527,
+        -0.5533,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2850,25 +2859,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 1.8845,
+      "distance_medkit_to_safe_xy": 2.3611,
       "attached": true
     },
     {
       "time": 10.902,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -1.843,
-        -1.0286
+        -1.6386,
+        -1.4905
       ],
-      "base_yaw": 1.6407,
+      "base_yaw": 1.5515,
       "gripper_xyz": [
-        -1.9046,
-        -0.082,
-        -0.1819
+        -1.6142,
+        -0.4905,
+        -0.0992
       ],
       "medkit_xyz": [
-        -1.8198,
-        -0.0836,
+        -1.5292,
+        -0.4911,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2876,25 +2885,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 1.6567,
+      "distance_medkit_to_safe_xy": 2.1554,
       "attached": true
     },
     {
       "time": 11.002,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -1.9238,
-        -0.9055
+        -1.6674,
+        -1.434
       ],
-      "base_yaw": 1.7933,
+      "base_yaw": 1.7546,
       "gripper_xyz": [
-        -2.122,
-        -0.0134,
-        -0.2293
+        -1.8393,
+        -0.4878,
+        -0.1644
       ],
       "medkit_xyz": [
-        -2.0381,
-        -0.0146,
+        -1.7553,
+        -0.4875,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2902,25 +2911,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 1.4955,
+      "distance_medkit_to_safe_xy": 2.0437,
       "attached": true
     },
     {
       "time": 11.102,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.0033,
-        -0.7922
+        -1.7004,
+        -1.3824
       ],
-      "base_yaw": 1.9147,
+      "base_yaw": 1.9212,
       "gripper_xyz": [
-        -2.2983,
-        0.0393,
-        -0.2673
+        -2.0143,
+        -0.5143,
+        -0.2192
       ],
       "medkit_xyz": [
-        -2.2151,
-        0.0383,
+        -1.9312,
+        -0.5136,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2928,25 +2937,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 1.3819,
+      "distance_medkit_to_safe_xy": 1.9974,
       "attached": true
     },
     {
       "time": 11.202,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.0791,
-        -0.6901
+        -1.735,
+        -1.3373
       ],
-      "base_yaw": 2.0091,
+      "base_yaw": 2.0577,
       "gripper_xyz": [
-        -2.4406,
-        0.0856,
-        -0.2963
+        -2.1481,
+        -0.5519,
+        -0.263
       ],
       "medkit_xyz": [
-        -2.358,
-        0.0847,
+        -2.0658,
+        -0.5511,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2954,25 +2963,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 1.2986,
+      "distance_medkit_to_safe_xy": 1.9888,
       "attached": true
     },
     {
       "time": 11.302,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.1496,
-        -0.5996
+        -1.7691,
+        -1.2993
       ],
-      "base_yaw": 2.0809,
+      "base_yaw": 2.1706,
       "gripper_xyz": [
-        -2.5561,
-        0.1297,
-        -0.3174
+        -2.2512,
+        -0.591,
+        -0.2966
       ],
       "medkit_xyz": [
-        -2.474,
-        0.1288,
+        -2.1694,
+        -0.5903,
         0.34
       ],
       "safe_zone_xyz": [
@@ -2980,25 +2989,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 1.2338,
+      "distance_medkit_to_safe_xy": 1.9989,
       "attached": true
     },
     {
       "time": 11.402,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.2136,
-        -0.5203
+        -1.8012,
+        -1.268
       ],
-      "base_yaw": 2.1347,
+      "base_yaw": 2.2658,
       "gripper_xyz": [
-        -2.6508,
-        0.1729,
-        -0.3321
+        -2.3327,
+        -0.628,
+        -0.3214
       ],
       "medkit_xyz": [
-        -2.5691,
-        0.1721,
+        -2.2512,
+        -0.6273,
         0.34
       ],
       "safe_zone_xyz": [
@@ -3006,25 +3015,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 1.1807,
+      "distance_medkit_to_safe_xy": 2.0171,
       "attached": true
     },
     {
       "time": 11.502,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.2707,
-        -0.4516
+        -1.8302,
+        -1.2425
       ],
-      "base_yaw": 2.1741,
+      "base_yaw": 2.3488,
       "gripper_xyz": [
-        -2.7291,
-        0.2148,
-        -0.3421
+        -2.3998,
+        -0.6624,
+        -0.3392
       ],
       "medkit_xyz": [
-        -2.6476,
-        0.214,
+        -2.3186,
+        -0.6618,
         0.34
       ],
       "safe_zone_xyz": [
@@ -3032,25 +3041,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 1.136,
+      "distance_medkit_to_safe_xy": 2.0389,
       "attached": true
     },
     {
       "time": 11.602,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.3208,
-        -0.3927
+        -1.8558,
+        -1.2221
       ],
-      "base_yaw": 2.2026,
+      "base_yaw": 2.4248,
       "gripper_xyz": [
-        -2.7938,
-        0.2545,
-        -0.3487
+        -2.4577,
+        -0.6961,
+        -0.3513
       ],
       "medkit_xyz": [
-        -2.7126,
-        0.2537,
+        -2.3766,
+        -0.6954,
         0.34
       ],
       "safe_zone_xyz": [
@@ -3058,25 +3067,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 1.0981,
+      "distance_medkit_to_safe_xy": 2.0636,
       "attached": true
     },
     {
       "time": 11.702,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.364,
-        -0.3426
+        -1.8799,
+        -1.2059
       ],
-      "base_yaw": 2.2226,
+      "base_yaw": 2.4488,
       "gripper_xyz": [
-        -2.847,
-        0.291,
-        -0.3531
+        -2.4866,
+        -0.7025,
+        -0.3607
       ],
       "medkit_xyz": [
-        -2.7661,
-        0.2903,
+        -2.4064,
+        -0.7027,
         0.34
       ],
       "safe_zone_xyz": [
@@ -3084,25 +3093,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 1.066,
+      "distance_medkit_to_safe_xy": 2.0671,
       "attached": true
     },
     {
       "time": 11.802,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.4008,
-        -0.3006
+        -1.9027,
+        -1.1922
       ],
-      "base_yaw": 2.2356,
+      "base_yaw": 2.4103,
       "gripper_xyz": [
-        -2.89,
-        0.3239,
-        -0.3562
+        -2.483,
+        -0.6727,
+        -0.3686
       ],
       "medkit_xyz": [
-        -2.8092,
-        0.3233,
+        -2.4033,
+        -0.6735,
         0.34
       ],
       "safe_zone_xyz": [
@@ -3110,25 +3119,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 1.039,
+      "distance_medkit_to_safe_xy": 2.0385,
       "attached": true
     },
     {
       "time": 11.902,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.4316,
-        -0.2658
+        -1.9228,
+        -1.1793
       ],
-      "base_yaw": 2.2425,
+      "base_yaw": 2.3344,
       "gripper_xyz": [
-        -2.9236,
-        0.3531,
-        -0.3586
+        -2.458,
+        -0.6222,
+        -0.3738
       ],
       "medkit_xyz": [
-        -2.843,
-        0.3526,
+        -2.3786,
+        -0.6233,
         0.34
       ],
       "safe_zone_xyz": [
@@ -3136,25 +3145,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 1.0159,
+      "distance_medkit_to_safe_xy": 1.9919,
       "attached": true
     },
     {
       "time": 12.002,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.4603,
-        -0.22
+        -1.9399,
+        -1.1663
       ],
-      "base_yaw": 2.2268,
+      "base_yaw": 2.2364,
       "gripper_xyz": [
-        -2.9358,
-        0.3964,
-        -0.3683
+        -2.4168,
+        -0.5614,
+        -0.3757
       ],
       "medkit_xyz": [
-        -2.8559,
-        0.3952,
+        -2.3377,
+        -0.5627,
         0.34
       ],
       "safe_zone_xyz": [
@@ -3162,25 +3171,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 0.9767,
+      "distance_medkit_to_safe_xy": 1.938,
       "attached": true
     },
     {
       "time": 12.102,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.4892,
-        -0.1475
+        -1.954,
+        -1.1527
       ],
-      "base_yaw": 2.1819,
+      "base_yaw": 2.1259,
       "gripper_xyz": [
-        -2.9242,
-        0.4711,
-        -0.3857
+        -2.362,
+        -0.4981,
+        -0.3748
       ],
       "medkit_xyz": [
-        -2.8445,
-        0.4694,
+        -2.2832,
+        -0.4993,
         0.34
       ],
       "safe_zone_xyz": [
@@ -3188,25 +3197,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 0.9019,
+      "distance_medkit_to_safe_xy": 1.8854,
       "attached": true
     },
     {
       "time": 12.202,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.5162,
-        -0.0556
+        -1.9652,
+        -1.1386
       ],
-      "base_yaw": 2.1224,
+      "base_yaw": 2.009,
       "gripper_xyz": [
-        -2.903,
-        0.5702,
-        -0.4007
+        -2.2955,
+        -0.4379,
+        -0.3722
       ],
       "medkit_xyz": [
-        -2.8235,
-        0.568,
+        -2.2169,
+        -0.4391,
         0.34
       ],
       "safe_zone_xyz": [
@@ -3214,25 +3223,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 0.801,
+      "distance_medkit_to_safe_xy": 1.8407,
       "attached": true
     },
     {
       "time": 12.302,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.5406,
-        0.0493
+        -1.9736,
+        -1.124
       ],
-      "base_yaw": 2.0574,
+      "base_yaw": 1.8895,
       "gripper_xyz": [
-        -2.8799,
-        0.6873,
-        -0.4098
+        -2.2194,
+        -0.385,
+        -0.3689
       ],
       "medkit_xyz": [
-        -2.8003,
-        0.6848,
+        -2.141,
+        -0.386,
         0.34
       ],
       "safe_zone_xyz": [
@@ -3240,25 +3249,1429 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 0.682,
+      "distance_medkit_to_safe_xy": 1.8091,
       "attached": true
     },
     {
       "time": 12.402,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.562,
-        0.162
+        -1.9796,
+        -1.1092
       ],
-      "base_yaw": 1.9931,
+      "base_yaw": 1.7693,
       "gripper_xyz": [
-        -2.8577,
-        0.8165,
-        -0.4127
+        -2.1358,
+        -0.3422,
+        -0.3657
       ],
       "medkit_xyz": [
-        -2.7781,
-        0.8139,
+        -2.0575,
+        -0.3429,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.7936,
+      "attached": true
+    },
+    {
+      "time": 12.502,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -1.9833,
+        -1.0946
+      ],
+      "base_yaw": 1.6495,
+      "gripper_xyz": [
+        -2.0469,
+        -0.311,
+        -0.363
+      ],
+      "medkit_xyz": [
+        -1.9687,
+        -0.3115,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.7958,
+      "attached": true
+    },
+    {
+      "time": 12.602,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -1.985,
+        -1.0803
+      ],
+      "base_yaw": 1.5302,
+      "gripper_xyz": [
+        -1.9548,
+        -0.2923,
+        -0.361
+      ],
+      "medkit_xyz": [
+        -1.8766,
+        -0.2926,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.8155,
+      "attached": true
+    },
+    {
+      "time": 12.702,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -1.9862,
+        -1.0624
+      ],
+      "base_yaw": 1.457,
+      "gripper_xyz": [
+        -1.8971,
+        -0.2808,
+        -0.3624
+      ],
+      "medkit_xyz": [
+        -1.8173,
+        -0.2811,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.8313,
+      "attached": true
+    },
+    {
+      "time": 12.802,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -1.9918,
+        -1.0348
+      ],
+      "base_yaw": 1.48,
+      "gripper_xyz": [
+        -1.9204,
+        -0.2618,
+        -0.3708
+      ],
+      "medkit_xyz": [
+        -1.8393,
+        -0.2622,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.8046,
+      "attached": true
+    },
+    {
+      "time": 12.902,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.0041,
+        -1.0
+      ],
+      "base_yaw": 1.5542,
+      "gripper_xyz": [
+        -1.9898,
+        -0.2357,
+        -0.3801
+      ],
+      "medkit_xyz": [
+        -1.9081,
+        -0.2363,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.7512,
+      "attached": true
+    },
+    {
+      "time": 13.002,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.0233,
+        -0.9602
+      ],
+      "base_yaw": 1.6513,
+      "gripper_xyz": [
+        -2.0822,
+        -0.2063,
+        -0.3863
+      ],
+      "medkit_xyz": [
+        -2.0002,
+        -0.2069,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.687,
+      "attached": true
+    },
+    {
+      "time": 13.102,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.0487,
+        -0.9174
+      ],
+      "base_yaw": 1.7542,
+      "gripper_xyz": [
+        -2.1841,
+        -0.1766,
+        -0.3886
+      ],
+      "medkit_xyz": [
+        -2.1021,
+        -0.1771,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.6225,
+      "attached": true
+    },
+    {
+      "time": 13.202,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.0788,
+        -0.8732
+      ],
+      "base_yaw": 1.8537,
+      "gripper_xyz": [
+        -2.2876,
+        -0.1486,
+        -0.3879
+      ],
+      "medkit_xyz": [
+        -2.2055,
+        -0.1491,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.5636,
+      "attached": true
+    },
+    {
+      "time": 13.302,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.1123,
+        -0.829
+      ],
+      "base_yaw": 1.9449,
+      "gripper_xyz": [
+        -2.3875,
+        -0.1235,
+        -0.3854
+      ],
+      "medkit_xyz": [
+        -2.3056,
+        -0.1239,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.5136,
+      "attached": true
+    },
+    {
+      "time": 13.402,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.1477,
+        -0.786
+      ],
+      "base_yaw": 2.026,
+      "gripper_xyz": [
+        -2.4812,
+        -0.1015,
+        -0.3822
+      ],
+      "medkit_xyz": [
+        -2.3994,
+        -0.1019,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.4734,
+      "attached": true
+    },
+    {
+      "time": 13.502,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.1838,
+        -0.7452
+      ],
+      "base_yaw": 2.0967,
+      "gripper_xyz": [
+        -2.5669,
+        -0.0826,
+        -0.3792
+      ],
+      "medkit_xyz": [
+        -2.4853,
+        -0.0829,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.4424,
+      "attached": true
+    },
+    {
+      "time": 13.602,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.2195,
+        -0.707
+      ],
+      "base_yaw": 2.1574,
+      "gripper_xyz": [
+        -2.6441,
+        -0.0663,
+        -0.3766
+      ],
+      "medkit_xyz": [
+        -2.5627,
+        -0.0666,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.4193,
+      "attached": true
+    },
+    {
+      "time": 13.702,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.254,
+        -0.672
+      ],
+      "base_yaw": 2.209,
+      "gripper_xyz": [
+        -2.7127,
+        -0.0522,
+        -0.3748
+      ],
+      "medkit_xyz": [
+        -2.6314,
+        -0.0525,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.4026,
+      "attached": true
+    },
+    {
+      "time": 13.802,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.2866,
+        -0.6403
+      ],
+      "base_yaw": 2.2526,
+      "gripper_xyz": [
+        -2.7729,
+        -0.04,
+        -0.3736
+      ],
+      "medkit_xyz": [
+        -2.6918,
+        -0.0403,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.3909,
+      "attached": true
+    },
+    {
+      "time": 13.902,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.3168,
+        -0.612
+      ],
+      "base_yaw": 2.2893,
+      "gripper_xyz": [
+        -2.8254,
+        -0.0294,
+        -0.3731
+      ],
+      "medkit_xyz": [
+        -2.7444,
+        -0.0296,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.3828,
+      "attached": true
+    },
+    {
+      "time": 14.002,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.3444,
+        -0.5869
+      ],
+      "base_yaw": 2.3199,
+      "gripper_xyz": [
+        -2.8708,
+        -0.0202,
+        -0.373
+      ],
+      "medkit_xyz": [
+        -2.7899,
+        -0.0204,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.3775,
+      "attached": true
+    },
+    {
+      "time": 14.102,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.3692,
+        -0.5651
+      ],
+      "base_yaw": 2.3454,
+      "gripper_xyz": [
+        -2.9097,
+        -0.0122,
+        -0.3733
+      ],
+      "medkit_xyz": [
+        -2.829,
+        -0.0123,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.374,
+      "attached": true
+    },
+    {
+      "time": 14.202,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.3912,
+        -0.5462
+      ],
+      "base_yaw": 2.3664,
+      "gripper_xyz": [
+        -2.9428,
+        -0.0053,
+        -0.3739
+      ],
+      "medkit_xyz": [
+        -2.8622,
+        -0.0054,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.372,
+      "attached": true
+    },
+    {
+      "time": 14.302,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.4105,
+        -0.53
+      ],
+      "base_yaw": 2.3835,
+      "gripper_xyz": [
+        -2.9706,
+        0.0006,
+        -0.3747
+      ],
+      "medkit_xyz": [
+        -2.8901,
+        0.0005,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.3707,
+      "attached": true
+    },
+    {
+      "time": 14.402,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.4289,
+        -0.5141
+      ],
+      "base_yaw": 2.3623,
+      "gripper_xyz": [
+        -2.9762,
+        0.0256,
+        -0.377
+      ],
+      "medkit_xyz": [
+        -2.8964,
+        0.0248,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.3479,
+      "attached": true
+    },
+    {
+      "time": 14.502,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.4466,
+        -0.496
+      ],
+      "base_yaw": 2.3002,
+      "gripper_xyz": [
+        -2.9572,
+        0.0734,
+        -0.38
+      ],
+      "medkit_xyz": [
+        -2.8777,
+        0.0723,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.2978,
+      "attached": true
+    },
+    {
+      "time": 14.602,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.4624,
+        -0.4756
+      ],
+      "base_yaw": 2.2184,
+      "gripper_xyz": [
+        -2.9236,
+        0.1319,
+        -0.3816
+      ],
+      "medkit_xyz": [
+        -2.8443,
+        0.1307,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.2347,
+      "attached": true
+    },
+    {
+      "time": 14.702,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.4757,
+        -0.4531
+      ],
+      "base_yaw": 2.1292,
+      "gripper_xyz": [
+        -2.881,
+        0.1931,
+        -0.3816
+      ],
+      "medkit_xyz": [
+        -2.8019,
+        0.1918,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.1681,
+      "attached": true
+    },
+    {
+      "time": 14.802,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.4864,
+        -0.4291
+      ],
+      "base_yaw": 2.0396,
+      "gripper_xyz": [
+        -2.833,
+        0.2522,
+        -0.3803
+      ],
+      "medkit_xyz": [
+        -2.754,
+        0.251,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.1039,
+      "attached": true
+    },
+    {
+      "time": 14.902,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.4947,
+        -0.4045
+      ],
+      "base_yaw": 1.9532,
+      "gripper_xyz": [
+        -2.782,
+        0.3064,
+        -0.3785
+      ],
+      "medkit_xyz": [
+        -2.7031,
+        0.3054,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.046,
+      "attached": true
+    },
+    {
+      "time": 15.002,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.5006,
+        -0.3798
+      ],
+      "base_yaw": 1.8719,
+      "gripper_xyz": [
+        -2.7299,
+        0.3543,
+        -0.3767
+      ],
+      "medkit_xyz": [
+        -2.6509,
+        0.3534,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.9966,
+      "attached": true
+    },
+    {
+      "time": 15.102,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.5046,
+        -0.3557
+      ],
+      "base_yaw": 1.7961,
+      "gripper_xyz": [
+        -2.6779,
+        0.3954,
+        -0.3753
+      ],
+      "medkit_xyz": [
+        -2.599,
+        0.3947,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.9567,
+      "attached": true
+    },
+    {
+      "time": 15.202,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.5068,
+        -0.3328
+      ],
+      "base_yaw": 1.7258,
+      "gripper_xyz": [
+        -2.627,
+        0.4298,
+        -0.3744
+      ],
+      "medkit_xyz": [
+        -2.548,
+        0.4292,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.9265,
+      "attached": true
+    },
+    {
+      "time": 15.302,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.5076,
+        -0.3113
+      ],
+      "base_yaw": 1.6604,
+      "gripper_xyz": [
+        -2.5777,
+        0.4579,
+        -0.3741
+      ],
+      "medkit_xyz": [
+        -2.4987,
+        0.4574,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.9053,
+      "attached": true
+    },
+    {
+      "time": 15.402,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.5072,
+        -0.2916
+      ],
+      "base_yaw": 1.5993,
+      "gripper_xyz": [
+        -2.5302,
+        0.4804,
+        -0.3742
+      ],
+      "medkit_xyz": [
+        -2.4511,
+        0.48,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.8925,
+      "attached": true
+    },
+    {
+      "time": 15.502,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.5062,
+        -0.2737
+      ],
+      "base_yaw": 1.5418,
+      "gripper_xyz": [
+        -2.4846,
+        0.4977,
+        -0.3747
+      ],
+      "medkit_xyz": [
+        -2.4054,
+        0.4974,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.887,
+      "attached": true
+    },
+    {
+      "time": 15.602,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.5088,
+        -0.2486
+      ],
+      "base_yaw": 1.5367,
+      "gripper_xyz": [
+        -2.4821,
+        0.5157,
+        -0.38
+      ],
+      "medkit_xyz": [
+        -2.4016,
+        0.5153,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.8709,
+      "attached": true
+    },
+    {
+      "time": 15.702,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.5191,
+        -0.2128
+      ],
+      "base_yaw": 1.5861,
+      "gripper_xyz": [
+        -2.5294,
+        0.5405,
+        -0.3886
+      ],
+      "medkit_xyz": [
+        -2.4481,
+        0.54,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.8348,
+      "attached": true
+    },
+    {
+      "time": 15.802,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.5372,
+        -0.1696
+      ],
+      "base_yaw": 1.6616,
+      "gripper_xyz": [
+        -2.6031,
+        0.5717,
+        -0.3953
+      ],
+      "medkit_xyz": [
+        -2.5215,
+        0.571,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.7895,
+      "attached": true
+    },
+    {
+      "time": 15.902,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.562,
+        -0.1217
+      ],
+      "base_yaw": 1.7464,
+      "gripper_xyz": [
+        -2.6897,
+        0.607,
+        -0.3985
+      ],
+      "medkit_xyz": [
+        -2.6079,
+        0.6063,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.7449,
+      "attached": true
+    },
+    {
+      "time": 16.002,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.5922,
+        -0.0712
+      ],
+      "base_yaw": 1.8307,
+      "gripper_xyz": [
+        -2.7808,
+        0.6444,
+        -0.3982
+      ],
+      "medkit_xyz": [
+        -2.699,
+        0.6436,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.7081,
+      "attached": true
+    },
+    {
+      "time": 16.102,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.6261,
+        -0.02
+      ],
+      "base_yaw": 1.9094,
+      "gripper_xyz": [
+        -2.8717,
+        0.6819,
+        -0.3955
+      ],
+      "medkit_xyz": [
+        -2.7899,
+        0.6811,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.6833,
+      "attached": true
+    },
+    {
+      "time": 16.202,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.6622,
+        0.0305
+      ],
+      "base_yaw": 1.9802,
+      "gripper_xyz": [
+        -2.9591,
+        0.7181,
+        -0.3916
+      ],
+      "medkit_xyz": [
+        -2.8774,
+        0.7174,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.6723,
+      "attached": true
+    },
+    {
+      "time": 16.302,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.6993,
+        0.0792
+      ],
+      "base_yaw": 2.0423,
+      "gripper_xyz": [
+        -3.0411,
+        0.752,
+        -0.3873
+      ],
+      "medkit_xyz": [
+        -2.9595,
+        0.7514,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.6739,
+      "attached": true
+    },
+    {
+      "time": 16.402,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.7362,
+        0.1252
+      ],
+      "base_yaw": 2.096,
+      "gripper_xyz": [
+        -3.1165,
+        0.7834,
+        -0.3832
+      ],
+      "medkit_xyz": [
+        -3.035,
+        0.7828,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.6856,
+      "attached": true
+    },
+    {
+      "time": 16.502,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.772,
+        0.1681
+      ],
+      "base_yaw": 2.1419,
+      "gripper_xyz": [
+        -3.1847,
+        0.8118,
+        -0.3797
+      ],
+      "medkit_xyz": [
+        -3.1034,
+        0.8113,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.7041,
+      "attached": true
+    },
+    {
+      "time": 16.602,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.8061,
+        0.2074
+      ],
+      "base_yaw": 2.1808,
+      "gripper_xyz": [
+        -3.2456,
+        0.8374,
+        -0.377
+      ],
+      "medkit_xyz": [
+        -3.1645,
+        0.8369,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.7266,
+      "attached": true
+    },
+    {
+      "time": 16.702,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.838,
+        0.243
+      ],
+      "base_yaw": 2.2136,
+      "gripper_xyz": [
+        -3.2995,
+        0.8601,
+        -0.3751
+      ],
+      "medkit_xyz": [
+        -3.2185,
+        0.8597,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.7507,
+      "attached": true
+    },
+    {
+      "time": 16.802,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.8673,
+        0.2749
+      ],
+      "base_yaw": 2.2412,
+      "gripper_xyz": [
+        -3.3467,
+        0.8802,
+        -0.374
+      ],
+      "medkit_xyz": [
+        -3.2658,
+        0.8798,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.7748,
+      "attached": true
+    },
+    {
+      "time": 16.902,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.8938,
+        0.303
+      ],
+      "base_yaw": 2.2642,
+      "gripper_xyz": [
+        -3.3876,
+        0.8977,
+        -0.3734
+      ],
+      "medkit_xyz": [
+        -3.3068,
+        0.8974,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.7977,
+      "attached": true
+    },
+    {
+      "time": 17.002,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.9175,
+        0.3276
+      ],
+      "base_yaw": 2.2835,
+      "gripper_xyz": [
+        -3.4228,
+        0.9127,
+        -0.3733
+      ],
+      "medkit_xyz": [
+        -3.3421,
+        0.9125,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.8188,
+      "attached": true
+    },
+    {
+      "time": 17.102,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.9384,
+        0.3489
+      ],
+      "base_yaw": 2.2995,
+      "gripper_xyz": [
+        -3.4528,
+        0.9255,
+        -0.3737
+      ],
+      "medkit_xyz": [
+        -3.3722,
+        0.9253,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.8378,
+      "attached": true
+    },
+    {
+      "time": 17.202,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.9565,
+        0.3671
+      ],
+      "base_yaw": 2.3118,
+      "gripper_xyz": [
+        -3.4776,
+        0.9367,
+        -0.3743
+      ],
+      "medkit_xyz": [
+        -3.3973,
+        0.9364,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.8541,
+      "attached": true
+    },
+    {
+      "time": 17.302,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.9742,
+        0.3867
+      ],
+      "base_yaw": 2.2835,
+      "gripper_xyz": [
+        -3.4771,
+        0.9675,
+        -0.3773
+      ],
+      "medkit_xyz": [
+        -3.3974,
+        0.9666,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.84,
+      "attached": true
+    },
+    {
+      "time": 17.402,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -2.9908,
+        0.4099
+      ],
+      "base_yaw": 2.2189,
+      "gripper_xyz": [
+        -3.4527,
+        1.018,
+        -0.3809
+      ],
+      "medkit_xyz": [
+        -3.3733,
+        1.0168,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.7964,
+      "attached": true
+    },
+    {
+      "time": 17.502,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.0052,
+        0.4364
+      ],
+      "base_yaw": 2.1379,
+      "gripper_xyz": [
+        -3.415,
+        1.0773,
+        -0.3831
+      ],
+      "medkit_xyz": [
+        -3.3358,
+        1.0761,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.7385,
+      "attached": true
+    },
+    {
+      "time": 17.602,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.017,
+        0.4653
+      ],
+      "base_yaw": 2.0518,
+      "gripper_xyz": [
+        -3.37,
+        1.1387,
+        -0.3834
+      ],
+      "medkit_xyz": [
+        -3.2909,
+        1.1375,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.6752,
+      "attached": true
+    },
+    {
+      "time": 17.702,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.0261,
+        0.4958
+      ],
+      "base_yaw": 1.967,
+      "gripper_xyz": [
+        -3.3213,
+        1.1979,
+        -0.3824
+      ],
+      "medkit_xyz": [
+        -3.2423,
+        1.1967,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.6118,
+      "attached": true
+    },
+    {
+      "time": 17.802,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.0327,
+        0.5268
+      ],
+      "base_yaw": 1.8868,
+      "gripper_xyz": [
+        -3.2714,
+        1.2524,
+        -0.3806
+      ],
+      "medkit_xyz": [
+        -3.1924,
+        1.2514,
         0.34
       ],
       "safe_zone_xyz": [
@@ -3270,21 +4683,21 @@
       "attached": true
     },
     {
-      "time": 12.502,
+      "time": 17.902,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.5804,
-        0.278
+        -3.0371,
+        0.5575
       ],
-      "base_yaw": 1.9329,
+      "base_yaw": 1.8127,
       "gripper_xyz": [
-        -2.8372,
-        0.9522,
-        -0.4105
+        -3.2218,
+        1.3011,
+        -0.3788
       ],
       "medkit_xyz": [
-        -2.7576,
-        0.9494,
+        -3.1428,
+        1.3002,
         0.34
       ],
       "safe_zone_xyz": [
@@ -3292,25 +4705,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 0.4148,
+      "distance_medkit_to_safe_xy": 0.4953,
       "attached": true
     },
     {
-      "time": 12.602,
+      "time": 18.002,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.596,
-        0.3941
+        -3.0395,
+        0.5872
       ],
-      "base_yaw": 1.8786,
+      "base_yaw": 1.745,
       "gripper_xyz": [
-        -2.8182,
-        1.089,
-        -0.4049
+        -3.1737,
+        1.3436,
+        -0.3773
       ],
       "medkit_xyz": [
-        -2.7385,
-        1.0863,
+        -3.0946,
+        1.3428,
         0.34
       ],
       "safe_zone_xyz": [
@@ -3318,25 +4731,25 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 0.2782,
+      "distance_medkit_to_safe_xy": 0.4447,
       "attached": true
     },
     {
-      "time": 12.702,
+      "time": 18.102,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.6091,
-        0.5075
+        -3.0403,
+        0.6154
       ],
-      "base_yaw": 1.8308,
+      "base_yaw": 1.6834,
       "gripper_xyz": [
-        -2.8004,
-        1.2225,
-        -0.3973
+        -3.1278,
+        1.3799,
+        -0.3763
       ],
       "medkit_xyz": [
-        -2.7207,
-        1.2199,
+        -3.0487,
+        1.3792,
         0.34
       ],
       "safe_zone_xyz": [
@@ -3344,728 +4757,26 @@
         1.35,
         0.08
       ],
-      "distance_medkit_to_safe_xy": 0.1481,
+      "distance_medkit_to_safe_xy": 0.3997,
       "attached": true
     },
     {
-      "time": 12.802,
+      "time": 18.202,
       "stage": "transport_to_safe_zone",
       "base_xy": [
-        -2.62,
-        0.6162
+        -3.0399,
+        0.6416
       ],
-      "base_yaw": 1.7892,
+      "base_yaw": 1.6275,
       "gripper_xyz": [
-        -2.7836,
-        1.3495,
-        -0.3892
+        -3.0844,
+        1.4105,
+        -0.3757
       ],
       "medkit_xyz": [
-        -2.704,
-        1.347,
+        -3.0053,
+        1.41,
         0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.054,
-      "attached": true
-    },
-    {
-      "time": 12.902,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        -2.6289,
-        0.7187
-      ],
-      "base_yaw": 1.7535,
-      "gripper_xyz": [
-        -2.7679,
-        1.4674,
-        -0.3814
-      ],
-      "medkit_xyz": [
-        -2.6882,
-        1.4651,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.1213,
-      "attached": true
-    },
-    {
-      "time": 13.002,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        -2.636,
-        0.8138
-      ],
-      "base_yaw": 1.7229,
-      "gripper_xyz": [
-        -2.7533,
-        1.575,
-        -0.3747
-      ],
-      "medkit_xyz": [
-        -2.6736,
-        1.5729,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.2242,
-      "attached": true
-    },
-    {
-      "time": 13.102,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        -2.6417,
-        0.9009
-      ],
-      "base_yaw": 1.6968,
-      "gripper_xyz": [
-        -2.7398,
-        1.6716,
-        -0.3694
-      ],
-      "medkit_xyz": [
-        -2.6601,
-        1.6698,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.3199,
-      "attached": true
-    },
-    {
-      "time": 13.202,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        -2.646,
-        0.9797
-      ],
-      "base_yaw": 1.6745,
-      "gripper_xyz": [
-        -2.7274,
-        1.7572,
-        -0.3656
-      ],
-      "medkit_xyz": [
-        -2.6476,
-        1.7556,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.4056,
-      "attached": true
-    },
-    {
-      "time": 13.302,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        -2.6493,
-        1.0501
-      ],
-      "base_yaw": 1.6553,
-      "gripper_xyz": [
-        -2.7159,
-        1.832,
-        -0.3632
-      ],
-      "medkit_xyz": [
-        -2.6361,
-        1.8306,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.4808,
-      "attached": true
-    },
-    {
-      "time": 13.402,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        -2.6518,
-        1.1122
-      ],
-      "base_yaw": 1.6386,
-      "gripper_xyz": [
-        -2.7053,
-        1.8967,
-        -0.362
-      ],
-      "medkit_xyz": [
-        -2.6255,
-        1.8955,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.5461,
-      "attached": true
-    },
-    {
-      "time": 13.502,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        -2.6535,
-        1.1663
-      ],
-      "base_yaw": 1.6237,
-      "gripper_xyz": [
-        -2.6953,
-        1.9519,
-        -0.3619
-      ],
-      "medkit_xyz": [
-        -2.6155,
-        1.9509,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.6019,
-      "attached": true
-    },
-    {
-      "time": 13.602,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        -2.6547,
-        1.213
-      ],
-      "base_yaw": 1.61,
-      "gripper_xyz": [
-        -2.6857,
-        1.9985,
-        -0.3625
-      ],
-      "medkit_xyz": [
-        -2.6059,
-        1.9976,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.6491,
-      "attached": true
-    },
-    {
-      "time": 13.702,
-      "stage": "transport_to_safe_zone",
-      "base_xy": [
-        -2.6554,
-        1.2526
-      ],
-      "base_yaw": 1.5968,
-      "gripper_xyz": [
-        -2.676,
-        2.0372,
-        -0.3637
-      ],
-      "medkit_xyz": [
-        -2.5962,
-        2.0365,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.6886,
-      "attached": true
-    },
-    {
-      "time": 13.802,
-      "stage": "release_supply",
-      "base_xy": [
-        -2.6594,
-        1.2858
-      ],
-      "base_yaw": 1.5636,
-      "gripper_xyz": [
-        -2.655,
-        2.0689,
-        -0.365
-      ],
-      "medkit_xyz": [
-        -2.576,
-        2.0684,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.7222,
-      "attached": true
-    },
-    {
-      "time": 13.902,
-      "stage": "release_supply",
-      "base_xy": [
-        -2.6854,
-        1.3134
-      ],
-      "base_yaw": 1.422,
-      "gripper_xyz": [
-        -2.5706,
-        2.0927,
-        -0.3608
-      ],
-      "medkit_xyz": [
-        -2.4927,
-        2.0924,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.7589,
-      "attached": true
-    },
-    {
-      "time": 14.002,
-      "stage": "release_supply",
-      "base_xy": [
-        -2.7262,
-        1.3377
-      ],
-      "base_yaw": 1.2271,
-      "gripper_xyz": [
-        -2.4576,
-        2.0948,
-        -0.3473
-      ],
-      "medkit_xyz": [
-        -2.38,
-        2.0951,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.7925,
-      "attached": true
-    },
-    {
-      "time": 14.102,
-      "stage": "release_supply",
-      "base_xy": [
-        -2.774,
-        1.3597
-      ],
-      "base_yaw": 1.0251,
-      "gripper_xyz": [
-        -2.3476,
-        2.0661,
-        -0.3276
-      ],
-      "medkit_xyz": [
-        -2.2696,
-        2.0669,
-        0.34
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.8116,
-      "attached": true
-    },
-    {
-      "time": 14.202,
-      "stage": "release_supply",
-      "base_xy": [
-        -2.8152,
-        1.3795
-      ],
-      "base_yaw": 0.8462,
-      "gripper_xyz": [
-        -2.2586,
-        2.0111,
-        -0.3113
-      ],
-      "medkit_xyz": [
-        -2.65,
-        1.35,
-        0.12
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.0,
-      "attached": false
-    },
-    {
-      "time": 14.302,
-      "stage": "release_supply",
-      "base_xy": [
-        -2.8436,
-        1.3975
-      ],
-      "base_yaw": 0.6996,
-      "gripper_xyz": [
-        -2.1959,
-        1.9449,
-        -0.3049
-      ],
-      "medkit_xyz": [
-        -2.65,
-        1.35,
-        0.12
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.0,
-      "attached": false
-    },
-    {
-      "time": 14.402,
-      "stage": "release_supply",
-      "base_xy": [
-        -2.8645,
-        1.4137
-      ],
-      "base_yaw": 0.5806,
-      "gripper_xyz": [
-        -2.1579,
-        1.8787,
-        -0.3066
-      ],
-      "medkit_xyz": [
-        -2.65,
-        1.35,
-        0.12
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.0,
-      "attached": false
-    },
-    {
-      "time": 14.502,
-      "stage": "release_supply",
-      "base_xy": [
-        -2.8644,
-        1.4392
-      ],
-      "base_yaw": 0.5081,
-      "gripper_xyz": [
-        -2.1414,
-        1.8422,
-        -0.3234
-      ],
-      "medkit_xyz": [
-        -2.65,
-        1.35,
-        0.12
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.0,
-      "attached": false
-    },
-    {
-      "time": 14.602,
-      "stage": "release_supply",
-      "base_xy": [
-        -2.8592,
-        1.4649
-      ],
-      "base_yaw": 0.4485,
-      "gripper_xyz": [
-        -2.1282,
-        1.8174,
-        -0.3381
-      ],
-      "medkit_xyz": [
-        -2.65,
-        1.35,
-        0.12
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.0,
-      "attached": false
-    },
-    {
-      "time": 14.702,
-      "stage": "release_supply",
-      "base_xy": [
-        -2.8636,
-        1.4809
-      ],
-      "base_yaw": 0.3872,
-      "gripper_xyz": [
-        -2.1174,
-        1.7857,
-        -0.3427
-      ],
-      "medkit_xyz": [
-        -2.65,
-        1.35,
-        0.12
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.0,
-      "attached": false
-    },
-    {
-      "time": 14.802,
-      "stage": "complete",
-      "base_xy": [
-        -2.861,
-        1.4995
-      ],
-      "base_yaw": 0.354,
-      "gripper_xyz": [
-        -2.1136,
-        1.7756,
-        -0.351
-      ],
-      "medkit_xyz": [
-        -2.651,
-        1.3531,
-        0.0413
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.0033,
-      "attached": false
-    },
-    {
-      "time": 14.902,
-      "stage": "complete",
-      "base_xy": [
-        -2.8668,
-        1.5243
-      ],
-      "base_yaw": 0.3426,
-      "gripper_xyz": [
-        -2.1229,
-        1.7892,
-        -0.3583
-      ],
-      "medkit_xyz": [
-        -2.6518,
-        1.3567,
-        0.0283
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.0069,
-      "attached": false
-    },
-    {
-      "time": 15.002,
-      "stage": "complete",
-      "base_xy": [
-        -2.8761,
-        1.5578
-      ],
-      "base_yaw": 0.3321,
-      "gripper_xyz": [
-        -2.1392,
-        1.8112,
-        -0.3678
-      ],
-      "medkit_xyz": [
-        -2.6527,
-        1.3583,
-        0.0305
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.0087,
-      "attached": false
-    },
-    {
-      "time": 15.102,
-      "stage": "complete",
-      "base_xy": [
-        -2.8877,
-        1.6014
-      ],
-      "base_yaw": 0.3189,
-      "gripper_xyz": [
-        -2.1582,
-        1.8415,
-        -0.3774
-      ],
-      "medkit_xyz": [
-        -2.6537,
-        1.3604,
-        0.0348
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.011,
-      "attached": false
-    },
-    {
-      "time": 15.202,
-      "stage": "complete",
-      "base_xy": [
-        -2.9027,
-        1.6534
-      ],
-      "base_yaw": 0.3042,
-      "gripper_xyz": [
-        -2.1777,
-        1.8796,
-        -0.3847
-      ],
-      "medkit_xyz": [
-        -2.6562,
-        1.364,
-        0.0489
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.0153,
-      "attached": false
-    },
-    {
-      "time": 15.302,
-      "stage": "complete",
-      "base_xy": [
-        -2.9428,
-        1.7845
-      ],
-      "base_yaw": 0.3195,
-      "gripper_xyz": [
-        -2.2273,
-        2.018,
-        -0.3902
-      ],
-      "medkit_xyz": [
-        -2.6751,
-        1.4853,
-        0.1784
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.1376,
-      "attached": false
-    },
-    {
-      "time": 15.402,
-      "stage": "complete",
-      "base_xy": [
-        -2.989,
-        1.9039
-      ],
-      "base_yaw": 0.3244,
-      "gripper_xyz": [
-        -2.273,
-        2.1424,
-        -0.3891
-      ],
-      "medkit_xyz": [
-        -2.6975,
-        1.6066,
-        0.2694
-      ],
-      "safe_zone_xyz": [
-        -2.65,
-        1.35,
-        0.08
-      ],
-      "distance_medkit_to_safe_xy": 0.261,
-      "attached": false
-    },
-    {
-      "time": 15.502,
-      "stage": "complete",
-      "base_xy": [
-        -3.0345,
-        1.9848
-      ],
-      "base_yaw": 0.32,
-      "gripper_xyz": [
-        -2.3111,
-        2.2231,
-        -0.3842
-      ],
-      "medkit_xyz": [
-        -2.7359,
-        1.6999,
-        0.3018
       ],
       "safe_zone_xyz": [
         -2.65,
@@ -4073,6 +4784,1202 @@
         0.08
       ],
       "distance_medkit_to_safe_xy": 0.3603,
+      "attached": true
+    },
+    {
+      "time": 18.302,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.0385,
+        0.6655
+      ],
+      "base_yaw": 1.5765,
+      "gripper_xyz": [
+        -3.0437,
+        1.4359,
+        -0.3756
+      ],
+      "medkit_xyz": [
+        -2.9645,
+        1.4354,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.3259,
+      "attached": true
+    },
+    {
+      "time": 18.402,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.0365,
+        0.6871
+      ],
+      "base_yaw": 1.5295,
+      "gripper_xyz": [
+        -3.0054,
+        1.4566,
+        -0.3759
+      ],
+      "medkit_xyz": [
+        -2.9261,
+        1.4562,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.2959,
+      "attached": true
+    },
+    {
+      "time": 18.502,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.034,
+        0.7063
+      ],
+      "base_yaw": 1.4863,
+      "gripper_xyz": [
+        -2.9696,
+        1.4731,
+        -0.3764
+      ],
+      "medkit_xyz": [
+        -2.8902,
+        1.4728,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.2697,
+      "attached": true
+    },
+    {
+      "time": 18.602,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.0332,
+        0.7285
+      ],
+      "base_yaw": 1.4981,
+      "gripper_xyz": [
+        -2.9768,
+        1.4916,
+        -0.3797
+      ],
+      "medkit_xyz": [
+        -2.8961,
+        1.4912,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.2837,
+      "attached": true
+    },
+    {
+      "time": 18.702,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.0369,
+        0.7555
+      ],
+      "base_yaw": 1.5645,
+      "gripper_xyz": [
+        -3.0307,
+        1.5145,
+        -0.3844
+      ],
+      "medkit_xyz": [
+        -2.9493,
+        1.5141,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.3413,
+      "attached": true
+    },
+    {
+      "time": 18.802,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.046,
+        0.7861
+      ],
+      "base_yaw": 1.6558,
+      "gripper_xyz": [
+        -3.1085,
+        1.5386,
+        -0.3873
+      ],
+      "medkit_xyz": [
+        -3.0268,
+        1.5381,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.4212,
+      "attached": true
+    },
+    {
+      "time": 18.902,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.0604,
+        0.8188
+      ],
+      "base_yaw": 1.7551,
+      "gripper_xyz": [
+        -3.197,
+        1.5609,
+        -0.3877
+      ],
+      "medkit_xyz": [
+        -3.1152,
+        1.5605,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.5106,
+      "attached": true
+    },
+    {
+      "time": 19.002,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.0792,
+        0.8524
+      ],
+      "base_yaw": 1.8526,
+      "gripper_xyz": [
+        -3.2881,
+        1.5798,
+        -0.386
+      ],
+      "medkit_xyz": [
+        -3.2063,
+        1.5795,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.6017,
+      "attached": true
+    },
+    {
+      "time": 19.102,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.1014,
+        0.8859
+      ],
+      "base_yaw": 1.9436,
+      "gripper_xyz": [
+        -3.3768,
+        1.5945,
+        -0.3833
+      ],
+      "medkit_xyz": [
+        -3.2951,
+        1.5942,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.6898,
+      "attached": true
+    },
+    {
+      "time": 19.202,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.1257,
+        0.9183
+      ],
+      "base_yaw": 2.0258,
+      "gripper_xyz": [
+        -3.4602,
+        1.6051,
+        -0.3805
+      ],
+      "medkit_xyz": [
+        -3.3786,
+        1.6049,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.7719,
+      "attached": true
+    },
+    {
+      "time": 19.302,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.1513,
+        0.949
+      ],
+      "base_yaw": 2.0988,
+      "gripper_xyz": [
+        -3.5368,
+        1.6122,
+        -0.3781
+      ],
+      "medkit_xyz": [
+        -3.4553,
+        1.6121,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.8469,
+      "attached": true
+    },
+    {
+      "time": 19.402,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.1772,
+        0.9775
+      ],
+      "base_yaw": 2.1629,
+      "gripper_xyz": [
+        -3.6057,
+        1.6165,
+        -0.3763
+      ],
+      "medkit_xyz": [
+        -3.5244,
+        1.6164,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.9141,
+      "attached": true
+    },
+    {
+      "time": 19.502,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.2026,
+        1.0035
+      ],
+      "base_yaw": 2.2187,
+      "gripper_xyz": [
+        -3.6671,
+        1.6186,
+        -0.3752
+      ],
+      "medkit_xyz": [
+        -3.5859,
+        1.6186,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.9737,
+      "attached": true
+    },
+    {
+      "time": 19.602,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.2269,
+        1.0269
+      ],
+      "base_yaw": 2.2672,
+      "gripper_xyz": [
+        -3.7211,
+        1.6192,
+        -0.3747
+      ],
+      "medkit_xyz": [
+        -3.6401,
+        1.6192,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.0261,
+      "attached": true
+    },
+    {
+      "time": 19.702,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.2498,
+        1.0477
+      ],
+      "base_yaw": 2.3091,
+      "gripper_xyz": [
+        -3.7685,
+        1.6187,
+        -0.3747
+      ],
+      "medkit_xyz": [
+        -3.6876,
+        1.6187,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.0718,
+      "attached": true
+    },
+    {
+      "time": 19.802,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.2708,
+        1.066
+      ],
+      "base_yaw": 2.3455,
+      "gripper_xyz": [
+        -3.8097,
+        1.6173,
+        -0.3751
+      ],
+      "medkit_xyz": [
+        -3.7289,
+        1.6174,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.1116,
+      "attached": true
+    },
+    {
+      "time": 19.902,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.2899,
+        1.0818
+      ],
+      "base_yaw": 2.3771,
+      "gripper_xyz": [
+        -3.8455,
+        1.6153,
+        -0.3757
+      ],
+      "medkit_xyz": [
+        -3.7648,
+        1.6153,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.1459,
+      "attached": true
+    },
+    {
+      "time": 20.002,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.3069,
+        1.0953
+      ],
+      "base_yaw": 2.4043,
+      "gripper_xyz": [
+        -3.8762,
+        1.6128,
+        -0.3765
+      ],
+      "medkit_xyz": [
+        -3.7957,
+        1.6128,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.1755,
+      "attached": true
+    },
+    {
+      "time": 20.102,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.3239,
+        1.1082
+      ],
+      "base_yaw": 2.3924,
+      "gripper_xyz": [
+        -3.8856,
+        1.63,
+        -0.3786
+      ],
+      "medkit_xyz": [
+        -3.8057,
+        1.6294,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.189,
+      "attached": true
+    },
+    {
+      "time": 20.202,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.3406,
+        1.1221
+      ],
+      "base_yaw": 2.3407,
+      "gripper_xyz": [
+        -3.8726,
+        1.6695,
+        -0.3812
+      ],
+      "medkit_xyz": [
+        -3.793,
+        1.6686,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.1866,
+      "attached": true
+    },
+    {
+      "time": 20.302,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.3559,
+        1.1376
+      ],
+      "base_yaw": 2.2688,
+      "gripper_xyz": [
+        -3.8462,
+        1.7201,
+        -0.3827
+      ],
+      "medkit_xyz": [
+        -3.7668,
+        1.719,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.1762,
+      "attached": true
+    },
+    {
+      "time": 20.402,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.3693,
+        1.1545
+      ],
+      "base_yaw": 2.1881,
+      "gripper_xyz": [
+        -3.811,
+        1.7746,
+        -0.3828
+      ],
+      "medkit_xyz": [
+        -3.7318,
+        1.7735,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.1617,
+      "attached": true
+    },
+    {
+      "time": 20.502,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.3806,
+        1.1726
+      ],
+      "base_yaw": 2.1049,
+      "gripper_xyz": [
+        -3.77,
+        1.8285,
+        -0.3817
+      ],
+      "medkit_xyz": [
+        -3.6909,
+        1.8274,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.1451,
+      "attached": true
+    },
+    {
+      "time": 20.602,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.3898,
+        1.1913
+      ],
+      "base_yaw": 2.0229,
+      "gripper_xyz": [
+        -3.7251,
+        1.8788,
+        -0.38
+      ],
+      "medkit_xyz": [
+        -3.646,
+        1.8779,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.1273,
+      "attached": true
+    },
+    {
+      "time": 20.702,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.397,
+        1.2102
+      ],
+      "base_yaw": 1.9439,
+      "gripper_xyz": [
+        -3.6778,
+        1.9241,
+        -0.3783
+      ],
+      "medkit_xyz": [
+        -3.5987,
+        1.9233,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.1085,
+      "attached": true
+    },
+    {
+      "time": 20.802,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.4023,
+        1.2287
+      ],
+      "base_yaw": 1.8686,
+      "gripper_xyz": [
+        -3.6291,
+        1.9635,
+        -0.3768
+      ],
+      "medkit_xyz": [
+        -3.5501,
+        1.9628,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.0889,
+      "attached": true
+    },
+    {
+      "time": 20.902,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.4061,
+        1.2465
+      ],
+      "base_yaw": 1.797,
+      "gripper_xyz": [
+        -3.5799,
+        1.9969,
+        -0.3758
+      ],
+      "medkit_xyz": [
+        -3.5009,
+        1.9963,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.0686,
+      "attached": true
+    },
+    {
+      "time": 21.002,
+      "stage": "transport_to_safe_zone",
+      "base_xy": [
+        -3.4085,
+        1.2633
+      ],
+      "base_yaw": 1.7287,
+      "gripper_xyz": [
+        -3.5308,
+        2.0245,
+        -0.3753
+      ],
+      "medkit_xyz": [
+        -3.4518,
+        2.024,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.0474,
+      "attached": true
+    },
+    {
+      "time": 21.102,
+      "stage": "release_supply",
+      "base_xy": [
+        -3.4107,
+        1.2786
+      ],
+      "base_yaw": 1.6505,
+      "gripper_xyz": [
+        -3.4739,
+        2.0472,
+        -0.375
+      ],
+      "medkit_xyz": [
+        -3.3956,
+        2.0468,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 1.0205,
+      "attached": true
+    },
+    {
+      "time": 21.202,
+      "stage": "release_supply",
+      "base_xy": [
+        -3.4178,
+        1.2924
+      ],
+      "base_yaw": 1.4873,
+      "gripper_xyz": [
+        -3.3557,
+        2.0677,
+        -0.3692
+      ],
+      "medkit_xyz": [
+        -3.2786,
+        2.0674,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.9538,
+      "attached": true
+    },
+    {
+      "time": 21.302,
+      "stage": "release_supply",
+      "base_xy": [
+        -3.4257,
+        1.3065
+      ],
+      "base_yaw": 1.282,
+      "gripper_xyz": [
+        -3.2025,
+        2.0692,
+        -0.3547
+      ],
+      "medkit_xyz": [
+        -3.1256,
+        2.0694,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.8624,
+      "attached": true
+    },
+    {
+      "time": 21.402,
+      "stage": "release_supply",
+      "base_xy": [
+        -3.431,
+        1.3214
+      ],
+      "base_yaw": 1.074,
+      "gripper_xyz": [
+        -3.0447,
+        2.0405,
+        -0.3353
+      ],
+      "medkit_xyz": [
+        -2.9677,
+        2.0414,
+        0.34
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.7609,
+      "attached": true
+    },
+    {
+      "time": 21.502,
+      "stage": "release_supply",
+      "base_xy": [
+        -3.4323,
+        1.3362
+      ],
+      "base_yaw": 0.8816,
+      "gripper_xyz": [
+        -2.903,
+        1.9831,
+        -0.3169
+      ],
+      "medkit_xyz": [
+        -2.65,
+        1.35,
+        0.12
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.0,
+      "attached": false
+    },
+    {
+      "time": 21.602,
+      "stage": "release_supply",
+      "base_xy": [
+        -3.4294,
+        1.3494
+      ],
+      "base_yaw": 0.7122,
+      "gripper_xyz": [
+        -2.7885,
+        1.9061,
+        -0.3038
+      ],
+      "medkit_xyz": [
+        -2.65,
+        1.35,
+        0.12
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.0,
+      "attached": false
+    },
+    {
+      "time": 21.702,
+      "stage": "release_supply",
+      "base_xy": [
+        -3.4234,
+        1.3601
+      ],
+      "base_yaw": 0.5672,
+      "gripper_xyz": [
+        -2.704,
+        1.821,
+        -0.2979
+      ],
+      "medkit_xyz": [
+        -2.65,
+        1.35,
+        0.12
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.0,
+      "attached": false
+    },
+    {
+      "time": 21.802,
+      "stage": "release_supply",
+      "base_xy": [
+        -3.4155,
+        1.3676
+      ],
+      "base_yaw": 0.4459,
+      "gripper_xyz": [
+        -2.6465,
+        1.7373,
+        -0.2988
+      ],
+      "medkit_xyz": [
+        -2.65,
+        1.35,
+        0.12
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.0,
+      "attached": false
+    },
+    {
+      "time": 21.902,
+      "stage": "release_supply",
+      "base_xy": [
+        -3.4069,
+        1.3721
+      ],
+      "base_yaw": 0.3462,
+      "gripper_xyz": [
+        -2.6106,
+        1.661,
+        -0.3048
+      ],
+      "medkit_xyz": [
+        -2.65,
+        1.35,
+        0.12
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.0,
+      "attached": false
+    },
+    {
+      "time": 22.002,
+      "stage": "release_supply",
+      "base_xy": [
+        -3.3985,
+        1.3739
+      ],
+      "base_yaw": 0.2654,
+      "gripper_xyz": [
+        -2.5904,
+        1.5949,
+        -0.3136
+      ],
+      "medkit_xyz": [
+        -2.65,
+        1.35,
+        0.12
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.0,
+      "attached": false
+    },
+    {
+      "time": 22.102,
+      "stage": "complete",
+      "base_xy": [
+        -3.3909,
+        1.3736
+      ],
+      "base_yaw": 0.2013,
+      "gripper_xyz": [
+        -2.5803,
+        1.54,
+        -0.3236
+      ],
+      "medkit_xyz": [
+        -2.65,
+        1.35,
+        0.1136
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.0,
+      "attached": false
+    },
+    {
+      "time": 22.202,
+      "stage": "complete",
+      "base_xy": [
+        -3.3842,
+        1.3718
+      ],
+      "base_yaw": 0.151,
+      "gripper_xyz": [
+        -2.5791,
+        1.4951,
+        -0.3368
+      ],
+      "medkit_xyz": [
+        -2.65,
+        1.35,
+        0.0763
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.0,
+      "attached": false
+    },
+    {
+      "time": 22.302,
+      "stage": "complete",
+      "base_xy": [
+        -3.3786,
+        1.3691
+      ],
+      "base_yaw": 0.1121,
+      "gripper_xyz": [
+        -2.585,
+        1.459,
+        -0.3515
+      ],
+      "medkit_xyz": [
+        -2.65,
+        1.35,
+        0.0798
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.0,
+      "attached": false
+    },
+    {
+      "time": 22.402,
+      "stage": "complete",
+      "base_xy": [
+        -3.3745,
+        1.3657
+      ],
+      "base_yaw": 0.0822,
+      "gripper_xyz": [
+        -2.5936,
+        1.4306,
+        -0.3649
+      ],
+      "medkit_xyz": [
+        -2.65,
+        1.35,
+        0.0799
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.0,
+      "attached": false
+    },
+    {
+      "time": 22.502,
+      "stage": "complete",
+      "base_xy": [
+        -3.3717,
+        1.3622
+      ],
+      "base_yaw": 0.0597,
+      "gripper_xyz": [
+        -2.6022,
+        1.4085,
+        -0.3756
+      ],
+      "medkit_xyz": [
+        -2.65,
+        1.35,
+        0.0799
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.0,
+      "attached": false
+    },
+    {
+      "time": 22.602,
+      "stage": "complete",
+      "base_xy": [
+        -3.3702,
+        1.3587
+      ],
+      "base_yaw": 0.0429,
+      "gripper_xyz": [
+        -2.6095,
+        1.3916,
+        -0.3835
+      ],
+      "medkit_xyz": [
+        -2.65,
+        1.35,
+        0.0799
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.0,
+      "attached": false
+    },
+    {
+      "time": 22.702,
+      "stage": "complete",
+      "base_xy": [
+        -3.3697,
+        1.3554
+      ],
+      "base_yaw": 0.0304,
+      "gripper_xyz": [
+        -2.6151,
+        1.3786,
+        -0.3888
+      ],
+      "medkit_xyz": [
+        -2.65,
+        1.35,
+        0.0799
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.0,
+      "attached": false
+    },
+    {
+      "time": 22.802,
+      "stage": "complete",
+      "base_xy": [
+        -3.3699,
+        1.3525
+      ],
+      "base_yaw": 0.0213,
+      "gripper_xyz": [
+        -2.6192,
+        1.3687,
+        -0.3921
+      ],
+      "medkit_xyz": [
+        -2.65,
+        1.35,
+        0.0799
+      ],
+      "safe_zone_xyz": [
+        -2.65,
+        1.35,
+        0.08
+      ],
+      "distance_medkit_to_safe_xy": 0.0,
       "attached": false
     }
   ]

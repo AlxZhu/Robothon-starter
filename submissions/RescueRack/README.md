@@ -38,8 +38,10 @@ The project uses a deterministic mission controller with explicit stages:
 - `release_supply`
 - `complete`
 
-The controller combines waypoint navigation, arm pose targets, gripper commands,
-and a stable assisted carry phase. The mobile base and environment obstacles have
+The controller combines obstacle-aware A* route planning, arm pose targets, gripper
+commands, and a stable assisted carry phase. In hard mode, the route is generated
+from a debris map using `rescuerack/planner.py` rather than only replaying a fixed
+list of hand-authored waypoints. The mobile base and environment obstacles have
 active collision geometry; the included clearance check verifies that the hard-mode
 route completes without contacting named obstacles.
 
@@ -58,6 +60,8 @@ route completes without contacting named obstacles.
 - Three difficulty modes: `easy`, `medium`, and `hard`.
 - Hard mode selects the red medkit from distractor supplies and uses the longest
   debris-aware route.
+- Hard mode uses a grid A* planner to generate pickup and delivery waypoints from
+  obstacle geometry, reporting expanded nodes, route clearance, and fallback status.
 - `scripts/verify_clearance.py` checks mission success, minimum obstacle clearance,
   and named-obstacle contact count.
 - `scripts/make_demo_video.py` generates `media/demo.mp4` from submitted code.
@@ -163,6 +167,7 @@ media/demo.mp4
 | MuJoCo depth | MJCF scene, joints, actuators, sensors, collisions, free bodies, cameras. |
 | Task design | Clear emergency logistics mission with escalating difficulty. |
 | Control | State-machine autonomy for navigation, grasp preparation, carry, and release. |
+| Planning | Hard-mode grid A* generates obstacle-aware pickup and delivery waypoints. |
 | Data collection | Generated hard-mode trajectory and mission metrics JSON artifacts. |
 | Dexterity | Two-finger gripper alignment and object acquisition with deterministic carry. |
 | Engineering quality | Separated model, package code, scripts, README, and registration metadata. |

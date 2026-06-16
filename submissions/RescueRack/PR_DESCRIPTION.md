@@ -5,9 +5,9 @@ Registration UUID: `86ba8442-48da-4131-bb86-f5e4aa67c852`
 - **Project name:** RescueRack
 - **Robot platform:** Wheeled mobile manipulator with a three-joint arm and two-finger gripper
 - **Task goal:** Retrieve a red emergency medkit from a damaged warehouse aisle, avoid debris, and deliver it to a green safe zone
-- **Technical approach:** Deterministic MuJoCo mission controller with staged autonomy for navigation, grasp preparation, assisted carry, delivery, and release
-- **Core features:** MJCF scene, actuators, sensors, dynamic objects, obstacle collision geometry, three difficulty modes, clearance verification, generated demo video, trajectory/metrics artifacts
-- **Highlights:** Hard mode completes the full long-horizon task while `scripts/verify_clearance.py` reports zero named-obstacle contacts
+- **Technical approach:** MuJoCo mission controller with hard-mode grid A* route planning, staged autonomy for grasp preparation, assisted carry, delivery, and release
+- **Core features:** MJCF scene, actuators, sensors, dynamic objects, obstacle collision geometry, three difficulty modes, A* planner trace, clearance verification, generated demo video, trajectory/metrics artifacts
+- **Highlights:** Hard mode completes the full long-horizon task while `scripts/verify_clearance.py` reports zero named-obstacle contacts and planner fallback disabled
 - **Current limitations:** Final object carry is assisted for deterministic judging; route is waypoint-based rather than learned
 - **Future improvements:** Fully contact-driven grasping, randomized layouts, planner-generated routes, richer trajectory datasets
 

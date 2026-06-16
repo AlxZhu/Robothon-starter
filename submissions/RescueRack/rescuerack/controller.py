@@ -11,6 +11,8 @@ from typing import Iterable
 import mujoco
 import numpy as np
 
+from .planner import PlannedRoute, default_planner
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MODEL = ROOT / "models" / "rescuerack_scene.xml"
@@ -103,6 +105,8 @@ class RescueRackController:
         self.release_started_at: float | None = None
         self.secured_logged = False
         self.events: list[str] = []
+        self.pickup_route: PlannedRoute | None = None
+        self.delivery_route: PlannedRoute | None = None
 
         self.joints = {
             name: mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_JOINT, name)
@@ -184,13 +188,25 @@ class RescueRackController:
         self.release_started_at = None
         self.secured_logged = False
         self.events = ["mission_started"]
+        self.pickup_route = None
+        self.delivery_route = None
+
+        if self.config.mode == "hard":
+            planner = default_planner()
+            pickup_goal = (self.config.supply_xy[0] - 0.86, self.config.supply_xy[1])
+            self.pickup_route = planner.plan(tuple(self.base_xy()), pickup_goal)
+            self.delivery_route = planner.plan_via(
+                pickup_goal,
+                ((0.28, -1.74), (-1.3, -1.76), (-2.48, -0.2)),
+                (self.config.safe_xy[0] - 0.74, self.config.safe_xy[1]),
+            )
 
     def step(self) -> None:
         dt = float(self.model.opt.timestep)
         self.stage_time += dt
 
         if self.stage == MissionStage.NAVIGATE_TO_SUPPLY:
-            self._follow_waypoints(self.config.pickup_path, MissionStage.PREPARE_GRASP)
+            self._follow_waypoints(self._pickup_waypoints(), MissionStage.PREPARE_GRASP)
             self._set_arm(0.04, -0.11, 0.06)
             self._set_gripper(opened=True)
 
@@ -219,7 +235,7 @@ class RescueRackController:
         elif self.stage == MissionStage.TRANSPORT_TO_SAFE_ZONE:
             self._set_arm(0.1, -0.2, 0.12)
             self._set_gripper(opened=False)
-            self._follow_waypoints(self.config.delivery_path, MissionStage.RELEASE_SUPPLY)
+            self._follow_waypoints(self._delivery_waypoints(), MissionStage.RELEASE_SUPPLY)
 
         elif self.stage == MissionStage.RELEASE_SUPPLY:
             drop_pose = np.array([self.config.safe_xy[0] - 0.74, self.config.safe_xy[1], 0.0])
@@ -256,6 +272,23 @@ class RescueRackController:
             "delivery_error_m": round(delivery_error, 3),
             "target": self.config.target_body,
             "events": self.events,
+            "planner": self.planner_summary(),
+        }
+
+    def planner_summary(self) -> dict[str, object]:
+        if self.pickup_route is None or self.delivery_route is None:
+            return {"enabled": False, "mode": "static_waypoints"}
+        return {
+            "enabled": True,
+            "algorithm": "grid_astar",
+            "pickup_waypoints": len(self.pickup_route.waypoints),
+            "delivery_waypoints": len(self.delivery_route.waypoints),
+            "expanded_nodes": self.pickup_route.expanded_nodes + self.delivery_route.expanded_nodes,
+            "fallback_used": self.pickup_route.fallback_used or self.delivery_route.fallback_used,
+            "min_route_clearance_m": round(
+                min(self.pickup_route.min_clearance_m, self.delivery_route.min_clearance_m),
+                3,
+            ),
         }
 
     def observation(self) -> dict[str, object]:
@@ -299,6 +332,16 @@ class RescueRackController:
             if self.path_index >= len(points):
                 self.path_index = 0
                 self._advance(next_stage)
+
+    def _pickup_waypoints(self) -> tuple[tuple[float, float], ...]:
+        if self.pickup_route is not None:
+            return self.pickup_route.waypoints
+        return self.config.pickup_path
+
+    def _delivery_waypoints(self) -> tuple[tuple[float, float], ...]:
+        if self.delivery_route is not None:
+            return self.delivery_route.waypoints
+        return self.config.delivery_path
 
     def _drive_to(self, xy: np.ndarray | tuple[float, float], yaw: float) -> None:
         x, y = float(xy[0]), float(xy[1])

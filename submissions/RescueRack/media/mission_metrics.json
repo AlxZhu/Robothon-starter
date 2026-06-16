@@ -5,8 +5,8 @@
     "mode": "hard",
     "stage": "complete",
     "success": true,
-    "sim_time": 15.508,
-    "delivery_error_m": 0.365,
+    "sim_time": 22.816,
+    "delivery_error_m": 0.0,
     "target": "medkit",
     "events": [
       "mission_started",
@@ -18,13 +18,31 @@
       "entered_safe_zone",
       "release_supply_done",
       "mission_complete"
-    ]
+    ],
+    "planner": {
+      "enabled": true,
+      "algorithm": "grid_astar",
+      "pickup_waypoints": 3,
+      "delivery_waypoints": 11,
+      "expanded_nodes": 199,
+      "fallback_used": false,
+      "min_route_clearance_m": 0.254
+    }
   },
   "data_artifacts": {
     "trajectory": "media/hard_trajectory.json",
     "demo_video": "media/demo.mp4"
   },
   "rubric_evidence": {
+    "adaptive_control": {
+      "enabled": true,
+      "algorithm": "grid_astar",
+      "pickup_waypoints": 3,
+      "delivery_waypoints": 11,
+      "expanded_nodes": 199,
+      "fallback_used": false,
+      "min_route_clearance_m": 0.254
+    },
     "long_horizon_stages": [
       "navigate_to_supply",
       "prepare_grasp",

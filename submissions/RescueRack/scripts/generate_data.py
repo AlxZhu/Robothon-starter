@@ -38,6 +38,7 @@ def main() -> None:
             "demo_video": "media/demo.mp4",
         },
         "rubric_evidence": {
+            "adaptive_control": summary["planner"],
             "long_horizon_stages": [
                 "navigate_to_supply",
                 "prepare_grasp",
