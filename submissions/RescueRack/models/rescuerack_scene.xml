@@ -31,7 +31,7 @@
     <light name="fill_light" pos="3 2.5 3" dir="-0.6 -0.45 -1" diffuse="0.35 0.35 0.35"/>
     <camera name="overview" pos="0 -6.4 4.6" xyaxes="1 0 0 0 0.62 0.78" fovy="44"/>
     <camera name="robot_chase" pos="-1.5 -2.8 1.5" xyaxes="1 0 0 0 0.45 0.89" fovy="55"/>
-    <camera name="triage_cam" pos="0 0.7 2.6" xyaxes="1 0 0 0 0.75 0.66" fovy="42"/>
+    <camera name="triage_cam" pos="0 0.55 3.05" xyaxes="1 0 0 0 0.78 0.63" fovy="46"/>
 
     <geom name="floor" type="plane" size="5 4 0.1" material="floor_mat"/>
     <geom name="safe_zone" type="box" pos="-2.65 1.35 0.012" size="0.62 0.48 0.012"
@@ -52,7 +52,7 @@
     <geom name="loose_barrel" type="cylinder" pos="0.15 -0.45 0.22" size="0.18 0.22"
           material="warning_orange"/>
 
-    <geom name="triage_table" type="box" pos="0 2.6 0.05" size="1.25 0.9 0.05"
+    <geom name="triage_table" type="box" pos="0 2.6 0.05" size="1.45 1.05 0.05"
           rgba="0.18 0.19 0.19 1"/>
     <geom name="vial_tray" type="box" pos="-0.58 2.45 0.115" size="0.22 0.18 0.02"
           rgba="0.5 0.2 0.75 1" contype="0" conaffinity="0"/>
@@ -60,6 +60,10 @@
           rgba="0.2 0.55 0.72 1" contype="0" conaffinity="0"/>
     <geom name="pack_tray" type="box" pos="0 3.18 0.115" size="0.26 0.18 0.02"
           rgba="0.15 0.65 0.35 1" contype="0" conaffinity="0"/>
+    <geom name="syringe_tray" type="box" pos="-0.58 2.95 0.115" size="0.22 0.18 0.02"
+          rgba="0.78 0.72 0.24 1" contype="0" conaffinity="0"/>
+    <geom name="bandage_tray" type="box" pos="0.58 2.95 0.115" size="0.24 0.18 0.02"
+          rgba="0.72 0.32 0.3 1" contype="0" conaffinity="0"/>
 
     <body name="triage_hand" pos="0 0 0">
       <joint name="triage_palm_x" type="slide" axis="1 0 0" range="-0.95 0.95" damping="28"/>
@@ -88,6 +92,20 @@
         <geom name="middle_link" type="capsule" fromto="0 0 0 0.2 0 0" size="0.016"
               material="robot_dark" mass="0.16" contype="0" conaffinity="0"/>
         <site name="middle_tip" pos="0.21 0 0" size="0.018" rgba="1 0.7 0.2 0.9"/>
+      </body>
+
+      <body name="ring" pos="-0.075 0.065 -0.02" euler="0 0 2.2">
+        <joint name="ring_joint" type="hinge" axis="0 0 1" range="0 1.05" damping="2"/>
+        <geom name="ring_link" type="capsule" fromto="0 0 0 0.18 0 0" size="0.015"
+              material="robot_dark" mass="0.14" contype="0" conaffinity="0"/>
+        <site name="ring_tip" pos="0.19 0 0" size="0.017" rgba="1 0.7 0.2 0.9"/>
+      </body>
+
+      <body name="little" pos="-0.11 0.015 -0.02" euler="0 0 2.75">
+        <joint name="little_joint" type="hinge" axis="0 0 1" range="0 1.05" damping="2"/>
+        <geom name="little_link" type="capsule" fromto="0 0 0 0.16 0 0" size="0.014"
+              material="robot_dark" mass="0.12" contype="0" conaffinity="0"/>
+        <site name="little_tip" pos="0.17 0 0" size="0.016" rgba="1 0.7 0.2 0.9"/>
       </body>
     </body>
 
@@ -199,6 +217,19 @@
       <geom name="soft_pack_body" type="box" size="0.13 0.09 0.04" material="medkit_red" mass="0.2"/>
       <site name="soft_pack_site" pos="0 0 0" size="0.025" rgba="1 0.25 0.25 0.9"/>
     </body>
+
+    <body name="syringe" pos="-0.32 2.18 0.155">
+      <freejoint name="syringe_free"/>
+      <geom name="syringe_body" type="capsule" fromto="-0.14 0 0 0.14 0 0" size="0.025"
+            rgba="0.95 0.82 0.25 1" mass="0.12"/>
+      <site name="syringe_site" pos="0 0 0" size="0.023" rgba="1 0.85 0.2 0.9"/>
+    </body>
+
+    <body name="bandage" pos="0.32 2.78 0.165">
+      <freejoint name="bandage_free"/>
+      <geom name="bandage_body" type="cylinder" size="0.07 0.04" rgba="0.85 0.38 0.35 1" mass="0.16"/>
+      <site name="bandage_site" pos="0 0 0" size="0.024" rgba="1 0.45 0.4 0.9"/>
+    </body>
   </worldbody>
 
   <actuator>
@@ -216,6 +247,8 @@
     <position name="thumb_position" joint="thumb_joint" kp="28" kv="7" ctrlrange="0 1.05"/>
     <position name="index_position" joint="index_joint" kp="28" kv="7" ctrlrange="0 1.05"/>
     <position name="middle_position" joint="middle_joint" kp="28" kv="7" ctrlrange="0 1.05"/>
+    <position name="ring_position" joint="ring_joint" kp="26" kv="7" ctrlrange="0 1.05"/>
+    <position name="little_position" joint="little_joint" kp="24" kv="7" ctrlrange="0 1.05"/>
   </actuator>
 
   <sensor>
@@ -230,11 +263,17 @@
     <jointpos name="thumb_joint_sensor" joint="thumb_joint"/>
     <jointpos name="index_joint_sensor" joint="index_joint"/>
     <jointpos name="middle_joint_sensor" joint="middle_joint"/>
+    <jointpos name="ring_joint_sensor" joint="ring_joint"/>
+    <jointpos name="little_joint_sensor" joint="little_joint"/>
     <framepos name="thumb_tip_position" objtype="site" objname="thumb_tip"/>
     <framepos name="index_tip_position" objtype="site" objname="index_tip"/>
     <framepos name="middle_tip_position" objtype="site" objname="middle_tip"/>
+    <framepos name="ring_tip_position" objtype="site" objname="ring_tip"/>
+    <framepos name="little_tip_position" objtype="site" objname="little_tip"/>
     <framepos name="vial_position" objtype="site" objname="vial_site"/>
     <framepos name="tool_position" objtype="site" objname="tool_site"/>
     <framepos name="soft_pack_position" objtype="site" objname="soft_pack_site"/>
+    <framepos name="syringe_position" objtype="site" objname="syringe_site"/>
+    <framepos name="bandage_position" objtype="site" objname="bandage_site"/>
   </sensor>
 </mujoco>

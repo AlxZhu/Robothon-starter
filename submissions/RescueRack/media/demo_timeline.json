@@ -1,10 +1,10 @@
 {
   "video": "media/demo.mp4",
-  "duration_seconds": 101.57,
+  "duration_seconds": 124.23,
   "fps": 30,
   "storyboard": [
     "single continuous hard-mode rescue mission with camera cuts",
-    "dexterous triage follow-up with three-finger sorting"
+    "five-finger DexTriage Lab follow-up with 20 micro-tasks"
   ],
   "clips": [
     {
@@ -83,21 +83,37 @@
       ]
     },
     {
-      "mode": "dexterous_triage",
+      "mode": "dexterous_triage_lab",
       "success": true,
-      "sim_time": 8.918,
-      "objects_sorted": 3,
+      "sim_time": 15.72,
+      "objects_sorted": 5,
+      "finger_count": 5,
+      "micro_tasks_completed": 20,
+      "micro_tasks_total": 20,
+      "benchmark_success_rate": 1.0,
       "placement_error_m": {
         "vial": 0.0,
         "tool": 0.0,
-        "soft_pack": 0.0
+        "soft_pack": 0.0,
+        "syringe": 0.0,
+        "bandage": 0.0
       },
-      "contact_samples": 675,
-      "closed_loop_corrections": 1483,
+      "orientation_error_rad": {
+        "vial": 0.0,
+        "tool": 0.0,
+        "soft_pack": 0.0,
+        "syringe": 0.0,
+        "bandage": 0.0
+      },
+      "contact_samples": 1125,
+      "closed_loop_corrections": 2928,
+      "alignment_corrections": 2682,
       "min_fingertip_object_xy_distance_m": {
         "vial": 0.122,
         "tool": 0.102,
-        "soft_pack": 0.122
+        "soft_pack": 0.057,
+        "syringe": 0.101,
+        "bandage": 0.033
       },
       "events": [
         "triage_started",
@@ -115,11 +131,21 @@
         "grasped_soft_pack",
         "transported_soft_pack",
         "placed_soft_pack",
+        "next_object_syringe",
+        "centered_syringe",
+        "grasped_syringe",
+        "transported_syringe",
+        "placed_syringe",
+        "next_object_bandage",
+        "centered_bandage",
+        "grasped_bandage",
+        "transported_bandage",
+        "placed_bandage",
         "triage_complete"
       ],
       "clip_label": "dexterous_triage_followup",
-      "video_frames": 1042,
-      "video_seconds": 34.73
+      "video_frames": 1722,
+      "video_seconds": 57.4
     }
   ],
   "hard_mode_data_summary": {

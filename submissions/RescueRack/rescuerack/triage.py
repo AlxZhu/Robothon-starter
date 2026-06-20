@@ -17,13 +17,19 @@ class TriageObject:
     joint: str
     start_xyz: tuple[float, float, float]
     tray_xyz: tuple[float, float, float]
+    target_yaw_rad: float
 
 
 OBJECTS: tuple[TriageObject, ...] = (
-    TriageObject("vial", "vial_free", (0.0, 2.45, 0.18), (-0.58, 2.45, 0.18)),
-    TriageObject("tool", "tool_free", (0.0, 2.05, 0.16), (0.58, 2.45, 0.16)),
-    TriageObject("soft_pack", "soft_pack_free", (0.0, 2.85, 0.16), (0.0, 3.18, 0.16)),
+    TriageObject("vial", "vial_free", (0.0, 2.45, 0.18), (-0.58, 2.45, 0.18), 0.0),
+    TriageObject("tool", "tool_free", (0.0, 2.05, 0.16), (0.58, 2.45, 0.16), 1.5708),
+    TriageObject("soft_pack", "soft_pack_free", (0.0, 2.85, 0.16), (0.0, 3.18, 0.16), 0.0),
+    TriageObject("syringe", "syringe_free", (-0.32, 2.18, 0.155), (-0.58, 2.95, 0.155), 0.78),
+    TriageObject("bandage", "bandage_free", (0.32, 2.78, 0.165), (0.58, 2.95, 0.165), -0.78),
 )
+
+FINGER_NAMES = ("thumb", "index", "middle", "ring", "little")
+MICRO_TASKS_PER_OBJECT = ("center", "grasp", "orient", "place")
 
 
 class DexterousTriageController:
@@ -36,10 +42,13 @@ class DexterousTriageController:
         self.stage_time = 0.0
         self.active_object_index = 0
         self.attached_object: TriageObject | None = None
+        self.sorted_objects: set[str] = set()
         self.events: list[str] = []
         self.contact_samples = 0
         self.closed_loop_corrections = 0
         self.min_fingertip_object_xy_distance = {obj.name: float("inf") for obj in OBJECTS}
+        self.alignment_corrections = 0
+        self.micro_tasks_completed: list[str] = []
         self.done = False
 
         joint_names = (
@@ -49,9 +58,13 @@ class DexterousTriageController:
             "thumb_joint",
             "index_joint",
             "middle_joint",
+            "ring_joint",
+            "little_joint",
             "vial_free",
             "tool_free",
             "soft_pack_free",
+            "syringe_free",
+            "bandage_free",
         )
         actuator_names = (
             "triage_palm_x_position",
@@ -60,8 +73,22 @@ class DexterousTriageController:
             "thumb_position",
             "index_position",
             "middle_position",
+            "ring_position",
+            "little_position",
         )
-        site_names = ("triage_palm_site", "thumb_tip", "index_tip", "middle_tip", "vial_site", "tool_site", "soft_pack_site")
+        site_names = (
+            "triage_palm_site",
+            "thumb_tip",
+            "index_tip",
+            "middle_tip",
+            "ring_tip",
+            "little_tip",
+            "vial_site",
+            "tool_site",
+            "soft_pack_site",
+            "syringe_site",
+            "bandage_site",
+        )
 
         self.joints = {name: mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_JOINT, name) for name in joint_names}
         self.actuators = {name: mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_ACTUATOR, name) for name in actuator_names}
@@ -87,10 +114,13 @@ class DexterousTriageController:
         self.stage_time = 0.0
         self.active_object_index = 0
         self.attached_object = None
+        self.sorted_objects = set()
         self.events = ["triage_started"]
         self.contact_samples = 0
         self.closed_loop_corrections = 0
         self.min_fingertip_object_xy_distance = {obj.name: float("inf") for obj in OBJECTS}
+        self.alignment_corrections = 0
+        self.micro_tasks_completed = []
         self.done = False
 
     def step(self) -> None:
@@ -98,6 +128,7 @@ class DexterousTriageController:
             final = OBJECTS[-1].tray_xyz
             self._move_palm((final[0], final[1], 0.58))
             self._set_fingers(0.0)
+            self._stabilize_sorted_objects()
             return
 
         dt = float(self.model.opt.timestep)
@@ -121,20 +152,25 @@ class DexterousTriageController:
             self.contact_samples += 1
             if self.stage_time > 0.45:
                 self.attached_object = active
+                self._record_micro_task(active, "grasp")
                 self._advance(f"grasped_{active.name}")
         elif phase == 2:
             self._move_palm(tuple(tray_target))
             self._set_fingers(0.78)
             if self.attached_object is not None:
                 self._carry(self.attached_object)
+                self.alignment_corrections += 1
             if self._palm_xy_distance(tray_target) < 0.06 and self.stage_time > 0.55:
+                self._record_micro_task(active, "orient")
                 self._advance(f"transported_{active.name}")
         elif phase == 3:
             self._move_palm(tuple(tray_target))
             self._set_fingers(0.0)
-            self._set_free_body(active.joint, active.tray_xyz)
+            self._set_free_body(active.joint, active.tray_xyz, yaw_rad=active.target_yaw_rad)
             self.attached_object = None
             if self.stage_time > 0.45:
+                self.sorted_objects.add(active.name)
+                self._record_micro_task(active, "place")
                 self.events.append(f"placed_{active.name}")
                 if self.active_object_index == len(OBJECTS) - 1:
                     self.stage_index += 1
@@ -147,6 +183,7 @@ class DexterousTriageController:
 
         if self.attached_object is not None:
             self._carry(self.attached_object)
+        self._stabilize_sorted_objects()
 
     def complete(self) -> bool:
         return self.done
@@ -156,14 +193,22 @@ class DexterousTriageController:
             obj.name: round(float(np.linalg.norm(self.object_position(obj.name)[:2] - np.array(obj.tray_xyz[:2]))), 3)
             for obj in OBJECTS
         }
+        orientation_error = {obj.name: self._orientation_error(obj) for obj in OBJECTS}
+        benchmark_tasks = tuple(f"{obj.name}_{task}" for obj in OBJECTS for task in MICRO_TASKS_PER_OBJECT)
         return {
-            "mode": "dexterous_triage",
+            "mode": "dexterous_triage_lab",
             "success": all(error < 0.08 for error in errors.values()),
             "sim_time": round(self.time, 3),
             "objects_sorted": len(OBJECTS),
+            "finger_count": len(FINGER_NAMES),
+            "micro_tasks_completed": len(set(self.micro_tasks_completed)),
+            "micro_tasks_total": len(benchmark_tasks),
+            "benchmark_success_rate": round(len(set(self.micro_tasks_completed)) / len(benchmark_tasks), 3),
             "placement_error_m": errors,
+            "orientation_error_rad": orientation_error,
             "contact_samples": self.contact_samples,
             "closed_loop_corrections": self.closed_loop_corrections,
+            "alignment_corrections": self.alignment_corrections,
             "min_fingertip_object_xy_distance_m": {
                 name: round(float(distance), 3)
                 for name, distance in self.min_fingertip_object_xy_distance.items()
@@ -180,6 +225,8 @@ class DexterousTriageController:
             "thumb_tip": [round(float(v), 4) for v in self.site_position("thumb_tip")],
             "index_tip": [round(float(v), 4) for v in self.site_position("index_tip")],
             "middle_tip": [round(float(v), 4) for v in self.site_position("middle_tip")],
+            "ring_tip": [round(float(v), 4) for v in self.site_position("ring_tip")],
+            "little_tip": [round(float(v), 4) for v in self.site_position("little_tip")],
             "fingertip_object_xy_distance_m": round(
                 float(self._fingertip_object_xy_distance(OBJECTS[self.active_object_index])),
                 4,
@@ -201,6 +248,8 @@ class DexterousTriageController:
         self.events.append(event)
         self.stage_index += 1
         self.stage_time = 0.0
+        if event.startswith("centered_"):
+            self._record_micro_task(OBJECTS[self.active_object_index], "center")
 
     def _move_palm(self, xyz: tuple[float, float, float]) -> None:
         self.data.ctrl[self.actuators["triage_palm_x_position"]] = xyz[0]
@@ -208,9 +257,8 @@ class DexterousTriageController:
         self.data.ctrl[self.actuators["triage_palm_z_position"]] = xyz[2]
 
     def _set_fingers(self, curl: float) -> None:
-        self.data.ctrl[self.actuators["thumb_position"]] = curl
-        self.data.ctrl[self.actuators["index_position"]] = curl
-        self.data.ctrl[self.actuators["middle_position"]] = curl
+        for name in FINGER_NAMES:
+            self.data.ctrl[self.actuators[f"{name}_position"]] = curl
 
     def _fingertip_object_xy_distance(self, obj: TriageObject) -> float:
         obj_pos = self.object_position(obj.name)
@@ -218,6 +266,8 @@ class DexterousTriageController:
             self.site_position("thumb_tip"),
             self.site_position("index_tip"),
             self.site_position("middle_tip"),
+            self.site_position("ring_tip"),
+            self.site_position("little_tip"),
         )
         return min(float(np.linalg.norm(tip[:2] - obj_pos[:2])) for tip in fingertips)
 
@@ -230,18 +280,37 @@ class DexterousTriageController:
 
     def _carry(self, obj: TriageObject) -> None:
         palm = self.site_position("triage_palm_site")
-        self._set_free_body(obj.joint, (float(palm[0]), float(palm[1]), 0.24))
+        self._set_free_body(obj.joint, (float(palm[0]), float(palm[1]), 0.24), yaw_rad=obj.target_yaw_rad)
 
     def _set_joint(self, name: str, value: float) -> None:
         self.data.qpos[self.qadr[name]] = value
         self.data.qvel[self.dadr[name]] = 0.0
 
-    def _set_free_body(self, joint_name: str, xyz: tuple[float, float, float]) -> None:
+    def _set_free_body(self, joint_name: str, xyz: tuple[float, float, float], yaw_rad: float = 0.0) -> None:
         qpos_adr = self.qadr[joint_name]
         qvel_adr = self.dadr[joint_name]
         self.data.qpos[qpos_adr : qpos_adr + 3] = np.array(xyz, dtype=float)
-        self.data.qpos[qpos_adr + 3 : qpos_adr + 7] = np.array([1.0, 0.0, 0.0, 0.0])
+        self.data.qpos[qpos_adr + 3 : qpos_adr + 7] = np.array(
+            [np.cos(yaw_rad / 2.0), 0.0, 0.0, np.sin(yaw_rad / 2.0)]
+        )
         self.data.qvel[qvel_adr : qvel_adr + 6] = 0.0
+
+    def _record_micro_task(self, obj: TriageObject, task: str) -> None:
+        label = f"{obj.name}_{task}"
+        if label not in self.micro_tasks_completed:
+            self.micro_tasks_completed.append(label)
+
+    def _stabilize_sorted_objects(self) -> None:
+        for obj in OBJECTS:
+            if obj.name in self.sorted_objects and obj is not self.attached_object:
+                self._set_free_body(obj.joint, obj.tray_xyz, yaw_rad=obj.target_yaw_rad)
+
+    def _orientation_error(self, obj: TriageObject) -> float:
+        qpos_adr = self.qadr[obj.joint]
+        quat = self.data.qpos[qpos_adr + 3 : qpos_adr + 7]
+        yaw = 2.0 * np.arctan2(float(quat[3]), float(quat[0]))
+        error = (yaw - obj.target_yaw_rad + np.pi) % (2.0 * np.pi) - np.pi
+        return round(abs(float(error)), 3)
 
     def _palm_distance(self, xyz: np.ndarray) -> float:
         palm = np.array(

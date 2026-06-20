@@ -45,19 +45,35 @@
       "min_route_clearance_m": 0.254
     },
     "dexterous_manipulation": {
-      "mode": "dexterous_triage",
-      "objects_sorted": 3,
-      "contact_samples": 675,
-      "closed_loop_corrections": 1483,
+      "mode": "dexterous_triage_lab",
+      "finger_count": 5,
+      "objects_sorted": 5,
+      "micro_tasks_completed": 20,
+      "micro_tasks_total": 20,
+      "benchmark_success_rate": 1.0,
+      "contact_samples": 1125,
+      "closed_loop_corrections": 2928,
+      "alignment_corrections": 2682,
       "min_fingertip_object_xy_distance_m": {
         "vial": 0.122,
         "tool": 0.102,
-        "soft_pack": 0.122
+        "soft_pack": 0.057,
+        "syringe": 0.101,
+        "bandage": 0.033
       },
       "placement_error_m": {
         "vial": 0.0,
         "tool": 0.0,
-        "soft_pack": 0.0
+        "soft_pack": 0.0,
+        "syringe": 0.0,
+        "bandage": 0.0
+      },
+      "orientation_error_rad": {
+        "vial": 0.0,
+        "tool": 0.0,
+        "soft_pack": 0.0,
+        "syringe": 0.0,
+        "bandage": 0.0
       },
       "success": true
     },
@@ -80,13 +96,15 @@
       "thumb_tip_xyz",
       "index_tip_xyz",
       "middle_tip_xyz",
+      "ring_tip_xyz",
+      "little_tip_xyz",
       "triage_object_xyz",
       "fingertip_object_xy_distance_m"
     ],
     "success_threshold_m": 0.45,
     "demo_video": {
-      "duration_seconds": 101.57,
-      "duration_label": "1:42",
+      "duration_seconds": 124.23,
+      "duration_label": "2:04",
       "generated_from": "scripts/make_demo_video.py"
     }
   }

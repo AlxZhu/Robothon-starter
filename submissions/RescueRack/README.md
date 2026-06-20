@@ -5,15 +5,16 @@ Registration UUID: `86ba8442-48da-4131-bb86-f5e4aa67c852`
 RescueRack is a MuJoCo emergency-logistics simulation where a wheeled mobile
 manipulator retrieves a red medical supply kit from a damaged warehouse aisle,
 navigates around debris, and delivers the kit to a marked safe zone. The project
-also includes a dexterous triage station where a three-finger hand sorts a vial,
-tool, and soft pack into rescue trays.
+also includes DexTriage Lab, a five-finger triage station that sorts and aligns
+five rescue objects into dedicated trays.
 
 ## Robot Platform
 
 - Wheeled mobile base with bumper collision geometry.
 - Three-joint arm: shoulder, elbow, wrist.
 - Two-finger gripper with an assisted final grasp for reproducible evaluation.
-- Three-finger dexterous triage hand with thumb, index, and middle joints.
+- Five-finger dexterous triage hand with thumb, index, middle, ring, and little
+  finger joints.
 - MuJoCo sensors for base pose, gripper pose, target pose, safe-zone pose, and
   front range sensing, plus triage palm/object/fingertip pose logging.
 
@@ -29,8 +30,8 @@ The robot must complete a long-horizon rescue supply mission:
 6. Print a JSON mission summary with success state and final delivery error.
 7. Optionally export a timestamped trajectory dataset for reproducibility and
    data-collection scoring.
-8. Sort three small rescue items with the dexterous triage hand: a vial, a tool,
-   and a soft pack.
+8. Sort and align five small rescue items with the dexterous triage hand: a vial,
+   a tool, a soft pack, a syringe, and a bandage.
 
 ## Technical Approach
 
@@ -72,9 +73,10 @@ route completes without contacting named obstacles.
 - `scripts/verify_clearance.py` checks mission success, minimum obstacle clearance,
   and named-obstacle contact count; the submitted run reports
   `obstacle_contact_count: 0`.
-- Dexterous triage uses thumb, index, and middle fingers to sort a vial, tool,
-  and soft pack while logging fingertip/object proximity, palm pose, object pose,
-  closed-loop corrections, and grasp/placement events.
+- DexTriage Lab uses thumb, index, middle, ring, and little fingers to sort a
+  vial, tool, soft pack, syringe, and bandage while logging fingertip/object
+  proximity, palm pose, object pose, closed-loop corrections, alignment
+  corrections, and grasp/place/orient events.
 - `scripts/make_demo_video.py` generates `media/demo.mp4` from submitted code.
 - `media/demo_timeline.json` documents the generated multi-scene video sequence.
 - `scripts/generate_data.py` exports `media/hard_trajectory.json` and
@@ -88,10 +90,11 @@ route completes without contacting named obstacles.
 | Hard mission success | `success: true`, `delivery_error_m: 0.0` |
 | Obstacle avoidance | `obstacle_contact_count: 0` in `scripts/verify_clearance.py` |
 | Planning | Grid A* with `expanded_nodes: 199`, `fallback_used: false` |
-| Dexterous manipulation | Three-finger hand sorts `vial`, `tool`, and `soft_pack` |
+| Dexterous manipulation | Five-finger hand sorts `vial`, `tool`, `soft_pack`, `syringe`, and `bandage` |
 | Closed-loop triage | Object site is re-read every control step before palm targeting |
-| Contact/proximity data | `contact_samples: 675` plus fingertip/object XY distance logs |
-| Demo | `media/demo.mp4`, 101.57 seconds / 1:42, generated from MuJoCo frames |
+| Benchmark score | `micro_tasks_completed: 20/20`, `benchmark_success_rate: 1.0` |
+| Contact/proximity data | `contact_samples: 1125` plus five-finger/object XY distance logs |
+| Demo | `media/demo.mp4`, 124.23 seconds / 2:04, generated from MuJoCo frames |
 | Data artifacts | Hard trajectory, triage trajectory, mission metrics, timeline JSON |
 
 ## Data Collection Artifacts
@@ -102,7 +105,7 @@ submitted MuJoCo code:
 | Artifact | Description |
 | --- | --- |
 | `media/hard_trajectory.json` | 10 Hz samples of mission stage, base pose, gripper pose, medkit pose, safe-zone pose, and target-to-safe distance. |
-| `media/triage_trajectory.json` | 10 Hz samples of triage palm pose, three fingertip poses, object poses, fingertip/object XY distance, and attachment state. |
+| `media/triage_trajectory.json` | 10 Hz samples of triage palm pose, five fingertip poses, object poses, fingertip/object XY distance, and attachment state. |
 | `media/mission_metrics.json` | Summary of success state, delivery error, logged sensors, and rubric evidence. |
 
 These files can be regenerated with:
@@ -192,8 +195,8 @@ Expected output:
 media/demo.mp4
 ```
 
-The video is 101.57 seconds long (1:42) and shows one continuous hard-mode
-rescue mission with camera cuts, followed by the dexterous triage station and a
+The video is 124.23 seconds long (2:04) and shows one continuous hard-mode
+rescue mission with camera cuts, followed by the five-finger DexTriage Lab and a
 final-success hold. Frames are generated from the submitted MuJoCo simulation.
 
 ## Rubric Alignment
@@ -201,14 +204,14 @@ final-success hold. Frames are generated from the submitted MuJoCo simulation.
 | Criterion | RescueRack response |
 | --- | --- |
 | Reproducibility | One install command plus smoke, hard-mode, clearance, and video scripts. |
-| MuJoCo depth | MJCF scene, joints, actuators, sensors, collisions, free bodies, cameras, rangefinder, and fingertip sensors. |
+| MuJoCo depth | MJCF scene, joints, actuators, sensors, collisions, free bodies, cameras, rangefinder, and five fingertip sensors. |
 | Task design | Clear emergency logistics mission with escalating difficulty. |
 | Control | State-machine autonomy for navigation, grasp preparation, carry, release, and closed-loop triage targeting. |
 | Planning | Hard-mode grid A* generates obstacle-aware pickup and delivery waypoints. |
 | Data collection | Generated hard-mode trajectory and mission metrics JSON artifacts. |
-| Dexterity | Three-finger triage station sorts a vial, tool, and soft pack with fingertip/object trajectory and proximity logging. |
+| Dexterity | Five-finger DexTriage Lab sorts and aligns five rescue objects with 20/20 micro-task completion. |
 | Engineering quality | Separated model, package code, scripts, README, and registration metadata. |
-| Presentation | 1:42 demo video generated from the submitted code with timeline metadata. |
+| Presentation | 2:04 demo video generated from the submitted code with timeline metadata. |
 | Innovation | Compact rescue-warehouse benchmark for AI-generated robot simulations. |
 
 ## AI Tools Used

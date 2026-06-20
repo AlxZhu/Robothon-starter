@@ -156,7 +156,7 @@ def main() -> None:
                 "fps": FPS,
                 "storyboard": [
                     "single continuous hard-mode rescue mission with camera cuts",
-                    "dexterous triage follow-up with three-finger sorting",
+                    "five-finger DexTriage Lab follow-up with 20 micro-tasks",
                 ],
                 "clips": summaries,
                 "hard_mode_data_summary": hard_summary,
