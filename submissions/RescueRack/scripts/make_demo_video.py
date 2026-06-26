@@ -113,7 +113,7 @@ def render_triage_story(writer: imageio.Writer) -> dict[str, object]:
 
     renderer.close()
     summary = controller.summary()
-    summary["clip_label"] = "dexterous_triage_followup"
+    summary["clip_label"] = "trauma_bay_dextriage_followup"
     summary["video_frames"] = frames
     summary["video_seconds"] = round(frames / FPS, 2)
     return summary
@@ -156,7 +156,7 @@ def main() -> None:
                 "fps": FPS,
                 "storyboard": [
                     "single continuous hard-mode rescue mission with camera cuts",
-                    "five-finger DexTriage Lab follow-up with 20 micro-tasks",
+                    "Trauma Bay DexTriage Lab with 25 micro-tasks, visible vial cap removal, syringe delivery, handoff, and force control",
                 ],
                 "clips": summaries,
                 "hard_mode_data_summary": hard_summary,

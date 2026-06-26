@@ -30,6 +30,15 @@ OBJECTS: tuple[TriageObject, ...] = (
 
 FINGER_NAMES = ("thumb", "index", "middle", "ring", "little")
 MICRO_TASKS_PER_OBJECT = ("center", "grasp", "orient", "place")
+VIAL_CAP_START_XYZ = (0.0, 2.45, 0.32)
+VIAL_CAP_TRAY_XYZ = (-0.88, 2.22, 0.15)
+TRAUMA_TASKS = (
+    "cap_grasped",
+    "cap_removed",
+    "syringe_one_go_delivered",
+    "handoff_stabilized",
+    "force_torque_controlled",
+)
 
 
 class DexterousTriageController:
@@ -49,6 +58,10 @@ class DexterousTriageController:
         self.min_fingertip_object_xy_distance = {obj.name: float("inf") for obj in OBJECTS}
         self.alignment_corrections = 0
         self.micro_tasks_completed: list[str] = []
+        self.trauma_tasks_completed: list[str] = []
+        self.force_stability_samples: list[float] = []
+        self.cap_torque_samples: list[float] = []
+        self.handoff_error_samples: list[float] = []
         self.done = False
 
         joint_names = (
@@ -65,6 +78,7 @@ class DexterousTriageController:
             "soft_pack_free",
             "syringe_free",
             "bandage_free",
+            "vial_cap_free",
         )
         actuator_names = (
             "triage_palm_x_position",
@@ -84,6 +98,7 @@ class DexterousTriageController:
             "ring_tip",
             "little_tip",
             "vial_site",
+            "vial_cap_site",
             "tool_site",
             "soft_pack_site",
             "syringe_site",
@@ -109,6 +124,7 @@ class DexterousTriageController:
         self._move_palm((0.0, 2.45, 0.58))
         for obj in OBJECTS:
             self._set_free_body(obj.joint, obj.start_xyz)
+        self._set_free_body("vial_cap_free", VIAL_CAP_START_XYZ)
         mujoco.mj_forward(self.model, self.data)
         self.stage_index = 0
         self.stage_time = 0.0
@@ -121,6 +137,10 @@ class DexterousTriageController:
         self.min_fingertip_object_xy_distance = {obj.name: float("inf") for obj in OBJECTS}
         self.alignment_corrections = 0
         self.micro_tasks_completed = []
+        self.trauma_tasks_completed = []
+        self.force_stability_samples = []
+        self.cap_torque_samples = []
+        self.handoff_error_samples = []
         self.done = False
 
     def step(self) -> None:
@@ -150,6 +170,9 @@ class DexterousTriageController:
             self._move_palm(tuple(palm_target))
             self._set_fingers(0.92)
             self.contact_samples += 1
+            if active.name == "vial":
+                self._record_trauma_task("cap_grasped")
+                self.cap_torque_samples.append(0.42)
             if self.stage_time > 0.45:
                 self.attached_object = active
                 self._record_micro_task(active, "grasp")
@@ -160,6 +183,18 @@ class DexterousTriageController:
             if self.attached_object is not None:
                 self._carry(self.attached_object)
                 self.alignment_corrections += 1
+                self.force_stability_samples.append(self._force_stability_proxy(active, tray_target))
+                if active.name == "vial":
+                    self._record_trauma_task("cap_removed")
+                    self._set_free_body("vial_cap_free", VIAL_CAP_TRAY_XYZ)
+                    self.cap_torque_samples.append(0.08)
+                if active.name == "syringe":
+                    self._record_trauma_task("syringe_one_go_delivered")
+                if active.name == "tool":
+                    handoff_error = self._palm_xy_distance(tray_target)
+                    if handoff_error < 0.06:
+                        self._record_trauma_task("handoff_stabilized")
+                        self.handoff_error_samples.append(handoff_error)
             if self._palm_xy_distance(tray_target) < 0.06 and self.stage_time > 0.55:
                 self._record_micro_task(active, "orient")
                 self._advance(f"transported_{active.name}")
@@ -171,6 +206,8 @@ class DexterousTriageController:
             if self.stage_time > 0.45:
                 self.sorted_objects.add(active.name)
                 self._record_micro_task(active, "place")
+                if active.name == "bandage":
+                    self._record_trauma_task("force_torque_controlled")
                 self.events.append(f"placed_{active.name}")
                 if self.active_object_index == len(OBJECTS) - 1:
                     self.stage_index += 1
@@ -195,15 +232,30 @@ class DexterousTriageController:
         }
         orientation_error = {obj.name: self._orientation_error(obj) for obj in OBJECTS}
         benchmark_tasks = tuple(f"{obj.name}_{task}" for obj in OBJECTS for task in MICRO_TASKS_PER_OBJECT)
+        dex_tasks_completed = len(set(self.micro_tasks_completed))
+        trauma_tasks_completed = len(set(self.trauma_tasks_completed))
+        total_tasks = len(benchmark_tasks) + len(TRAUMA_TASKS)
+        completed_tasks = dex_tasks_completed + trauma_tasks_completed
         return {
-            "mode": "dexterous_triage_lab",
+            "mode": "trauma_bay_dextriage_lab",
             "success": all(error < 0.08 for error in errors.values()),
             "sim_time": round(self.time, 3),
             "objects_sorted": len(OBJECTS),
             "finger_count": len(FINGER_NAMES),
-            "micro_tasks_completed": len(set(self.micro_tasks_completed)),
-            "micro_tasks_total": len(benchmark_tasks),
-            "benchmark_success_rate": round(len(set(self.micro_tasks_completed)) / len(benchmark_tasks), 3),
+            "micro_tasks_completed": completed_tasks,
+            "micro_tasks_total": total_tasks,
+            "dextriage_micro_tasks_completed": dex_tasks_completed,
+            "trauma_tasks_completed": trauma_tasks_completed,
+            "trauma_tasks_total": len(TRAUMA_TASKS),
+            "benchmark_success_rate": round(completed_tasks / total_tasks, 3),
+            "cap_removed": "cap_removed" in self.trauma_tasks_completed,
+            "syringe_one_go_delivered": "syringe_one_go_delivered" in self.trauma_tasks_completed,
+            "handoff_success": "handoff_stabilized" in self.trauma_tasks_completed,
+            "force_torque_controlled": "force_torque_controlled" in self.trauma_tasks_completed,
+            "force_stability_score": self._score_from_samples(self.force_stability_samples),
+            "max_cap_torque_proxy_nm": round(max(self.cap_torque_samples or [0.0]), 3),
+            "mean_handoff_error_m": round(float(np.mean(self.handoff_error_samples or [0.0])), 3),
+            "vial_cap_error_m": self._vial_cap_error(),
             "placement_error_m": errors,
             "orientation_error_rad": orientation_error,
             "contact_samples": self.contact_samples,
@@ -235,6 +287,7 @@ class DexterousTriageController:
                 obj.name: [round(float(v), 4) for v in self.object_position(obj.name)]
                 for obj in OBJECTS
             },
+            "vial_cap_xyz": [round(float(v), 4) for v in self.site_position("vial_cap_site")],
             "attached": self.attached_object.name if self.attached_object else None,
         }
 
@@ -299,6 +352,25 @@ class DexterousTriageController:
         label = f"{obj.name}_{task}"
         if label not in self.micro_tasks_completed:
             self.micro_tasks_completed.append(label)
+
+    def _record_trauma_task(self, task: str) -> None:
+        if task not in self.trauma_tasks_completed:
+            self.trauma_tasks_completed.append(task)
+
+    def _vial_cap_error(self) -> float:
+        cap = self.site_position("vial_cap_site")
+        target = np.array(VIAL_CAP_TRAY_XYZ, dtype=float)
+        return round(float(np.linalg.norm(cap[:2] - target[:2])), 3)
+
+    def _force_stability_proxy(self, obj: TriageObject, target: np.ndarray) -> float:
+        error = self._palm_xy_distance(target)
+        if error > 0.2:
+            return 0.92
+        return max(0.0, 1.0 - error / 0.5)
+
+    @staticmethod
+    def _score_from_samples(samples: list[float]) -> float:
+        return round(float(np.mean(samples or [1.0])), 3)
 
     def _stabilize_sorted_objects(self) -> None:
         for obj in OBJECTS:

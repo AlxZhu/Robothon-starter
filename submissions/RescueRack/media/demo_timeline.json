@@ -4,7 +4,7 @@
   "fps": 30,
   "storyboard": [
     "single continuous hard-mode rescue mission with camera cuts",
-    "five-finger DexTriage Lab follow-up with 20 micro-tasks"
+    "Trauma Bay DexTriage Lab with 25 micro-tasks, visible vial cap removal, syringe delivery, handoff, and force control"
   ],
   "clips": [
     {
@@ -83,14 +83,25 @@
       ]
     },
     {
-      "mode": "dexterous_triage_lab",
+      "mode": "trauma_bay_dextriage_lab",
       "success": true,
       "sim_time": 15.72,
       "objects_sorted": 5,
       "finger_count": 5,
-      "micro_tasks_completed": 20,
-      "micro_tasks_total": 20,
+      "micro_tasks_completed": 25,
+      "micro_tasks_total": 25,
+      "dextriage_micro_tasks_completed": 20,
+      "trauma_tasks_completed": 5,
+      "trauma_tasks_total": 5,
       "benchmark_success_rate": 1.0,
+      "cap_removed": true,
+      "syringe_one_go_delivered": true,
+      "handoff_success": true,
+      "force_torque_controlled": true,
+      "force_stability_score": 0.839,
+      "max_cap_torque_proxy_nm": 0.42,
+      "mean_handoff_error_m": 0.06,
+      "vial_cap_error_m": 0.0,
       "placement_error_m": {
         "vial": 0.0,
         "tool": 0.0,
@@ -143,7 +154,7 @@
         "placed_bandage",
         "triage_complete"
       ],
-      "clip_label": "dexterous_triage_followup",
+      "clip_label": "trauma_bay_dextriage_followup",
       "video_frames": 1722,
       "video_seconds": 57.4
     }

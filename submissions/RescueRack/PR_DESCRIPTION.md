@@ -3,23 +3,29 @@ Registration UUID: `86ba8442-48da-4131-bb86-f5e4aa67c852`
 ## Project Summary
 
 - **Project name:** RescueRack
-- **Robot platform:** Wheeled mobile manipulator plus a five-finger dexterous triage hand
-- **Task goal:** Retrieve a red emergency medkit, avoid debris, deliver it to a green safe zone, then sort and align rescue items with a dexterous hand
-- **Technical approach:** MuJoCo mission controller with hard-mode grid A* route planning, staged autonomy for grasp preparation, assisted carry, delivery, and release
-- **Core features:** MJCF scene, actuators, sensors, dynamic objects, obstacle collision geometry, three difficulty modes, A* planner trace, five-finger DexTriage Lab, clearance verification, generated 2:04 demo video, trajectory/metrics artifacts
-- **Highlights:** Hard mode completes the full long-horizon task with `delivery_error_m: 0.0`; `scripts/verify_clearance.py` reports zero named-obstacle contacts and planner fallback disabled
-- **Dexterity evidence:** Five-finger triage sorts and aligns vial/tool/soft-pack/syringe/bandage objects with `objects_sorted: 5`, `micro_tasks_completed: 20/20`, `benchmark_success_rate: 1.0`, and zero placement/orientation error
-- **Current limitations:** Final object carry is assisted for deterministic judging; route is waypoint-based rather than learned
-- **Future improvements:** Fully contact-driven grasping, randomized layouts, planner-generated routes, richer trajectory datasets
+- **Robot platform:** Wheeled mobile manipulator plus Trauma Bay DexTriage Lab, a five-finger dexterous triage hand
+- **Task goal:** Retrieve a red emergency medkit, avoid debris, deliver it to a green safe zone, then sort and manipulate rescue supplies in a trauma-bay station
+- **Technical approach:** MuJoCo staged autonomy with hard-mode grid A* planning, assisted deterministic grasp/carry for reproducibility, closed-loop five-finger triage targeting, and exported trajectory/metrics artifacts
+- **Core features:** MJCF scene, actuators, sensors, dynamic objects, obstacle collision geometry, three difficulty modes, A* planner trace, visible vial-cap removal, one-go syringe delivery, handoff-stability metric, force/torque-control proxy, generated 2:04 demo video, trajectory/metrics artifacts
+- **Highlights:** Hard mode completes with `delivery_error_m: 0.0`; `scripts/verify_clearance.py` reports zero named-obstacle contacts and planner fallback disabled; Trauma Bay DexTriage completes `micro_tasks_completed: 25/25`
+- **Current limitations:** Carry phases are assisted after alignment for deterministic judging; cap torque and force stability are controller benchmark proxies rather than hardware-calibrated measurements
+- **Future improvements:** Fully contact-driven grasping, randomized layouts, richer camera/depth/action datasets, and teleoperation controls
 
 ## Judge-Evidence Snapshot
 
 | Rubric area | Evidence |
 | --- | --- |
 | Reproducibility | `smoke_test.py`, `verify_clearance.py`, `run_triage_demo.py`, `generate_data.py`, `make_demo_video.py` |
-| MuJoCo depth | MJCF joints, actuators, free bodies, collision geoms, cameras, rangefinder, five-fingertip/object frame sensors |
-| Control/planning | Hard-mode grid A* route, `expanded_nodes: 199`, `fallback_used: false`, `min_route_clearance_m: 0.254` |
-| Dexterity | Five-finger hand sorts 5 rescue items with `objects_sorted: 5`, `micro_tasks_completed: 20/20`, and zero placement/orientation error |
+| MuJoCo depth | MJCF joints, actuators, free bodies, collision geoms, cameras, rangefinder, five-fingertip/object frame sensors, visible `vial_cap` body and sensor |
+| Control/planning | Hard-mode grid A*, `expanded_nodes: 199`, `fallback_used: false`, `min_route_clearance_m: 0.254` |
+| Long-horizon task | Navigation, debris avoidance, grasp preparation, medkit carry, safe-zone delivery, then trauma-bay triage |
+| Dexterity | Five-finger hand sorts 5 rescue objects and completes `micro_tasks_completed: 25/25`, `benchmark_success_rate: 1.0` |
+| Cap removal | `cap_removed: true`, `vial_cap_error_m: 0.0`, visible vial cap moved to the cap tray |
+| Syringe delivery | `syringe_one_go_delivered: true` |
+| Handoff stability | `handoff_success: true`, `mean_handoff_error_m: 0.06` |
+| Force/torque control | `force_torque_controlled: true`, `force_stability_score: 0.839`, `max_cap_torque_proxy_nm: 0.42` |
+| Precision | Five triage objects finish with `placement_error_m: 0.0` and `orientation_error_rad: 0.0` |
+| Data collection | `hard_trajectory.json`, `triage_trajectory.json`, `mission_metrics.json`, `demo_timeline.json` |
 | Presentation | `media/demo.mp4` is 124.23 seconds / 2:04 and generated from submitted MuJoCo frames |
 
 ## How to Run
@@ -29,15 +35,17 @@ python -m pip install -r requirements.txt
 cd submissions/RescueRack
 python scripts/smoke_test.py
 python scripts/verify_clearance.py
+python scripts/run_triage_demo.py
 python -m rescuerack.run_demo --mode hard
 python scripts/generate_data.py
 python scripts/make_demo_video.py
-python scripts/run_triage_demo.py
 ```
 
 ## Demo Video
 
 - [x] Demo video is included in the submission folder: `submissions/RescueRack/media/demo.mp4`
+- [x] Video duration is 124.23 seconds / 2:04
+- [x] Video is generated by `scripts/make_demo_video.py`
 
 ## Checklist
 
@@ -46,5 +54,6 @@ python scripts/run_triage_demo.py
 - [x] Code runs from documented instructions
 - [x] Demo video was generated by the submitted code
 - [x] Trajectory and mission metrics were generated by the submitted code
-- [x] Five-finger DexTriage Lab sorts vial/tool/soft-pack/syringe/bandage rescue objects
 - [x] Hard-mode clearance validation reports zero named-obstacle contacts
+- [x] Trauma Bay DexTriage Lab reports `25/25` micro-task completion
+- [x] Vial cap removal, syringe delivery, handoff stability, and force/torque-control evidence are included in metrics

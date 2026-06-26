@@ -56,6 +56,8 @@
           rgba="0.18 0.19 0.19 1"/>
     <geom name="vial_tray" type="box" pos="-0.58 2.45 0.115" size="0.22 0.18 0.02"
           rgba="0.5 0.2 0.75 1" contype="0" conaffinity="0"/>
+    <geom name="vial_cap_tray" type="box" pos="-0.88 2.22 0.115" size="0.13 0.12 0.02"
+          rgba="0.58 0.36 0.85 1" contype="0" conaffinity="0"/>
     <geom name="tool_tray" type="box" pos="0.58 2.45 0.115" size="0.22 0.18 0.02"
           rgba="0.2 0.55 0.72 1" contype="0" conaffinity="0"/>
     <geom name="pack_tray" type="box" pos="0 3.18 0.115" size="0.26 0.18 0.02"
@@ -206,6 +208,13 @@
       <site name="vial_site" pos="0 0 0" size="0.025" rgba="0.8 0.35 1 0.9"/>
     </body>
 
+    <body name="vial_cap" pos="0 2.45 0.32">
+      <freejoint name="vial_cap_free"/>
+      <geom name="vial_cap_body" type="cylinder" size="0.052 0.018"
+            rgba="0.22 0.08 0.38 1" mass="0.04"/>
+      <site name="vial_cap_site" pos="0 0 0" size="0.018" rgba="0.9 0.55 1 0.9"/>
+    </body>
+
     <body name="tool" pos="0 2.05 0.16">
       <freejoint name="tool_free"/>
       <geom name="tool_body" type="box" size="0.17 0.035 0.035" rgba="0.2 0.65 0.8 1" mass="0.22"/>
@@ -271,6 +280,7 @@
     <framepos name="ring_tip_position" objtype="site" objname="ring_tip"/>
     <framepos name="little_tip_position" objtype="site" objname="little_tip"/>
     <framepos name="vial_position" objtype="site" objname="vial_site"/>
+    <framepos name="vial_cap_position" objtype="site" objname="vial_cap_site"/>
     <framepos name="tool_position" objtype="site" objname="tool_site"/>
     <framepos name="soft_pack_position" objtype="site" objname="soft_pack_site"/>
     <framepos name="syringe_position" objtype="site" objname="syringe_site"/>
