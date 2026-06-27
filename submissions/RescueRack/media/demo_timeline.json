@@ -3,8 +3,9 @@
   "duration_seconds": 124.23,
   "fps": 30,
   "storyboard": [
-    "single continuous hard-mode rescue mission with camera cuts",
-    "Trauma Bay DexTriage Lab with 25 micro-tasks, visible vial cap removal, syringe delivery, handoff, and force control"
+    "single continuous hard-mode rescue mission with overlayed A* and obstacle-clearance evidence",
+    "Trauma Bay DexTriage Lab with on-video 25/25 benchmark evidence, visible vial cap removal, syringe delivery, handoff, and force control",
+    "final evidence card lists cap removal, syringe delivery, handoff stability, force/torque control, and zero placement error"
   ],
   "clips": [
     {
